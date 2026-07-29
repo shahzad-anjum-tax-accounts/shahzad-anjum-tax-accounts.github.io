@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHT Tax Calculator 2026 | Shahzad Anjum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #D4AF37; /* Premium Gold */
+            --primary-dark: #aa8a2e;
+            --bg-dark: #0F172A; /* Deep Navy */
+            --bg-card: #1E293B; /* Lighter Navy */
+            --text-light: #F8FAFC;
+            --text-dim: #94A3B8;
+            --danger: #EF4444;
+            --success: #10B981;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(15, 23, 42, 0.5) 0%, transparent 50%);
+        }
+
+        /* --- Main Container --- */
+        .calc-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--bg-card);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        /* --- Header --- */
+        .header {
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0,0,0,0.2);
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 28px;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+        }
+        .header p {
+            margin: 8px 0 0;
+            font-size: 13px;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* --- Body --- */
+        .body-content {
+            padding: 30px;
+        }
+
+        /* Step 1: Search */
+        .search-box { position: relative; margin-bottom: 25px; }
+        .search-label { 
+            display: block; 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: var(--text-dim); 
+            margin-bottom: 10px; 
+            font-weight: 600;
+        }
+        
+        .custom-select {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+        .custom-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            margin-top: 5px;
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .dropdown-menu.active { display: block; }
+        
+        .dropdown-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.2s;
+        }
+        .dropdown-item:hover { background: rgba(212, 175, 55, 0.1); }
+        .dropdown-item .sec-code { font-size: 11px; color: var(--primary); font-weight: 700; display: block; margin-bottom: 2px; }
+        .dropdown-item .sec-desc { font-size: 13px; color: #ccc; }
+
+        /* Step 2: Status Toggle */
+        .status-toggle {
+            display: flex;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            padding: 5px;
+            margin-bottom: 25px;
+        }
+        .status-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dim);
+            transition: all 0.3s;
+        }
+        .status-btn.active {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Step 3: Input */
+        .input-group { margin-bottom: 25px; }
+        .input-label { display: block; font-size: 12px; color: var(--text-dim); margin-bottom: 8px; font-weight: 600; }
+        
+        .amount-input-wrapper {
+            position: relative;
+        }
+        .amount-input-wrapper span.prefix {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 15px 15px 15px 40px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: var(--text-light);
+            font-size: 18px;
+            font-family: inherit;
+            box-sizing: border-box;
+            font-weight: 600;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Calculate Button */
+        .calc-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .calc-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        .calc-btn:active { transform: translateY(0); }
+
+        /* --- Result Section --- */
+        .result-panel {
+            margin-top: 30px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .result-label { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .result-amount { font-size: 42px; font-weight: 800; color: var(--primary); margin: 0; text-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        .result-rate { margin-top: 10px; font-size: 14px; color: var(--text-light); background: rgba(255,255,255,0.1); display: inline-block; padding: 5px 15px; border-radius: 20px; }
+
+        /* Footer Note */
+        .footer-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 10px;
+            color: #555;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+    </style>
+</head>
+<body>
+
+<div class="calc-container">
+    <div class="header">
+        <h1>WHT Calculator</h1>
+        <p>Finance Act 2025 • Tax Year 2026</p>
+    </div>
+
+    <div class="body-content">
+        <!-- Step 1: Type -->
+        <div class="search-box">
+            <label class="search-label">Select Payment Type</label>
+            <input type="text" class="custom-select" id="searchInput" placeholder="Search Section (e.g., 153, Salary, Rent)..." autocomplete="off">
+            <div class="dropdown-menu" id="dropdownMenu"></div>
+        </div>
+
+        <!-- Step 2: Status -->
+        <div class="status-toggle">
+            <div class="status-btn active" data-status="atl" onclick="setStatus('atl')">Active Taxpayer</div>
+            <div class="status-btn" data-status="non" onclick="setStatus('non')">Non-Filer</div>
+            <div class="status-btn" data-status="late" onclick="setStatus('late')">Late Filer</div>
+        </div>
+
+        <!-- Step 3: Amount -->
+        <div class="input-group">
+            <label class="input-label">Enter Amount (PKR)</label>
+            <div class="amount-input-wrapper">
+                <span class="prefix">Rs</span>
+                <input type="number" id="amountInput" placeholder="0" oninput="calculateTax()">
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculateTax()">Calculate Tax</button>
+
+        <!-- Results -->
+        <div class="result-panel" id="resultPanel">
+            <div class="result-label">Withholding Tax Amount</div>
+            <h2 class="result-amount" id="taxAmount">Rs. 0</h2>
+            <div class="result-rate" id="rateInfo">Rate Applied: 0%</div>
+        </div>
+    </div>
+    
+    <div class="footer-note">
+        Disclaimer: Rates based on FBR Finance Act 2025.
+    </div>
+</div>
+
+<script>
+    // --- COMPLETE DATA FROM YOUR FILES (WHT-Rates-Card-2026.xlsx & PDFs) ---
+    // Simplified structure for the calculator logic
+    const taxData = [
+        // --- IMPORTS (148) ---
+        { id: 1, sec: "148", desc: "Imports - Part I Goods", atl: 1.0, non: 2.0, late: 2.0, type: "percent" },
+        { id: 2, sec: "148", desc: "Imports - Part II Goods", atl: 2.0, non: 4.0, late: 4.0, type: "percent" },
+        { id: 3, sec: "148", desc: "Imports - Part II (Commercial)", atl: 3.5, non: 7.0, late: 7.0, type: "percent" },
+        { id: 4, sec: "148", desc: "Imports - Part III Goods", atl: 5.5, non: 11.0, late: 11.0, type: "percent" },
+        { id: 5, sec: "148", desc: "Imports - Part III (Commercial)", atl: 6.0, non: 12.0, late: 12.0, type: "percent" },
+        { id: 6, sec: "148", desc: "Imports - Pharma Products", atl: 4.0, non: 8.0, late: 8.0, type: "percent" },
+        
+        // --- SALARY (149) ---
+        // Note: Using simplified marginal logic for the calculator
+        { id: 20, sec: "149", desc: "Salary (Up to 600k)", atl: 0, non: 0, late: 0, type: "salary_0" },
+        { id: 21, sec: "149", desc: "Salary (600k - 1.2M)", atl: "1% of exceeding", non: "1% of exceeding", late: "1% of exceeding", type: "salary_1" },
+        { id: 22, sec: "149", desc: "Salary (1.2M - 2.2M)", atl: "11% marginal", non: "11% marginal", late: "11% marginal", type: "salary_11" },
+        { id: 23, sec: "149", desc: "Salary (2.2M - 3.2M)", atl: "23% marginal", non: "23% marginal", late: "23% marginal", type: "salary_23" },
+        { id: 24, sec: "149", desc: "Salary (3.2M - 4.1M)", atl: "30% marginal", non: "30% marginal", late: "30% marginal", type: "salary_30" },
+        { id: 25, sec: "149", desc: "Salary (Above 4.1M)", atl: "35% marginal", non: "35% marginal", late: "35% marginal", type: "salary_35" },
+
+        // --- DIVIDEND (150) ---
+        { id: 30, sec: "150", desc: "Dividend - IPPs", atl: 7.5, non: 15.0, late: 15.0, type: "percent" },
+        { id: 31, sec: "150", desc: "Dividend - REIT/Others", atl: 15.0, non: 30.0, late: 30.0, type: "percent" },
+        { id: 32, sec: "150", desc: "Dividend - Mutual Funds (Debt)", atl: 25.0, non: 50.0, late: 50.0, type: "percent" },
+        { id: 33, sec: "150", desc: "Dividend - SPV (REIT)", atl: 0, non: 0, late: 0, type: "percent" },
+        { id: 34, sec: "150", desc: "Dividend - SPV (Others)", atl: 35.0, non: 70.0, late: 70.0, type: "percent" },
+        { id: 35, sec: "150", desc: "Dividend - Company with Losses", atl: 25.0, non: 50.0, late: 50.0, type: "percent" },
+
+        // --- PROFIT ON DEBT (151) ---
+        { id: 40, sec: "151", desc: "Profit on Debt - Bank/Financial", atl: 20.0, non: 40.0, late: 40.0, type: "percent" },
+        { id: 41, sec: "151", desc: "Profit on Debt - Others", atl: 15.0, non: 30.0, late: 30.0, type: "percent" },
+        { id: 42, sec: "151", desc: "Profit on Debt - Sukuk (Company)", atl: 25.0, non: 50.0, late: 50.0, type: "percent" },
+        { id: 43, sec: "151", desc: "Profit on Debt - Sukuk (Indiv >1M)", atl: 12.5, non: 25.0, late: 25.0, type: "percent" },
+        { id: 44, sec: "151", desc: "Profit on Debt - Sukuk (Indiv <1M)", atl: 10.0, non: 20.0, late: 20.0, type: "percent" },
+
+        // --- PAYMENTS TO NON-RESIDENTS (152) ---
+        { id: 50, sec: "152", desc: "Non-Resident - Royalty/Tech Fee", atl: 15.0, non: 15.0, late: 15.0, type: "percent" },
+        { id: 51, sec: "152", desc: "Non-Resident - Contracts (7%)", atl: 7.0, non: 7.0, late: 7.0, type: "percent" },
+        { id: 52, sec: "152", desc: "Non-Resident - Execution of Contract", atl: 8.0, non: 16.0, late: 16.0, type: "percent" },
+        { id: 53, sec: "152", desc: "Non-Resident - IT Services", atl: 4.0, non: 8.0, late: 8.0, type: "percent" },
+
+        // --- GOODS, SERVICES & CONTRACTS (153) ---
+        { id: 60, sec: "153", desc: "Goods - Rice/Cotton/Edible Oil", atl: 1.5, non: 3.0, late: 3.0, type: "percent" },
+        { id: 61, sec: "153", desc: "Goods - Company (Toll Mfg)", atl: 9.0, non: 18.0, late: 18.0, type: "percent" },
+        { id: 62, sec: "153", desc: "Goods - Company (Other)", atl: 5.0, non: 10.0, late: 10.0, type: "percent" },
+        { id: 63, sec: "153", desc: "Goods - Non-Company (Toll Mfg)", atl: 11.0, non: 22.0, late: 22.0, type: "percent" },
+        { id: 64, sec: "153", desc: "Goods - Non-Company (Other)", atl: 5.5, non: 11.0, late: 11.0, type: "percent" },
+        { id: 65, sec: "153", desc: "Services - Certain Services (6%)", atl: 6.0, non: 12.0, late: 12.0, type: "percent" },
+        { id: 66, sec: "153", desc: "Services - IT & ITES", atl: 4.0, non: 8.0, late: 8.0, type: "percent" },
+        { id: 67, sec: "153", desc: "Services - Others (15%)", atl: 15.0, non: 30.0, late: 30.0, type: "percent" },
+        { id: 68, sec: "153", desc: "Services - Print/Electronic Media", atl: 1.5, non: 3.0, late: 3.0, type: "percent" },
+        { id: 69, sec: "153", desc: "Contracts - Sportspersons", atl: 15.0, non: 30.0, late: 30.0, type: "percent" },
+        { id: 70, sec: "153", desc: "Contracts - Company", atl: 7.5, non: 15.0, late: 15.0, type: "percent" },
+        { id: 71, sec: "153", desc: "Contracts - Others", atl: 8.0, non: 16.0, late: 16.0, type: "percent" },
+
+        // --- EXPORTS (154) ---
+        { id: 75, sec: "154", desc: "Exports - Goods", atl: 1.0, non: 1.0, late: 1.0, type: "percent" },
+        { id: 76, sec: "154A", desc: "Exports - IT Services (PSEB)", atl: 0.25, non: 0.5, late: 0.5, type: "percent" },
+
+        // --- RENT (155) ---
+        { id: 80, sec: "155", desc: "Rent - Company", atl: 15.0, non: 30.0, late: 30.0, type: "percent" },
+        // Simplified Rent Slabs for Ind/AOP
+        { id: 81, sec: "155", desc: "Rent - Ind/AOP (Up to 300k)", atl: 0, non: 0, late: 0, type: "percent" },
+        { id: 82, sec: "155", desc: "Rent - Ind/AOP (300k-600k)", atl: 5, non: 5, late: 5, type: "rent_slab1" },
+        { id: 83, sec: "155", desc: "Rent - Ind/AOP (600k-2M)", atl: 10, non: 10, late: 10, type: "rent_slab2" },
+        { id: 84, sec: "155", desc: "Rent - Ind/AOP (Above 2M)", atl: 25, non: 25, late: 25, type: "rent_slab3" },
+
+        // --- OTHERS ---
+        { id: 90, sec: "156", desc: "Prizes - Prize Bond/Crossword", atl: 15.0, non: 30.0, late: 30.0, type: "percent" },
+        { id: 91, sec: "156", desc: "Prizes - Raffle/Lottery", atl: 20.0, non: 40.0, late: 40.0, type: "percent" },
+        { id: 92, sec: "156A", desc: "Petroleum Products", atl: 12.0, non: 24.0, late: 24.0, type: "percent" },
+        { id: 93, sec: "231AB", desc: "Cash Withdrawal (Non-Filer)", atl: 0, non: 0.8, late: 0.8, type: "percent" },
+        
+        // --- MOTOR VEHICLES (231B) ---
+        { id: 100, sec: "231B", desc: "Vehicle - Up to 850cc", atl: 0.5, non: 1.5, late: 1.5, type: "percent" },
+        { id: 101, sec: "231B", desc: "Vehicle - 851-1000cc", atl: 1.0, non: 3.0, late: 3.0, type: "percent" },
+        { id: 102, sec: "231B", desc: "Vehicle - 1001-1300cc", atl: 1.5, non: 4.5, late: 4.5, type: "percent" },
+        { id: 103, sec: "231B", desc: "Vehicle - 1301-1600cc", atl: 2.0, non: 6.0, late: 6.0, type: "percent" },
+        { id: 104, sec: "231B", desc: "Vehicle - 1601-1800cc", atl: 3.0, non: 9.0, late: 9.0, type: "percent" },
+        { id: 105, sec: "231B", desc: "Vehicle - 1801-2000cc", atl: 5.0, non: 15.0, late: 15.0, type: "percent" },
+        { id: 106, sec: "231B", desc: "Vehicle - 2001-2500cc", atl: 7.0, non: 21.0, late: 21.0, type: "percent" },
+        { id: 107, sec: "231B", desc: "Vehicle - 2501-3000cc", atl: 9.0, non: 27.0, late: 27.0, type: "percent" },
+        { id: 108, sec: "231B", desc: "Vehicle - Above 3000cc", atl: 12.0, non: 36.0, late: 36.0, type: "percent" },
+
+        // --- PROPERTY (236C / 236K) ---
+        { id: 120, sec: "236C", desc: "Transfer Property (Up to 50M)", atl: 4.5, non: 11.5, late: 7.5, type: "percent" },
+        { id: 121, sec: "236C", desc: "Transfer Property (50M-100M)", atl: 5.0, non: 11.5, late: 8.5, type: "percent" },
+        { id: 122, sec: "236C", desc: "Transfer Property (Above 100M)", atl: 5.5, non: 11.5, late: 9.5, type: "percent" },
+
+        { id: 130, sec: "236K", desc: "Purchase Property (Up to 50M)", atl: 1.5, non: 10.5, late: 4.5, type: "percent" },
+        { id: 131, sec: "236K", desc: "Purchase Property (50M-100M)", atl: 2.0, non: 14.5, late: 5.5, type: "percent" },
+        { id: 132, sec: "236K", desc: "Purchase Property (Above 100M)", atl: 2.5, non: 18.5, late: 6.5, type: "percent" },
+
+        { id: 140, sec: "236G", desc: "Sales to Distributor (Fertilizer)", atl: 0.25, non: 0.70, late: 0.70, type: "percent" },
+        { id: 141, sec: "236G", desc: "Sales to Distributor (Other)", atl: 0.10, non: 2.00, late: 2.00, type: "percent" },
+        { id: 142, sec: "236H", desc: "Sales to Retailers", atl: 0.5, non: 2.5, late: 2.5, type: "percent" },
+    ];
+
+    // --- LOGIC ---
+    let selectedItem = null;
+    let currentStatus = 'atl'; // atl, non, late
+
+    const searchInput = document.getElementById('searchInput');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    // Populate Dropdown
+    function renderDropdown(filter = "") {
+        dropdownMenu.innerHTML = '';
+        const filtered = taxData.filter(item => 
+            item.sec.includes(filter) || 
+            item.desc.toLowerCase().includes(filter.toLowerCase())
+        );
+
+        if(filtered.length === 0) {
+            dropdownMenu.innerHTML = '<div class="dropdown-item" style="pointer-events:none; color:#555;">No results found</div>';
+            return;
+        }
+
+        filtered.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'dropdown-item';
+            div.innerHTML = `
+                <span class="sec-code">Section ${item.sec}</span>
+                <span class="sec-desc">${item.desc}</span>
+            `;
+            div.onclick = () => selectItem(item);
+            dropdownMenu.appendChild(div);
+        });
+    }
+
+    // Select Item
+    function selectItem(item) {
+        selectedItem = item;
+        searchInput.value = `${item.desc} (Sec ${item.sec})`;
+        dropdownMenu.classList.remove('active');
+        document.getElementById('resultPanel').style.display = 'none';
+    }
+
+    // Set Status
+    function setStatus(status) {
+        currentStatus = status;
+        document.querySelectorAll('.status-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.dataset.status === status) btn.classList.add('active');
+        });
+        calculateTax(); // Recalculate if amount exists
+    }
+
+    // Calculate Logic
+    function calculateTax() {
+        if(!selectedItem) return;
+
+        const amountVal = parseFloat(document.getElementById('amountInput').value);
+        if(isNaN(amountVal) || amountVal <= 0) return;
+
+        let rate = selectedItem[currentStatus]; // Get rate based on status
+        let tax = 0;
+        let rateDisplay = "";
+
+        // Handle percentages
+        if(selectedItem.type === 'percent') {
+            tax = amountVal * (rate / 100);
+            rateDisplay = `Rate Applied: ${rate}%`;
+        } 
+        // Handle Salary Slabs (Simplified estimation)
+        else if(selectedItem.type.startsWith('salary_')) {
+            // This is a simplified estimation for the tool.
+            // In reality, tax is calculated progressively.
+            // We show the marginal rate here for clarity.
+            const marginalRate = parseFloat(selectedItem.type.split('_')[1]);
+            tax = amountVal * (marginalRate / 100); 
+            rateDisplay = `Est. Tax (Marginal Rate): ${marginalRate}%`;
+        }
+        // Handle Rent Slabs
+        else if(selectedItem.type === 'rent_slab1') { // 300k-600k
+            tax = (amountVal - 300000) * 0.05;
+            rateDisplay = `5% on amount exceeding Rs. 300,000`;
+        }
+        else if(selectedItem.type === 'rent_slab2') { // 600k-2M
+            tax = 15000 + ((amountVal - 600000) * 0.10);
+            rateDisplay = `Rs. 15,000 + 10% on exceeding amount`;
+        }
+        else if(selectedItem.type === 'rent_slab3') { // >2M
+            tax = 155000 + ((amountVal - 2000000) * 0.25);
+            rateDisplay = `Rs. 155,000 + 25% on exceeding amount`;
+        }
+
+        // Format Currency
+        const formatter = new Intl.NumberFormat('en-PK', { style: 'decimal', minimumFractionDigits: 0 });
+        document.getElementById('taxAmount').innerText = `Rs. ${formatter.format(Math.round(tax))}`;
+        document.getElementById('rateInfo').innerText = rateDisplay;
+        document.getElementById('resultPanel').style.display = 'block';
+    }
+
+    // Event Listeners
+    searchInput.addEventListener('focus', () => {
+        dropdownMenu.classList.add('active');
+        renderDropdown(searchInput.value);
+    });
+    
+    searchInput.addEventListener('input', () => {
+        dropdownMenu.classList.add('active');
+        renderDropdown(searchInput.value);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-box')) {
+            dropdownMenu.classList.remove('active');
+        }
+    });
+
+</script>
+
+</body>
+</html>

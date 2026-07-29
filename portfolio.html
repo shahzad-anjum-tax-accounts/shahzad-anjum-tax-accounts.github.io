@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Samples | Shahzad Anjum</title>
+
+<meta name="description" content="Shahzad Anjum - Professional Tax & Accounts Consultant based in Karachi. Expert in FBR compliance, cost optimization, and ERP implementation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* SMOOTH SCROLLING */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Consistent styling with your branding */
+        body { font-family: 'Inter','Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; margin: 0; padding: 0; background-color: #f8f9fa; }
+        
+        /* --- EXTRACTED HEADER SYSTEM STYLES --- */
+        header { background-color: #002d5b; color: white; padding: 20px 10px; text-align: center; }
+        header h1 { font-size: 55px; margin: 0; font-weight: 800; letter-spacing: 2px; }
+        header .designation { font-size: 24px; font-weight: 700; color: #ff9900; display: block; margin-top: 5px; text-transform: uppercase; }
+        header .help-text { font-size: 19px; display: block; margin-top: 5px; color: #e0e0e0; font-weight: 500; }
+
+        /* --- EXTRACTED NAVIGATION SYSTEM STYLES --- */
+        nav { background: #001f3f; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 99999; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; font-weight: bold; }
+
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h2 { color: #002d5b; border-bottom: 3px solid #ff9900; padding-bottom: 10px; margin-top: 30px; }
+        
+        /* UPDATE 2: Added distinct borders and shadow to reduce clutter */
+        .service-card { background: #fff; border: 2px solid #cbd5e1; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.07); margin-bottom: 40px; }
+        .service-content { padding: 30px; border-left: 5px solid #002d5b; }
+        footer { text-align: center; padding: 30px; font-size: 0.9em; color: #777; }
+        
+        /* Grid layout for interventions and results */
+        .strategy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+
+        /* Dashboard Comparison Styling */
+        .comparison-grid { display: grid; grid-template-columns: 1fr 50px 1fr; gap: 15px; align-items: center; margin-top: 25px; }
+        .stat-card { padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #eee; transition: 0.3s; display: flex; flex-direction: column; height: 100%; }
+        
+        /* FIX: Case Study 3 Card Symmetry + Arrow Centering */
+        #case3 .stat-card { height: auto; align-self: flex-start; }
+        #case3 .arrow-icon { align-self: center; }
+        
+        /* SHARED STYLES */
+        .bg-red { background-color: #fff5f5; border-color: #feb2b2; }
+        .bg-green { background-color: #f0fff4; border-color: #9ae6b4; }
+        
+        .badge { display: inline-block; padding: 2px 12px; border-radius: 20px; font-size: 0.75em; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
+        .badge-red { background: #feb2b2; color: #9b2c2c; }
+        .badge-green { background: #9ae6b4; color: #22543d; }
+
+        .red-text { color: #c53030; }
+        .green-text { color: #2f855a; }
+        .amount { font-size: 1.8em; font-weight: 800; display: block; margin: 5px 0; }
+
+        /* Arrow Icon Styling */
+        .arrow-icon { text-align: center; font-size: 2em; color: #ff9900; }
+
+        /* Image Hover/Zoom Effect */
+        .img-stack { display: flex; gap: 8px; margin-top: auto; padding-top: 15px; width: 100%; flex: 1; align-items: stretch; min-height: 140px; }
+        .img-stack img { width: 100%; height: auto; border-radius: 4px; border: 1px solid #ddd; transition: 0.4s; cursor: zoom-in; object-fit: cover; }
+        .img-stack img:hover { transform: scale(1.05); border-color: #002d5b; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* PDF ITEM WRAPPER */
+        .pdf-item-wrapper { width: 50%; display: flex; flex-direction: column; background: white; border: 1px solid #ddd; border-radius: 4px; overflow: hidden; transition: 0.3s; position: relative; }
+        .pdf-item-wrapper:hover { border-color: #002d5b; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        /* Image Link Styling */
+        .pdf-img-link { position: relative; display: block; width: 100%; flex: 1; overflow: hidden; }
+        .pdf-img-link img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+        .pdf-overlay-icon { position: absolute; bottom: 5px; right: 5px; background: rgba(0, 0, 0, 0.7); color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.7em; pointer-events: none; z-index: 10; }
+        
+        /* PDF DOWNLOAD BUTTON */
+        .pdf-download-btn { display: block; width: 100%; text-align: center; background: #002d5b; color: white !important; padding: 8px 0; font-size: 0.75rem; text-decoration: none; font-weight: bold; border-top: 1px solid #eee; }
+        .pdf-download-btn:hover { background: #001f3f; }
+
+        /* Fixed size content box for Result card */
+        .result-content-box { width: 100%; flex: 1; background: white; border: 1px solid #d1d5db; border-radius: 4px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; text-align: center; }
+        .result-checks { font-size: 0.9em; color: #2f855a; font-weight: bold; line-height: 1.8; text-align: left; width: 100%; }
+
+        .swing-banner { background: linear-gradient(90deg, #002d5b, #004a92); color: white; padding: 15px; text-align: center; border-radius: 8px; margin: 25px 0; font-weight: bold; }
+
+        /* CTA Styling */
+        .cta-box { text-align: center; margin-top: 50px; padding: 40px; background: #f0f4f8; border-radius: 12px; border: 2px dashed #002d5b; }
+        .btn-contact { background: #ff9900; color: white; padding: 15px 35px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn-contact:hover { background: #e68a00; transform: scale(1.05); }
+
+        /* --- TICKER SYSTEM CSS --- */
+        @keyframes ticker-move { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        @keyframes button-blink { 0%, 100% { background-color: #D4AF37; } 50% { background: #ffffff; } }
+        @keyframes blinker { 50% { opacity: 0; } }
+        #cta-button { animation: button-blink 2s infinite; }
+
+        /* --- DROPDOWN NAVIGATION CSS --- */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown:hover .dropdown-content { display: block !important; }
+        .dropdown-content { display: none; position: absolute; background-color: #001f3f; min-width: 280px; box-shadow: 0px 8px 16px rgba(0,0,0,0.4); z-index: 10000; text-align: left; border-top: 3px solid #ff9900; top: 100%; left: 0; }
+        .dropdown-content a { color: white !important; padding: 12px 16px !important; display: block !important; text-decoration: none !important; font-size: 14px !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin: 0 !important; }
+        .dropdown-content a:hover { background-color: #002d5b !important; color: #ff9900 !important; }
+
+        /* --- PULSE ANIMATION --- */
+        .pulse-dot { height: 10px; width: 10px; background-color: #ff4757; border-radius: 50%; display: inline-block; margin-right: 8px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); } }
+
+        /* --- CASE STUDY 3: THEME MATCHED STYLES --- */
+        .cs3-container { font-family: 'Inter','Segoe UI', sans-serif; color: #333; font-size: 15px; }
+        .cs3-challenge-box { background: white; border-left: 5px solid #ef4444; padding: 20px; margin-bottom: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .cs3-challenge-box h3 { color: #ef4444; margin: 0 0 10px 0; font-size: 1.1em; }
+        .cs3-challenge-box p { margin: 0; color: #333; line-height: 1.8; }
+
+        .cs3-dashboard-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        @media (max-width: 600px) { .cs3-dashboard-wrapper { grid-template-columns: 1fr; } }
+        .cs3-panel { padding: 25px; border-radius: 10px; border: 1px solid #eee; text-align: center; transition: 0.3s; }
+        
+        .cs3-panel-header { margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .cs3-panel-header strong { font-size: 1.4rem; display: block; margin-bottom: 5px; }
+        .cs3-panel.before .cs3-panel-header strong { color: #c53030; font-weight: 800; }
+        .cs3-panel.after .cs3-panel-header strong { color: #2f855a; font-weight: 800; }
+        
+        .cs3-kpi-row { display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.6); border-radius: 6px; text-align: left; }
+        .cs3-kpi-meta strong { display: block; font-size: 0.95rem; color: #333; }
+        .cs3-kpi-meta span { display: block; font-size: 0.8rem; color: #777; }
+        .cs3-kpi-value { font-family: 'Consolas', monospace; font-size: 1.4rem; font-weight: 700; }
+        .cs3-panel.before .cs3-kpi-value { color: #c53030; }
+        .cs3-panel.after .cs3-kpi-value { color: #2f855a; }
+        .cs3-chart-placeholder, .cs3-actual-chart-container { height: 140px; margin-top: 15px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.05); background: rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; color: #777; font-size: 0.9rem; font-weight: 600; }
+        .cs3-strategy-box { background: white; border: 1px solid #eee; padding: 20px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .cs3-strategy-box h3 { margin: 0 0 15px 0; color: #002d5b; font-size: 1.1em; }
+        .cs3-strategy-list { list-style: none; padding: 0; margin: 0; }
+        .cs3-strategy-list li { margin-bottom: 10px; padding-left: 20px; position: relative; line-height: 1.6; color: #333; }
+        .cs3-strategy-list li::before { content: "✓"; position: absolute; left: 0; color: #ff9900; font-weight: bold; }
+        .cs3-metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
+        @media (max-width: 600px) { .cs3-metrics-strip { grid-template-columns: 1fr; } }
+        .cs3-metric-card { background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #002d5b; border: 1px solid #eee; }
+        .cs3-metric-value { font-size: 2rem; font-weight: 700; color: #2f855a; display: block; }
+        .cs3-metric-label { font-size: 0.9rem; color: #777; text-transform: uppercase; font-weight: 600; margin-top: 5px; display: block; }
+        .cs3-value-banner { background: linear-gradient(90deg, #002d5b, #004a92); color: white; padding: 20px; text-align: center; border-radius: 8px; margin: 25px 0; font-weight: bold; }
+        .cs3-value-banner span { color: #ff9900; font-weight: bold; }
+        .cs3-tab-nav { display: flex; gap: 10px; margin-bottom: 15ms; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .cs3-tab-btn { padding: 10px 20px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; font-weight: 700; color: #002d5b; transition: 0.2s; }
+        .cs3-tab-btn.active { background: #002d5b; color: white; border-color: #002d5b; }
+        .cs3-data-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .cs3-data-table th { text-align: left; background-color: #002d5b; color: white; padding: 12px 15px; font-size: 0.85rem; }
+        .cs3-data-table td { padding: 12px 15px; border-bottom: 1px solid #eee; color: #333; }
+        .cs3-data-table tr:hover { background-color: #f8f9fa; }
+        .cs3-text-right { text-align: right; font-family: 'Consolas', monospace; }
+        .cs3-text-center { text-align: center; }
+        .cs3-text-success { color: #2f855a; font-weight: 700; }
+        .cs3-text-danger { color: #c53030; font-weight: 700; }
+        .cs3-text-warning { color: #d97706; font-weight: 700; }
+
+        /* CASE STUDY 4: LEGAL/CRISIS STYLES */
+        .legal-highlight { font-family: 'Consolas', monospace; background: #fff8ee; padding: 2px 6px; border-radius: 4px; color: #c53030; font-weight: bold; }
+
+        /* FIXED CTA ALIGNMENT STYLES */
+        .cta-aligned-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; align-items: stretch; }
+        .cta-card { display: flex; flex-direction: column; height: 100%; text-align: center; margin-top: 0; padding: 30px; background: #f0f4f8; border-radius: 12px; border: 2px solid #002d5b; }
+        .cta-card .btn-contact { margin-top: auto; align-self: center; }
+
+        /* --- QUICK JUMP MENU STYLES (ENHANCED) --- */
+        .quick-jump-menu { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e2e8f0; justify-content: center; }
+        
+        .quick-jump-btn { 
+            padding: 10px 20px; 
+            background: white; 
+            border: 1px solid #002d5b; 
+            color: #002d5b; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            cursor: pointer; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            top: 0;
+        }
+
+        .quick-jump-btn:hover { 
+            background: #002d5b; 
+            color: white; 
+            top: -3px; 
+            box-shadow: 0 5px 15px rgba(0, 45, 91, 0.3); 
+            transform: translateY(-3px);
+        }
+
+        .quick-jump-btn.active { 
+            background: #002d5b; 
+            color: white; 
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); 
+            top: 0;
+        }
+
+        /* --- VISUAL GRID SYSTEM (ORIGINAL HEIGHT) --- */
+        .visual-grid-section { margin-top: 60px; padding-top: 40px; border-top: 2px dashed #002d5b; }
+        .visual-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        /* UPDATE: Darkened borders for visibility */
+        .v-grid-card { background: white; border: 2px solid #cbd5e1; border-radius: 8px; overflow: hidden; transition: 0.3s; display: flex; flex-direction: column; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .v-grid-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: #002d5b; }
+        .v-grid-thumb { height: 180px; background: #f8f9fa; position: relative; overflow: hidden; border-bottom: 1px solid #eee; }
+        .v-grid-thumb img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .v-grid-card:hover .v-grid-thumb img { transform: scale(1.05); }
+        
+        /* ORIGINAL CARD CONTENT STYLING */
+        .v-grid-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .v-grid-content h4 { margin: 0 0 10px 0; color: #002d5b; font-size: 1.05rem; }
+        .v-grid-content p { font-size: 0.9rem; color: #555; line-height: 1.5; margin-bottom: 15px; flex-grow: 1; }
+        .v-grid-btn { display: block; text-align: center; background: #002d5b; color: white !important; padding: 10px; text-decoration: none; font-weight: bold; font-size: 0.85rem; border-radius: 4px; transition: 0.2s; }
+        .v-grid-btn:hover { background: #001f3f; }
+
+        /* MULTI-LINK DOWNLOAD BUTTON (ORIGINAL) */
+        .v-grid-download-wrapper { position: relative; width: 100%; margin-top: auto; }
+        .v-grid-download-main { display: block; text-align: center; background: #002d5b; color: white !important; padding: 10px; text-decoration: none; font-weight: bold; font-size: 0.85rem; border-radius: 4px; transition: 0.2s; cursor: pointer; position: relative; }
+        .v-grid-download-main:hover { background: #001f3f; }
+        .v-grid-dropdown { display: none; position: absolute; bottom: 100%; left: 0; width: 100%; background: white; border: 1px solid #002d5b; border-radius: 4px; overflow: hidden; box-shadow: 0 -5px 15px rgba(0,0,0,0.1); z-index: 10; margin-bottom: 5px; }
+        /* FIX: Bridge the 5px gap to prevent hover loss. Added to button so it's not clipped by dropdown's overflow:hidden */
+        .v-grid-download-main::before { content: ''; position: absolute; top: -5px; left: 0; width: 100%; height: 5px; }
+        .v-grid-download-wrapper:hover .v-grid-dropdown { display: block; }
+        .v-grid-dropdown a { display: block; padding: 8px 10px; color: #002d5b !important; text-decoration: none; font-size: 0.8rem; border-bottom: 1px solid #eee; font-weight: 600; text-align: left; }
+        .v-grid-dropdown a:last-child { border-bottom: none; }
+        .v-grid-dropdown a:hover { background: #f0f4f8; color: #ff9900 !important; }
+
+        /* --- SECTION TOGGLE SYSTEM (CHECKBOX STYLE) --- */
+        .control-bar { 
+            background: #002d5b; 
+            padding: 12px 20px; 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            flex-wrap: nowrap; 
+            margin-bottom: 30px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid #004a92;
+        }
+        .control-label { 
+            font-weight: 800; 
+            color: #ffffff; 
+            font-size: 0.9rem; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 8px;
+            white-space: nowrap;
+        }
+        
+        .toggle-btn { 
+            padding: 8px 16px; 
+            border: 2px solid rgba(255,255,255,0.3); 
+            background: rgba(255,255,255,0.1); 
+            color: rgba(255,255,255,0.7); 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            font-size: 0.85rem; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .toggle-btn:hover { 
+            background: rgba(255,255,255,0.2); 
+            border-color: #ff9900; 
+            color: #fff; 
+            top: -3px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+        }
+        .toggle-btn.active { 
+            background: #ff9900; 
+            color: #002d5b; 
+            border-color: #ff9900; 
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.6); 
+            top: 0;
+        }
+        
+        /* Small Checkbox Box Style */
+        .toggle-checkbox {
+            width: 18px;
+            height: 18px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: 0.3s;
+        }
+        
+        /* Checkmark Icon */
+        .toggle-checkbox::after {
+            content: '✔';
+            color: #002d5b;
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0;
+            transform: scale(0);
+            transition: 0.2s;
+        }
+
+        /* Active State for Checkbox */
+        .toggle-btn.active .toggle-checkbox {
+            background: white;
+            border-color: #002d5b;
+        }
+        .toggle-btn.active .toggle-checkbox::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .filter-hint { text-align: center; color: #888; font-size: 0.9rem; margin-bottom: 15px; font-style: italic; }
+        
+        /* Dynamic Header Transition */
+        #dynamic-header { transition: all 0.3s ease; }
+
+        /* --- SMOOTH FILTERING ANIMATION SYSTEM (FIXED) --- */
+        
+        /* Base Filter Item State: Hidden */
+        .filter-item { 
+            opacity: 0; 
+            visibility: hidden;
+            position: absolute; 
+            top: -9999px; 
+            left: -9999px;
+            pointer-events: none; 
+            transition: opacity 0.5s ease, visibility 0s linear 0.5s; 
+        }
+
+        /* Visible State: Bring back into flow */
+        .filter-item.show { 
+            opacity: 1; 
+            visibility: visible;
+            position: relative; 
+            top: auto; 
+            left: auto; 
+            pointer-events: auto;
+            transition: opacity 0.5s ease, visibility 0s linear 0s;
+        }
+
+        /* Ensure Service Cards maintain Block display */
+        .service-card.filter-item.show { 
+            display: block; 
+        }
+
+        /* Ensure Grid Cards maintain Flex display */
+        .v-grid-card.filter-item.show { 
+            display: flex; 
+        }
+
+        /* Ensure Table Rows maintain Table-Row display */
+        tr.filter-item.show { 
+            display: table-row; 
+        }
+
+        /* Section Toggle State (Overrides Filter) */
+        .section-hidden { 
+            display: none !important; 
+        }
+
+        /* --- NEW: QUICK ACHIEVEMENTS TABLE SYSTEM --- */
+        .linear-achievements-section { margin-top: 60px; padding-top: 40px; border-top: 2px dashed #002d5b; }
+        .achievement-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .achievement-table thead th { background: #002d5b; color: white; padding: 15px; text-align: left; font-size: 0.9rem; font-weight: 700; border-bottom: 3px solid #ff9900; }
+        .achievement-table thead th:last-child { text-align: center; width: 100px; }
+        .achievement-table tbody tr { border-bottom: 1px solid #eee; transition: 0.2s; }
+        .achievement-table tbody tr:hover { background-color: #f8f9fa; transform: translateX(3px); }
+        .achievement-table tbody td { padding: 15px; color: #333; font-size: 0.9rem; vertical-align: middle; border-right: 1px solid #f1f1f1; }
+        .achievement-table tbody td:last-child { border-right: none; text-align: center; }
+        .achievement-table .td-filename { font-weight: 700; color: #002d5b; min-width: 220px; font-size: 0.85rem; line-height: 1.4; border-left: 4px solid transparent; }
+        .achievement-table tbody tr:hover .td-filename { border-left-color: #ff9900; }
+        .achievement-table .td-purpose { line-height: 1.5; color: #555; font-size: 0.85rem; min-width: 160px; }
+        .achievement-table .td-impact { line-height: 1.4; font-weight: 600; }
+        .achievement-table .td-action a { display: inline-block; background: #002d5b; color: white !important; padding: 6px 14px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: 0.2s; }
+        .achievement-table .td-action a:hover { background: #001f3f; transform: translateY(-1px); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+        /* QUICK ACHIEVEMENTS SERIAL NUMBER BADGE */
+        .qa-num-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #002d5b;
+            color: #ff9900;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            vertical-align: middle;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .strategy-grid, .cta-aligned-grid { grid-template-columns: 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .arrow-icon { transform: rotate(90deg); margin: 10px auto; text-align: center; }
+            .container { padding: 20px; }
+            #cta-button { height: 50px !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; width: 100px !important; animation: button-blink 2s infinite !important; flex-shrink: 0 !important; }
+            #cta-button span { font-size: 8px !important; line-height: 1 !important; color: inherit !important; }
+            #cta-button img { height: 18px !important; width: auto !important; }
+            .quick-jump-menu { flex-direction: column; align-items: center; }
+            .control-bar { flex-wrap: wrap; justify-content: center; }
+            .control-label { margin-bottom: 10px; display: block; width: 100%; text-align: center; }
+            .toggle-btn { width: auto; justify-content: center; }
+            /* Achievement Table Responsive */
+            .achievement-table, .achievement-table thead, .achievement-table tbody, .achievement-table th, .achievement-table td, .achievement-table tr { display: block; }
+            .achievement-table thead tr { position: absolute; top: -9999px; left: -9999px; }
+            .achievement-table tbody tr { border: 1px solid #e2e8f0; margin-bottom: 15px; border-radius: 8px; overflow: hidden; padding: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 4px solid #ff9900; }
+            .achievement-table tbody td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 35%; white-space: normal; text-align: left; }
+            .achievement-table tbody td:before { position: absolute; top: 10px; left: 10px; width: 30%; padding-right: 10px; white-space: nowrap; content: attr(data-title); font-weight: 700; color: #002d5b; font-size: 0.8rem; }
+            .achievement-table tbody td:last-child { border-bottom: none; text-align: right; }
+            
+            /* Premium Title Flexbox Mobile Stack */
+            .cs-title-row { flex-direction: column !important; align-items: flex-start !important; gap: 10px !important; }
+            .watch-video-btn { width: 100% !important; margin-top: 0 !important; }
+        }
+
+        /* ==========================================================
+           PREMIUM ENHANCEMENTS (MODERN CERTIFICATE STAMP STYLE)
+           ========================================================== */
+        
+        /* 1. Gallery Number Badge on Image */
+        .v-grid-num-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #002d5b;
+            color: #ff9900;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            z-index: 5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* 2. SQUARE BADGE for Gallery & System Interface (Blue bg / Gold text) */
+        .square-stamp-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: #002d5b;
+            color: #ff9900;
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border-radius: 4px; /* Square/Rectangle shape */
+            border: 1px solid #ff9900;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 3px 6px rgba(0,0,0,0.8);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            z-index: 10;
+            white-space: nowrap;
+            max-width: 85%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 3. ROUND CERTIFICATE STAMP BADGE (For Case Study Images - REDUCED SIZE 60px) */
+        .cert-stamp-img-round {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%; 
+            background: radial-gradient(circle at 30% 30%, #004a92 0%, #002d5b 60%, #001529 100%);
+            color: #ffcc80;
+            padding: 3px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            border: 2px solid #ffcc80;
+            box-shadow: 
+                0 6px 12px rgba(0,0,0,0.4), 
+                inset 0 5px 10px rgba(0,0,0,0.8), 
+                inset 0 -2px 3px rgba(255,204,128,0.2);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.1;
+            text-align: center;
+        }
+        .cert-stamp-img-round .stamp-main { font-size: 0.7rem; font-weight: 900; }
+        .cert-stamp-img-round .stamp-sub { font-size: 0.45rem; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 1px; }
+
+        /* 4. MODERN CERTIFICATE STAMP BADGE (For Text Amounts / Case Study Results) */
+        .cert-stamp-text {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            background: radial-gradient(circle at 30% 30%, #004a92 0%, #002d5b 60%, #001529 100%);
+            color: #ffcc80;
+            padding: 10px 25px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            border-radius: 12px;
+            border: 3px solid #ffcc80;
+            box-shadow: 
+                0 6px 12px rgba(0,0,0,0.3), 
+                inset 0 5px 10px rgba(0,0,0,0.8), 
+                inset 0 -2px 3px rgba(255,204,128,0.2);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            line-height: 1.2;
+            margin: 5px 0;
+        }
+        .cert-stamp-text .stamp-sub { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; font-weight: 700; }
+
+        /* 5. MODERN CERTIFICATE STAMP BADGE (For Case Study Headings) */
+        /* UPDATE 1: Increased padding and font-size */
+        .cert-stamp-heading {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, #004a92 0%, #002d5b 60%, #001529 100%);
+            color: #ffcc80;
+            padding: 8px 16px; /* Increased from 6px 12px */
+            font-size: 0.85rem; /* Increased from 0.7rem */
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 6px;
+            border: 2px solid #ffcc80;
+            box-shadow: 
+                0 4px 8px rgba(0,0,0,0.3), 
+                inset 0 3px 6px rgba(0,0,0,0.8);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            white-space: nowrap;
+            margin-right: 12px;
+            vertical-align: middle;
+        }
+
+        /* 6. Premium Prominent Video Button & Heading Layout (Fixed Right Alignment) */
+        .cs-title-row { 
+            display: flex; 
+            flex-wrap: wrap; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 15px;
+            margin-top: 0; 
+            border-bottom: none; 
+        }
+        .cs-title-text { 
+            margin: 0; 
+            color: #002d5b; 
+            display: flex; 
+            align-items: center; 
+            flex: 1;
+        }
+        .cs-title-actions { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            flex-shrink: 0; 
+            margin-left: auto;
+        }
+        .watch-video-btn { 
+            display: inline-flex; 
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #ff9900; 
+            color: #002d5b !important; 
+            padding: 10px 22px; 
+            text-decoration: none !important; 
+            font-weight: 800; 
+            font-size: 0.85rem; 
+            letter-spacing: 0.5px;
+            border-radius: 6px; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            border: 1.5px solid #ff9900;
+            margin-top: 0; 
+            box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);
+            white-space: nowrap;
+        }
+        .watch-video-btn:hover { 
+            background: #002d5b; 
+            color: #ff9900 !important; 
+            border-color: #002d5b;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 45, 91, 0.3);
+        }
+        .watch-video-btn-full {
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* 7. Case Study 7 Wider Evidence Images & Smoother Hover */
+        .cs7-evidence-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            margin-top: 10px; 
+            width: 100%; 
+        }
+        .cs7-evidence-grid .pdf-item-wrapper {
+            width: 100%; 
+        }
+        .cs7-evidence-grid .pdf-img-link img {
+            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.6s ease, border-color 0.6s ease;
+        }
+        .cs7-evidence-grid .pdf-item-wrapper:hover {
+            border-color: #ff9900;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+        .cs7-evidence-grid .pdf-item-wrapper:hover .pdf-img-link img {
+            transform: scale(1.08); 
+            border-color: #ff9900;
+        }
+
+        /* 8. Quick Achievements Premium Stamp Ribbon */
+        .qa-result-ribbon {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 3px 6px rgba(0,0,0,0.8);
+            border: 2px solid #ffcc80;
+            margin-right: 8px;
+            vertical-align: middle;
+            position: relative;
+            background: radial-gradient(circle at 30% 30%, #004a92 0%, #002d5b 60%, #001529 100%);
+            color: #ffcc80;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- EXTRACTED TICKER SYSTEM START -->
+<div style="background:#001529; border-bottom:2px solid #D4AF37; height:50px; display:flex; align-items:center; font-family:sans-serif; overflow:hidden; position:relative; z-index:9999;">
+    <div style="flex:1; overflow:hidden; white-space:nowrap; position:relative; height:100%; display:flex; align-items:center;" onmouseover="document.getElementById('moving-ticker').style.animationPlayState = 'paused'" onmouseout="document.getElementById('moving-ticker').style.animationPlayState = 'running'">
+        <div id="moving-ticker" style="display:inline-block; padding-left:100%; animation: ticker-move 70s linear infinite; color:#ffffff !important; font-size:15px; font-weight:600; white-space:nowrap;">
+            <span style="margin-right: 50px;">WELCOME TO THE OFFICIAL WEBSITE OF SHAHZAD ANJUM</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">💰 ACCOUNTS, FINANCE & TAX EXPERT</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">🏆 25+ YEARS EXPERIENCE </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"><span style="color:#D4AF37;">📋</span> INCOME TAX & SALES TAX — ZERO PENALTY RISK</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">🛡️ INTERNAL AUDIT & RISK CONTROL — STOP FINANCIAL LEAKAGES </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">📋 FBR COMPLIANCE & DIGITAL INVOICING</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">💰 BUDGETING AND COST CONTROLING — REDUCE COSTS & IMPROVE PROFITS </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">💰 FIX YOUR RECEIVABLE & RECOVERY CYCLES - IMPROVED CASH FLOW</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">⚡ ACCOUNTS RECEIVABLE & PAYABLE MANAGEMENT — FIX CASH FLOW PROBLEMS</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"><span style="color:#D4AF37;">🗂️</span> ERP IMPLEMENTATION - EVERYTHING IN YOUR FINGER'S CONTROL</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">⚖ FINANCIAL STATEMENTS (BALANCE SHEET, PROFIT & LOSS STATEMENT) - MAKE BETTER BUSINESS DECISIONS</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"> STOP WORRYING ABOUT TAX NOTICES </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"><a href="about.html#video" style="color:#FDD017; text-decoration:none; border-bottom:1px solid #FDD017;"> ▶️ WATCH MY 01 MINUTE VIDEO INTRODUCTION</a></span>
+            <span style="margin-right: 50px;">│</span>
+        </div>
+    </div>
+    <div id="cta-button" style="background:#D4AF37; color:#001529; padding:0 10px; height:100%; display:flex; align-items:center; font-weight:800; font-size:12px; border-left:2px solid #001529; z-index:30; position:relative; flex-shrink:0; cursor:pointer;" onclick="window.open('about.html#video', '_blank')">
+        <img src="images/video-icon.png" alt="Video" style="height: 24px; width: auto; margin-right: 6px; display: block;"> 
+        <span>VIDEO INTRODUCTION</span>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <h1>Work Samples & Case Studies</h1>
+    <span class="designation">Detailed evidence of financial impact and strategic results</span>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="about.html" style="margin:0 15px;">About ▼</a>
+        <div class="dropdown-content">
+            <a href="about.html#profile">Profile</a>
+            <a href="about.html#workwithme">Why Work With Me</a>
+            <a href="about.html#experience">Experience</a>
+            <a href="about.html#cv">Download CV</a>
+            <a href="about.html#video">Video Introduction</a>
+        </div>
+    </div>
+    <a href="qualifications.html">Qualifications</a>
+    <a href="portfolio.html" style="position: relative; display: inline-block;">
+        Work Samples & Case Studies 
+        <span style="position: absolute; top: -15px; right: -25px; background: #ff4757; color: white; font-size: 11px; padding: 3px 7px; border-radius: 12px; animation: blinker 2s linear infinite; font-family: sans-serif; font-weight: bold; line-height: 1;">NEW</span>
+    </a>
+    <a href="testimonials.html">Testimonials</a> 
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="javascript:void(0)" style="margin:0 15px; display: inline-flex; align-items: center; position: relative; color: #ff9900 !important; font-weight: bold; cursor: default;">
+            <span class="pulse-dot"></span> Tools & Downloads ▼
+            <span style="position: absolute; top: -12px; right: -15px; background: #ff4757; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; animation: blinker 2s linear infinite; font-family: sans-serif; font-weight: bold; line-height: 1;">NEW</span>
+        </a>
+        <div class="dropdown-content">
+            <a href="audit-risk.html" target="_blank">📊 Check Your Business Health (Full Risk Dashboard)</a>
+            <a href="javascript:void(0)" onclick="openTools()" style="background: #002d5b; color: #FDD017 !important; font-weight: bold; border-top: 1px solid #FDD017;">⚡ Instant Executive Business Health Scan (Quick 15 Second Scan)</a>
+        </div>
+    </div>
+    <a href="Media.html">Media (Coming Soon)</a>
+    <a href="contact.html">Contact Me</a>
+</nav>
+
+<div class="container">
+    
+    <!-- 1. CONTROL BAR (PROMINENT) -->
+    <div class="control-bar">
+        <span class="control-label">Select Content Type:</span>
+        <button class="toggle-btn active" onclick="toggleSection('case-study', this)">
+            <span class="toggle-checkbox"></span>
+            📂 Case Studies
+        </button>
+        <button class="toggle-btn active" onclick="toggleSection('work-gallery', this)">
+            <span class="toggle-checkbox"></span>
+            🖼️ Work Gallery
+        </button>
+        <button class="toggle-btn active" onclick="toggleSection('achievement-strip', this)">
+            <span class="toggle-checkbox"></span>
+            ⚡ Quick Achievements
+        </button>
+    </div>
+
+    <!-- 2. DYNAMIC HEADER -->
+    <h2 id="dynamic-header" style="margin-top: 0;">Case Studies</h2>
+
+    <!-- 3. INSTRUCTIONAL HINT -->
+    <p class="filter-hint">Select multiple categories below to filter specific topics:</p>
+
+    <!-- QUICK JUMP MENU -->
+    <div class="quick-jump-menu">
+        <button class="quick-jump-btn active" onclick="toggleFilter('all')">📂 Show All</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('income-tax')">💵 Income Tax</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('sales-tax')">🧾 Sales Tax</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('receivable-payables')">🔄 Receivable & Payables</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('budgeting-costing')">📊 Budgeting & Costing</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('cash-flow')">💰 Cash Flow</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('cost-reduction-recovery')">📉 Cost Reduction & Recovery</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('internal-audit')">🛡️ Internal Audit</button>
+        <button class="quick-jump-btn" onclick="toggleFilter('miscellaneous')">📁 Miscellaneous</button>
+    </div>
+
+    <!-- ==================== SEQUENCE 1: CASE STUDIES ==================== -->
+    
+    <!-- UPDATE 3: Disclaimer Banner -->
+    <div style="background: #fff8ee; border: 1px solid #ffeeba; color: #9b2c2c; padding: 15px; border-radius: 8px; margin-bottom: 40px; text-align: center; font-size: 0.9rem; font-weight: 600;">
+        <em>Real client engagements with documented financial outcomes. All sensitive data redacted.</em>
+    </div>
+
+    <!-- CASE STUDY 1 -->
+    <div class="service-card filter-item" id="case1" data-category="cost-reduction-recovery" data-section="case-study">
+        <div class="service-content">
+            <div class="cs-title-row">
+                <h3 class="cs-title-text">
+                    <span class="cert-stamp-heading">45% Saved</span>
+                    Case Study 1: How I Slashed Operational Costs by 45%
+                </h3>
+                <div class="cs-title-actions">
+                    <a href="https://youtu.be/_Z33CtUbOR0?si=HBDNn4MkE_NAtIOJ" target="_blank" class="watch-video-btn">▶ Watch on YouTube</a>
+                </div>
+            </div>
+            
+            <div class="cs3-challenge-box" style="margin-top: 20px;">
+                <h3>📉 The Challenge: Rising Procurement Costs & Inefficient Spending</h3>
+                <p>The client was facing a financial crisis due to unchecked procurement expenses. Reliance on credit-based purchasing led to inflated prices, high interest, and a lack of transparency. There was no formal system to verify if the company was overpaying or underpaying vendors, resulting in significant profit leakage and high operational costs.</p>
+            </div>
+
+            <div class="strategy-grid">
+                <div>
+                    <strong style="font-size: 1.1em; color: #002d5b;">💰 Smart Cash Negotiations</strong>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>Achieved a 45% reduction in costs by shifting from credit to cash-based procurement.</li>
+                        <li>Negotiated "rock-bottom" prices by eliminating high interest premiums.</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="font-size: 1.1em; color: #002d5b;">📑 The Three-Quote Rule</strong>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>Required 03 quotations for every purchase to ensure no overpayment.</li>
+                        <li>Brought in new vendors to create competition and drive prices down.</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="font-size: 1.1em; color: #002d5b;">🔍 Market Price Checks</strong>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>Performed spot-checks to ensure vendors stayed honest with pricing.</li>
+                        <li>Kept strict oversight on every purchase for total transparency.</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="font-size: 1.1em; color: #002d5b;">🤝 Better Credit Terms</strong>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>Where credit was necessary, negotiated prices as close to cash rates as possible.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- UPDATE 4: Added Ribbon at the end of Case Study 1 -->
+            <div class="swing-banner">💰 Total Impact Created: <span>45% Reduction in Operational Costs</span></div>
+            
+        </div>
+    </div>
+
+    <!-- CASE STUDY 2 -->
+    <div class="service-card filter-item" style="border-left-color: #ff9900;" id="case2" data-category="income-tax" data-section="case-study">
+        <div class="service-content">
+            <div class="cs-title-row">
+                <h3 class="cs-title-text">
+                    <span class="cert-stamp-heading">Rs. 140k Saved</span>
+                    Case Study 2: Turning a Tax Liability into a Refund
+                </h3>
+                <div class="cs-title-actions">
+                    <a href="https://youtu.be/TywakoSyyP8?si=DLMQBugL6t5ouhb9" target="_blank" class="watch-video-btn">▶ Watch on YouTube</a>
+                </div>
+            </div>
+            
+            <div class="cs3-challenge-box" style="margin-top: 20px;">
+                <h3>📉 The Challenge: Overlooked Tax Adjustments & Financial Loss</h3>
+                <p>A client was using a tax advisor who failed to claim legitimate Withholding Tax (WTH) adjustments. For years, the client was forced to pay extra tax at year-end because WHT on mobile, internet, and property purchases was ignored, causing unnecessary financial strain.</p>
+            </div>
+
+            <div class="strategy-grid">
+                <div>
+                    <strong style="color: #002d5b;">🔍 My Intervention</strong>
+                    <ul style="padding-left: 20px; margin-top: 10px;">
+                        <li>Identified missing adjustments for Mobile Phone & Internet bills.</li>
+                        <li>Captured large WHT credits from Property Transactions.</li>
+                        <li>Re-aligned the entire return to reflect actual tax paid.</li>
+                    </ul>
+                </div>
+                <div>
+                    <div style="background: #fff8ee; padding: 20px; border-radius: 8px; border: 1px solid #ffeeba;">
+                        <strong style="color: #002d5b;">📈 The Result</strong>
+                        <p style="margin: 10px 0 0 0;">Successfully converted a <strong>Rs. 82,564 Payable</strong> into a <strong>Rs. 58,165 Refundable</strong> status—a total financial benefit of <strong>Rs. 140,729</strong> for the client.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h4 style="margin-top: 30px; margin-bottom: 10px; color: #002d5b;">Visual Evidence (FBR Tax Evidence):</h4>
+            <div class="comparison-grid">
+                <div class="stat-card bg-red">
+                    <span class="badge badge-red">Before ( Incorrect Filing )</span>
+                    <span class="amount red-text">Rs. 82,564</span>
+                    <strong>Tax Payable to FBR</strong>
+                    <div class="img-stack">
+                        <div class="pdf-item-wrapper">
+                            <a href="images/Before1.jpg" target="_blank" class="pdf-img-link" title="View Screenshot 1">
+                                <img src="images/Before1.jpg" alt="Tax Before 1">
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="Before.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                        <div class="pdf-item-wrapper">
+                            <a href="images/Before2.jpg" target="_blank" class="pdf-img-link" title="View Screenshot 2">
+                                <img src="images/Before2.jpg" alt="Tax Before 2">
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="Before.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="arrow-icon">➔</div>
+                <div class="stat-card bg-green">
+                    <span class="badge badge-green">After ( Professional Filing )</span>
+                    <div class="cert-stamp-text">
+                        Rs. 58,165
+                        <span class="stamp-sub">Refundable from FBR</span>
+                    </div>
+                    <div class="img-stack">
+                        <div class="pdf-item-wrapper">
+                            <a href="images/After1.jpg" target="_blank" class="pdf-img-link" title="View Screenshot 1">
+                                <img src="images/After1.jpg" alt="Tax After 1">
+                                <div class="cert-stamp-img-round">
+                                    <span class="stamp-main">Rs. 58k</span>
+                                    <span class="stamp-sub">Refund</span>
+                                </div>
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="After.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                        <div class="pdf-item-wrapper">
+                            <a href="images/After2.jpg" target="_blank" class="pdf-img-link" title="View Screenshot 2">
+                                <img src="images/After2.jpg" alt="Tax After 2">
+                                <div class="cert-stamp-img-round">
+                                    <span class="stamp-main">Rs. 58k</span>
+                                    <span class="stamp-sub">Refund</span>
+                                </div>
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="After.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swing-banner">💰 Total Value Created for Client: Rs. 140,729 Refundable from FBR</div>
+        </div>
+    </div>
+
+    <!-- CASE STUDY 3 -->
+    <div class="service-card filter-item" style="border-left-color: #002d5b;" id="case3" data-category="receivable-payables" data-section="case-study">
+        <div class="service-content">
+            <div class="cs-title-row">
+                <h3 class="cs-title-text">
+                    <span class="cert-stamp-heading">42.5% Recovered</span>
+                    Case Study 3: Cash Flow Recovery & Reconciliation
+                </h3>
+            </div>
+            <div class="cs3-container">
+                <div class="cs3-challenge-box" style="margin-top: 20px;">
+                    <h3>📉 The Challenge: Negative Cash Flow, Low Recovery & Poor Payable Position</h3>
+                    <p>The client was facing a critical cash flow gap. Historical data showed poor recovery (40%), and suppliers were not happy with the payments position. Reconciliation was manual and error-prone.</p>
+                </div>
+                <div class="comparison-grid" style="margin-top:0;">
+                    <div class="stat-card bg-red cs3-panel">
+                        <div class="cs3-panel-header"><span class="badge badge-red">Before ( My Intervention )</span><strong>July 2026</strong></div>
+                        <div class="cs3-kpi-row"><div class="cs3-kpi-meta"><strong>Receivables Recovery</strong><span>Historical Performance</span></div><div class="cs3-kpi-value">40.0%</div></div>
+                        <div class="cs3-kpi-row"><div class="cs3-kpi-meta"><strong>Payables Execution</strong><span>Compliance</span></div><div class="cs3-kpi-value">65.0%</div></div>
+                        <div class="cs3-kpi-row"><div class="cs3-kpi-meta"><strong>Bank Reconciliation</strong><span>Status</span></div><div class="cs3-kpi-value" style="font-size: 1rem; color: #777;">UNVERIFIED</div></div>
+                        <div class="cs3-chart-placeholder">🚫 No Visibility</div>
+                    </div>
+                    <div class="arrow-icon">➔</div>
+                    <div class="stat-card bg-green cs3-panel">
+                        <div class="cs3-panel-header"><span class="badge badge-green">After ( My Intervention )</span><strong>August 2026</strong></div>
+                        <div class="cs3-kpi-row"><div class="cs3-kpi-meta"><strong>Receivables Recovery</strong><span>Post-Involvement <span style="color:#2f855a;">▲ +42.5%</span></span></div><div class="cs3-kpi-value"><div class="cert-stamp-text" style="font-size: 1.2rem; padding: 5px 15px;">82.5%</div></div></div>
+                        <div class="cs3-kpi-row"><div class="cs3-kpi-meta"><strong>Payables Execution</strong><span>Optimized <span style="color:#2f855a;">▲ +16%</span></span></div><div class="cs3-kpi-value">81.0%</div></div>
+                        <div class="cs3-kpi-row"><div class="cs3-kpi-meta"><strong>Bank Reconciliation</strong><span>Compliance</span></div><div class="cs3-kpi-value" style="font-size: 1rem; color: #2f855a;">100% MATCHED ✓</div></div>
+                        <div class="cs3-actual-chart-container"><canvas id="afterChart"></canvas></div>
+                    </div>
+                </div>
+                <div class="cs3-strategy-box">
+                    <h3>🛠️ My Strategy: How I Achieved This</h3>
+                    <ul class="cs3-strategy-list">
+                        <li><strong>Integrated Reconciliation Model:</strong> Implemented formula: <em>Opening Bank + Receipts - Payments = Closing Bank</em>. This automated matching and eliminated errors.</li>
+                        <li><strong>Gap Identification:</strong> Reconciling balances identified exact recovery gaps, allowing focused collection efforts on high-value accounts to boost recovery to 82.5%.</li>
+                        <li><strong>Visual Executive Dashboard:</strong> Replaced static printouts with live visuals, enabling management to see bank positions instantly.</li>
+                    </ul>
+                </div>
+                <div class="cs3-metrics-strip">
+                    <div class="cs3-metric-card"><span class="cs3-metric-value">82.5%</span><span class="cs3-metric-label">Recovery Achieved</span></div>
+                    <div class="cs3-metric-card"><span class="cs3-metric-value">100%</span><span class="cs3-metric-label">Bank Reconciled</span></div>
+                    <div class="cs3-metric-card"><span class="cs3-metric-value">124.8%</span><span class="cs3-metric-label">Promo Sales Target</span></div>
+                </div>
+                <div class="swing-banner">💰 Net Value Created: <span>Recovered 42.5% more cash</span> than historical averages.</div>
+                <div class="cs3-tab-nav">
+                    <button class="cs3-tab-btn active" onclick="openCs3Tab(event, 'DashboardView')">1. Dashboard</button>
+                    <button class="cs3-tab-btn" onclick="openCs3Tab(event, 'DataView')">2. Excel Data Backup</button>
+                </div>
+                <div id="DashboardView" class="tab-content" style="display:block; background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
+                    <div style="height: 300px; position: relative;"><canvas id="mainChart"></canvas></div>
+                </div>
+                <div id="DataView" class="tab-content" style="display:none; background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee;">
+                    <h3 style="margin-top:0; font-size: 1.1em; color: #002d5b;">Full Financial Statement</h3>
+                    <div style="overflow-x: auto;">
+                        <table class="cs3-data-table">
+                            <thead><tr><th>Description</th><th class="cs3-text-right">Plan</th><th class="cs3-text-right">Actual</th><th class="cs3-text-center">%</th></tr></thead>
+                            <tbody>
+                                <tr style="background:#f8f9fa;"><td colspan:4; style="font-weight:700; color:#002d5b; font-size:0.85rem;">INFLOWS</td></tr>
+                                <tr><td style="padding-left:10px;">Toll Manufacturing</td><td class="cs3-text-right">31.6M</td><td class="cs3-text-right">25.3M</td><td class="cs3-text-center cs3-text-warning">80%</td></tr>
+                                <tr><td style="padding-left:10px;">Promotional Sales</td><tD class="cs3-text-right">5.2M</td><td class="cs3-text-right">6.4M</td><td class="cs3-text-center cs3-text-success">124% ★</td></tr>
+                                <tr style="background-color:#eff6ff;"><td style="font-weight:700;">TOTAL INFLOW</td><td class="cs3-text-right" style="font-weight:700;">59.5M</td><td class="cs3-text-right" style="font-weight:700;">49.1M</td><td class="cs3-text-center cs3-text-warning" style="font-weight:700;">82.5%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CASE STUDY 4 -->
+    <div class="service-card filter-item" style="border-left-color: #dc2626;" id="case4" data-category="income-tax" data-section="case-study">
+        <div class="service-content">
+            <div class="cs-title-row">
+                <h3 class="cs-title-text">
+                    <span class="cert-stamp-heading">Rs. 35.8M Protected</span>
+                    Case Study 4: FBR Recovery Notice (Rs. 35.8 Million)
+                </h3>
+            </div>
+            
+            <div class="cs3-challenge-box" style="margin-top: 20px; border-left-color: #dc2626;">
+                <h3 style="color: #dc2626;">🚨 The Crisis: High-Stakes FBR Recovery Notice</h3>
+                <p>The client received a panic-inducing <strong>Notice u/s 138(1)</strong> for the recovery of approximately <strong>Rs. 4 Crore</strong>. The demand arose from an Order u/s 161 regarding withholding tax defaults (TY 2022). The client had missed the original order on the IRIS portal. Immediate threats included:</p>
+                <ul style="margin-top:10px; margin-bottom:0; color:#333;">
+                    <li>Attachment of Bank Accounts</li>
+                    <li>Arrest and Detention</li>
+                    <li>Attachment & Sale of Property</li>
+                </ul>
+            </div>
+
+            <div class="comparison-grid" style="margin-top:0;">
+                <div class="stat-card bg-red">
+                    <span class="badge badge-red">FBR Demand ( Section 138 )</span>
+                    <span class="amount red-text">Rs. 35.8M</span>
+                    <strong>Tax + Surcharge + Penalty</strong>
+                    <div class="img-stack">
+                        <div class="pdf-item-wrapper">
+                            <a href="images/FBR-Order.jpg" target="_blank" class="pdf-img-link">
+                                <img src="images/FBR-Order.jpg" alt="FBR Order Screenshot">
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="FBR-Order.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                        <div class="pdf-item-wrapper">
+                            <a href="images/Recovery-Notice.jpg" target="_blank" class="pdf-img-link">
+                                <img src="images/Recovery-Notice.jpg" alt="Recovery Notice Screenshot">
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="Recovery-Notice.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrow-icon">➔</div>
+
+                <div class="stat-card bg-green">
+                    <span class="badge badge-green">Result ( My Intervention )</span>
+                    <div class="cert-stamp-text" style="font-size: 1.1em;">
+                        STAY GRANTED
+                        <span class="stamp-sub">Bank Accounts Protected</span>
+                    </div>
+                    <strong style="font-size: 0.85em; color: #555; margin-top: 10px;">Appeal Filed, Stay Order Obtained, Accounts Unfrozen</strong>
+                    
+                    <div class="img-stack">
+                        <div class="pdf-item-wrapper">
+                            <a href="images/Appeal.jpg" target="_blank" class="pdf-img-link">
+                                <img src="images/Appeal.jpg" alt="Appeal Screenshot">
+                                <div class="cert-stamp-img-round">
+                                    <span class="stamp-main">STAY</span>
+                                    <span class="stamp-sub">Granted</span>
+                                </div>
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="Appeal.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                        <div class="pdf-item-wrapper">
+                            <a href="images/STAY-APPLICATION.jpg" target="_blank" class="pdf-img-link">
+                                <img src="images/STAY-APPLICATION.jpg" alt="Stay Application Screenshot">
+                                <div class="cert-stamp-img-round">
+                                    <span class="stamp-main">STAY</span>
+                                    <span class="stamp-sub">Granted</span>
+                                </div>
+                                <span class="pdf-overlay-icon">🔍 View</span>
+                            </a>
+                            <a href="STAY-APPLICATION.pdf" class="pdf-download-btn" download>📥 Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cs3-strategy-box">
+                <h3>🛡️ My Strategy: Immediate Legal Defense</h3>
+                <ul class="cs3-strategy-list">
+                    <li><strong>Immediate Assessment:</strong> Analyzed the 8-page Order u/s 161 and identified discrepancies in the default calculations (Salary, Purchases, Advances).</li>
+                    <li><strong>Swift Action:</strong> Filed an Appeal under the relevant appellate jurisdiction challenging the ex-parte order.</li>
+                    <li><strong>Stay Application:</strong> Successfully argued for a Stay of Recovery, preventing the FBR from attaching bank accounts or properties during the pendency of the appeal.</li>
+                </ul>
+            </div>
+
+            <div class="swing-banner" style="background: linear-gradient(90deg, #dc2626, #b91c1c);">
+                ⚖️ Risk Mitigated: <span>Rs. 35.8 Million</span> in assets protected.
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== CASE STUDY 5: INTERNAL AUDIT PROCEDURE ========== -->
+    <div class="service-card filter-item" style="border-left-color: #2f855a;" id="case5" data-category="receivable-payables internal-audit" data-section="case-study">
+        <div class="service-content">
+            <div class="cs-title-row">
+                <h3 class="cs-title-text">
+                    <span class="cert-stamp-heading">Zero Leakage</span>
+                    Case Study 5: Designing Internal Audit Payment Procedure
+                </h3>
+                <div class="cs-title-actions">
+                    <a href="https://youtu.be/Rs7A47kdV5w?si=n4dXUkZu1Hr-laPz" target="_blank" class="watch-video-btn">▶ Watch on YouTube</a>
+                </div>
+            </div>
+            
+            <div class="comparison-grid" style="margin-top: 25px;">
+                <div class="stat-card bg-red">
+                    <span class="badge badge-red">Before Audit Implementation</span>
+                    <span class="amount red-text" style="font-size: 1.2em;">Payment Errors</span>
+                    <strong style="font-size: 0.9em; color: #555;">Lack of Document Linkage</strong>
+                    <p style="font-size: 0.85rem; text-align: left; margin-top: 15px; color: #333;">Prior to my intervention, the payment process was manual and disconnected. There were errors in payments, risks of double payments, and no verification mechanism to ensure quantities or rates matched the Purchase orders.</p>
+                    <div class="img-stack" style="align-items: center; justify-content: center; background: #f1f1f1; border-radius: 4px;">
+                        <div style="text-align: center; color: #999; font-size: 0.9rem;"><span style="font-size: 2em;">❌</span><br>No Audit Trail Available</div>
+                    </div>
+                </div>
+                <div class="arrow-icon">➔</div>
+                <div class="stat-card bg-green">
+                    <span class="badge badge-green">After Audit Implementation</span>
+                    <div class="cert-stamp-text" style="font-size: 1.2em;">
+                        Zero Leakage
+                        <span class="stamp-sub">Complete Document Linkage</span>
+                    </div>
+                    <p style="font-size: 0.85rem; text-align: left; margin-top: 15px; color: #333;">I designed a Pre-Payment Audit System ensuring every document is linked with each other and verified before payment release.</p>
+                    <div class="img-stack">
+                        <div class="pdf-item-wrapper">
+                            <a href="images/GRN-1.jpg" target="_blank" class="pdf-img-link">
+                                <img src="images/GRN-1.jpg" alt="GRN">
+                                <span class="pdf-overlay-icon">3️⃣ View GRN</span>
+                            </a>
+                            <a href="GRN-1.pdf" class="pdf-download-btn" download>📥 Download GRN</a>
+                        </div>
+                        <div class="pdf-item-wrapper">
+                            <a href="images/Invoice-1.jpg" target="_blank" class="pdf-img-link">
+                                <img src="images/Invoice-1.jpg" alt="Invoice">
+                                <span class="pdf-overlay-icon">4️⃣ View Invoice</span>
+                            </a>
+                            <a href="Invoice-1.pdf" class="pdf-download-btn" download>📥 Download Invoice</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cs3-strategy-box">
+                <h3>⚙️ The 7-Step Document Flow Mechanism for completion of documents and payment accuracy</h3>
+                <p style="font-size: 0.9rem; margin-bottom: 10px;">I implemented a sequential verification process where each document feeds data into the next document, and all documents are linked with Purchase order, preventing manual errors:</p>
+                <ol style="margin: 0; padding-left: 20px; color: #333; line-height: 1.8; font-size: 0.9rem;">
+                    <li><strong>Purchase Order (PO):</strong> Sets the initial main document as a contract (i.e. Item + Rate).</li>
+                    <li><strong>Delivery Challan:</strong> Vendor submits Delivery Challan after delivery.</li>
+                    <li><strong>GRN:</strong> System <strong>auto-collects Item Name & Quantity</strong> from PO.</li>
+                    <li><strong>Sale Invoice:</strong> Vendor submits; System <strong>auto-picks Rate from PO</strong>.</li>
+                    <li><strong>Purchase Invoice:</strong> GRN is updated for invoice number because quantity and rate is already linked from PO, Invoice Posted to Party Ledger.</li>
+                    <li><strong>Exemption/WHT:</strong> Tax deducted as per law.</li>
+                    <li><strong>Payment Voucher:</strong> Final payment after 100% verification.</li>
+                </ol>
+            </div>
+            <div class="swing-banner" style="background: linear-gradient(90deg, #2f855a, #276749);">✅ Achievements: <span>Payment Accuracy Ensured</span> | <span>Zero Double Payments</span> | <span>Complete Audit Trail</span></div>
+        </div>
+    </div>
+
+    <!-- ========== CASE STUDY 7: CLOUD ERP SOFTWARE OVERVIEW ========== -->
+    <div class="service-card filter-item" style="border-left-color: #6366f1;" id="case7" data-category="miscellaneous" data-section="case-study">
+        <div class="service-content">
+            <div class="cs-title-row">
+                <h3 class="cs-title-text">
+                    <span class="cert-stamp-heading">Cloud Deployed</span>
+                    Case Study 7: Cloud-Based (Web-Based) ERP Implementation & Dashboard Automation
+                </h3>
+                <div class="cs-title-actions">
+                    <a href="https://youtu.be/kdLSQflv9xs?si=nA4Op6ZRistUF8NL" target="_blank" class="watch-video-btn">▶ Watch on YouTube</a>
+                </div>
+            </div>
+            
+            <div class="cs3-challenge-box" style="margin-top: 20px; border-left-color: #6366f1;">
+                <h3 style="color: #6366f1;">📉 The Challenge: Desktop-Based Accounting & Non Intergration of documents and Modules</h3>
+                <p>The client was reliant on traditional, locally-installed accounting software. Financial data was locked to specific local computers, making remote access impossible. Manual report generation caused delays, and the lack of live dashboards mean management could not monitor cash flows or general ledger positions in real-time.</p>
+            </div>
+
+            <div class="comparison-grid" style="margin-top:0;">
+                <!-- BEFORE CARD -->
+                <div class="stat-card bg-red">
+                    <span class="badge badge-red">Before ( Desktop Based )</span>
+                    <span class="amount red-text" style="font-size: 1.2em;">Localized Data</span>
+                    <strong style="font-size: 0.9em; color: #555;">No Remote Access</strong>
+                    <p style="font-size: 0.85rem; text-align: left; margin-top: 15px; color: #333;">Financial data was locked to office computers. Manual reporting caused delays, with zero visibility into real-time cash flows or GL positions.</p>
+                    <div class="img-stack" style="align-items: center; justify-content: center; background: #f1f1f1; border-radius: 4px;">
+                        <div style="text-align: center; color: #999; font-size: 0.9rem;"><span style="font-size: 2em;">💻🔒</span><br>Office-Only Access<br>Manual Excel Reporting</div>
+                    </div>
+                </div>
+
+                <div class="arrow-icon">➔</div>
+
+                <!-- AFTER CARD -->
+                <div class="stat-card bg-green">
+                    <span class="badge badge-green">After ( Cloud ERP-Web Based )</span>
+                    <div class="cert-stamp-text" style="font-size: 1.2em;">
+                        Live Visibility
+                        <span class="stamp-sub">Access From Anywhere</span>
+                    </div>
+                    <p style="font-size: 0.85rem; text-align: left; margin-top: 15px; color: #333;">Deployed a fully Cloud-Based (Web-Based) ERP system. Real-time visual dashboards and automated reporting replaced manual summaries instantly.</p>
+                    <div class="img-stack" style="min-height: 160px;">
+                        <div class="pdf-item-wrapper">
+                            <a href="images/Dashboard-1.png" target="_blank" class="pdf-img-link">
+                                <img src="images/Dashboard-1.png" alt="Dashboard 1">
+                                <span class="pdf-overlay-icon">📊 View Dashboard 1</span>
+                            </a>
+                        </div>
+                        <div class="pdf-item-wrapper">
+                            <a href="images/Dashboard-2.png" target="_blank" class="pdf-img-link">
+                                <img src="images/Dashboard-2.png" alt="Dashboard 2">
+                                <span class="pdf-overlay-icon">📊 View Dashboard 2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cs3-strategy-box">
+                <h3>🛠️ My Strategy: Cloud Based or Web-Based ERP Deployment</h3>
+                <ul class="cs3-strategy-list">
+                    <li><strong>Cloud Data Migration:</strong> Deployed a fully Cloud-Based ERP system accessible securely from anywhere, eliminating the dependency on physical office computers.</li>
+                    <li><strong>Modern Tech Integration:</strong> Implemented a robust system utilizing HTML, CSS, and Java for front-end experience, powered by SQL backend (MSSQL) for high-speed data processing and absolute reliability.</li>
+                    <li><strong>Live Executive Dashboards:</strong> Replaced manual reporting with real-time visual dashboards, providing instant visibility into financial health, GL balances, and budget variances.</li>
+                </ul>
+            </div>
+
+            <h4 style="margin-top: 30px; margin-bottom: 10px; color: #002d5b;">System Interface & Reporting Evidence:</h4>
+            <div class="cs7-evidence-grid">
+                <div class="pdf-item-wrapper">
+                    <a href="images/GL-1.jpeg" target="_blank" class="pdf-img-link"><img src="images/GL-1.jpeg" alt="General Ledger 1"><span class="pdf-overlay-icon">📒 GL 1</span></a>
+                    <div class="square-stamp-badge">Bank Book 1</div>
+                </div>
+                <div class="pdf-item-wrapper">
+                    <a href="images/GL-2.jpeg" target="_blank" class="pdf-img-link"><img src="images/GL-2.jpeg" alt="General Ledger 2"><span class="pdf-overlay-icon">📒 GL 2</span></a>
+                    <div class="square-stamp-badge">Bank Book 2</div>
+                </div>
+            </div>
+            <div class="cs7-evidence-grid" style="margin-top: 15px;">
+                <div class="pdf-item-wrapper">
+                    <a href="images/Reports-2.png" target="_blank" class="pdf-img-link"><img src="images/Reports-2.png" alt="Report 2"><span class="pdf-overlay-icon">📑 Report 2</span></a>
+                    <div class="square-stamp-badge">P&L Snapshot</div>
+                </div>
+                <div class="pdf-item-wrapper">
+                    <a href="images/Reports-3.png" target="_blank" class="pdf-img-link"><img src="images/Reports-3.png" alt="Report 3"><span class="pdf-overlay-icon">📑 Report 3</span></a>
+                    <div class="square-stamp-badge">Customer & Supplier</div>
+                </div>
+            </div>
+
+            <div class="swing-banner" style="background: linear-gradient(90deg, #6366f1, #4f46e5);">
+                🗂️ Impact: <span>Access From Anywhere</span> | <span>Enterprise SQL Backend</span> | <span>Real-Time Dashboards</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== SEQUENCE 2: WORK SAMPLE GALLERY ==================== -->
+    
+    <div class="visual-grid-section" id="work-gallery">
+        <h2>Work Sample Gallery</h2>
+        <p style="color: #555; margin-bottom: 20px;">A selection of compliance records and financial documents showcasing accuracy and process efficiency. <br><em style="font-size: 0.85em; color: #888;">Client confidentiality is paramount. All names and sensitive identifiers have been redacted in these samples.</em></p>
+
+        <div class="visual-grid">
+            
+            <!-- CARD 1 -->
+            <div class="v-grid-card filter-item" data-category="income-tax" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">1</span>
+                    <img src="images/CHALLAN-SUPPLIES-1.jpg" alt="Challan Supplies 1">
+                    <div class="square-stamp-badge">Rs. 1.88M Processed</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>WHT Supplies Challan</h4>
+                    <p>Seamless processing of vendor payments with 100% tax deduction accuracy under Section 153(1)(a).</p>
+                    <a href="CHALLAN-SUPPLIES-1.pdf" class="v-grid-btn" target="_blank">View PDF File</a>
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="v-grid-card filter-item" data-category="income-tax" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">2</span>
+                    <img src="images/CHALLAN-Salary-1.jpg" alt="Challan Salary 1">
+                    <div class="square-stamp-badge">100% Compliance</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Salary Tax Compliance</h4>
+                    <p>Accurate calculation and deposit of Salary Withholding Tax, ensuring full compliance with FBR regulations.</p>
+                    <a href="CHALLAN-Salary-1.pdf" class="v-grid-btn" target="_blank">View PDF File</a>
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="v-grid-card filter-item" data-category="income-tax" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">3</span>
+                    <img src="images/Director's-Tax-Return.jpg" alt="Director's Tax Return">
+                    <div class="square-stamp-badge">Taxable Income Rs. 16.6M</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Director's Annual Income Tax Return (TY 2023)</h4>
+                    <p>Complex Director Return involving Capital Gains, Exports & Wealth Reconciliation. Secured Rs. 357,804 Refund Status.</p>
+                    <a href="Director's-Tax-Return.pdf" class="v-grid-btn" target="_blank">View PDF File</a>
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="v-grid-card filter-item" data-category="sales-tax" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">4</span>
+                    <img src="images/Annual-Sales-Tax-Reconciliation.jpg" alt="Annual Sales Tax Reconciliation">
+                    <div class="square-stamp-badge">Rs. 144.6M Revenue</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Annual Sales Tax Reconciliation</h4>
+                    <p>Reconciliation of Purchase and Sales data for annual accounts and tax returns, ensuring 100% accuracy between books and FBR returns.</p>
+                    <a href="Annual-Sales-Tax-Reconciliation.xlsx" class="v-grid-btn" target="_blank">View Excel File</a>
+                </div>
+            </div>
+
+            <!-- CARD 5 -->
+            <div class="v-grid-card filter-item" data-category="sales-tax" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">5</span>
+                    <img src="images/Sales-Tax-Return-Mar'24.jpg" alt="Sales Tax Return Mar 2024">
+                    <div class="square-stamp-badge">Zero Penalty Risk</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Sales Tax Return (Mar 2024)</h4>
+                    <p>Executed Input-Output tax adjustments. <strong>Filed before the deadline</strong> to guarantee <strong>Zero Penalty Risk</strong> and maintain 100% FBR compliance.</p>
+                    <a href="Sales-Tax-Return-Mar'24.pdf" class="v-grid-btn" target="_blank">View PDF File</a>
+                </div>
+            </div>
+
+            <!-- CARD 6: Bank Alfalah - Current Account -->
+            <div class="v-grid-card filter-item" data-category="miscellaneous" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">6</span>
+                    <img src="images/Ledger-BAFL-CURRENT.jpg" alt="Bank Alfalah Current Ledger">
+                    <div class="square-stamp-badge">100% Balance Matched</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Bank Alfalah - Current A/c Reconciliation</h4>
+                    <p>Reconciled Current Account ledger / Bank Book with Bank Statement for period Jul'25 - Apr'26. Identified discrepancies and ensured perfect balance matching. All reconciliation items were cleared</p>
+                    <div class="v-grid-download-wrapper">
+                        <div class="v-grid-dropdown">
+                            <a href="images/Ledger-BAFL-CURRENT.jpg" target="_blank">📷 View Ledger Screenshot</a>
+                            <a href="Bank-Statement-BAFL-Current.pdf" target="_blank">📄 View Bank Statement PDF</a>
+                            <a href="Bank-Reconciliation-Statement-Current.xlsx" target="_blank">📊 Download Excel Reconciliation</a>
+                        </div>
+                        <a class="v-grid-download-main">📥 View Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 7: Bank Alfalah - Saving Account -->
+            <div class="v-grid-card filter-item" data-category="miscellaneous" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">7</span>
+                    <img src="images/Ledger-BAFL-Saving.jpg" alt="Bank Alfalah Saving Ledger">
+                    <div class="square-stamp-badge">100% Balance Matched</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Bank Alfalah - Saving A/c Reconciliation</h4>
+                    <p>Reconciled Saving Account ledger / Bank Book with Bank Statement. Verified interest calculations and cleared outstanding checks for accurate closing balance. All reconciliation items were cleared</p>
+                    <div class="v-grid-download-wrapper">
+                        <div class="v-grid-dropdown">
+                            <a href="images/Ledger-BAFL-Saving.jpg" target="_blank">📷 View Ledger Screenshot</a>
+                            <a href="Bank-Statement-BAFL-Saving.pdf" target="_blank">📄 View Bank Statement PDF</a>
+                            <a href="Bank-Reconciliation-Statement-Saving.xlsx" target="_blank">📊 Download Excel Reconciliation</a>
+                        </div>
+                        <a class="v-grid-download-main">📥 View Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 8: INTERNAL AUDIT -->
+            <div class="v-grid-card filter-item" data-category="receivable-payables internal-audit" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">8</span>
+                    <img src="images/Payment-Voucher.jpg" alt="Payment Audit Documentation">
+                    <div class="square-stamp-badge">Pre-Payment Audit System</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Internal Audit: Payment Accuracy</h4>
+                    <p>Designed a Pre-Payment Audit System linking <strong>PO → GRN → Invoice</strong>. Rates auto-picked from PO and quantity from GRN, eliminating manual errors and ensuring zero duplication.</p>
+                    <div class="v-grid-download-wrapper">
+                        <div class="v-grid-dropdown">
+                            <a href="Purchase-Order.pdf" target="_blank">1. 📄 Purchase Order (PO)</a>
+                            <a href="Delivery-Challan-1.pdf" target="_blank">2a. 🚚 Delivery Challan 1</a>
+                            <a href="Delivery-Challan-2.pdf" target="_blank">2b. 🚚 Delivery Challan 2</a>
+                            <a href="GRN-1.pdf" target="_blank">3a. 📦 GRN 1 (Qty Match)</a>
+                            <a href="GRN-2.pdf" target="_blank">3b. 📦 GRN 2 (Qty Match)</a>
+                            <a href="Invoice-1.pdf" target="_blank">4a. 🧾 Invoice 1</a>
+                            <a href="Invoice-2.pdf" target="_blank">4b. 🧾 Invoice 2</a>
+                            <a href="Exemption.pdf" target="_blank">5. 📋 Tax Exemption / WHT</a>
+                            <a href="Party-Ledger.pdf" target="_blank">6. 📖 Party Ledger</a>
+                            <a href="Payment-Voucher.pdf" target="_blank">7. 💳 Payment Voucher</a>
+                        </div>
+                        <a class="v-grid-download-main">📂 View Audit Trail</a>
+                    </div>
+                    <a href="https://youtu.be/Rs7A47kdV5w?si=n4dXUkZu1Hr-laPz" target="_blank" class="watch-video-btn watch-video-btn-full">▶ Watch on YouTube</a>
+                </div>
+            </div>
+
+            <!-- CARD 9: CLOUD ERP OVERVIEW (EVIDENCE VAULT) -->
+            <div class="v-grid-card filter-item" data-category="miscellaneous" data-section="work-gallery">
+                <div class="v-grid-thumb">
+                    <span class="v-grid-num-badge">9</span>
+                    <img src="images/Dashboard-1.png" alt="ERP Software Overview">
+                    <div class="square-stamp-badge">Cloud-Based Software</div>
+                </div>
+                <div class="v-grid-content">
+                    <h4>Cloud-Based (Web-Based) ERP Implementation</h4>
+                    <p>Migrated client from desktop-based accounting to a fully Cloud-Based ERP. Accessible anywhere via HTML/CSS/Java front-end & SQL/MSSQL backend. Live dashboards, automated GL , and instant report generation replaced manual delays.</p>
+                    <div class="v-grid-download-wrapper">
+                        <div class="v-grid-dropdown">
+                            <a href="images/Dashboard-1.png" target="_blank">1. 📊 Executive Dashboard - Cash & Bank Position and Profit & Loss</a>
+                            <a href="images/Dashboard-2.png" target="_blank">2. 📊 Executive Dashboard - Receivable, Payable and Sales</a>
+                            <a href="images/GL-1.jpeg" target="_blank">3. 📒 Bank Book-1</a>
+                            <a href="images/GL-2.jpeg" target="_blank">4. 📒 Bank Book-2</a>
+                            <a href="images/Reports-2.png" target="_blank">5. 📑 Automated Report - P&L Snapshot</a>
+                            <a href="images/Reports-3.png" target="_blank">6. 📑 Automated Report - Customer & Supplier</a>
+                            <a href="Trial-Balance.pdf" target="_blank">7. ⚖️ Trial Balance Verification (PDF)</a>
+                        </div>
+                        <a class="v-grid-download-main">🔐 View Evidence Vault</a>
+                    </div>
+                    <a href="https://youtu.be/kdLSQflv9xs?si=nA4Op6ZRistUF8NL" target="_blank" class="watch-video-btn watch-video-btn-full">▶ Watch on YouTube</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ==================== SEQUENCE 3: QUICK ACHIEVEMENTS ==================== -->
+    
+    <div class="linear-achievements-section" id="achievement-strip">
+        <h2>⚡ Quick Achievements</h2>
+        <p style="color: #555; margin-bottom: 20px;">A results-oriented log of compliance filings and strategic actions delivering instant value. <br><em style="font-size: 0.85em; color: #888;">Designed to showcase immediate business impact and risk mitigation capabilities.</em></p>
+
+        <table class="achievement-table">
+            <thead>
+                <tr>
+                    <th style="width: 25%;">📄 File Name</th>
+                    <th style="width: 25%;">📋 Purpose</th>
+                    <th style="width: 35%;">🎯 Result / Impact / Achievement</th>
+                    <th style="width: 15%;">🔗 Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ROW 1 -->
+                <tr class="filter-item" data-category="income-tax" data-section="achievement-strip">
+                    <td class="td-filename" data-title="File:"><span class="qa-num-badge">1</span>Annual Employer Statement (Salaries) Year 2009 2010</td>
+                    <td class="td-purpose" data-title="Purpose:">Employer Statement u/s 165 for Salary Withholding u/s 149 submitted to IT Dept.</td>
+                    <td class="td-impact" data-title="Impact:"><span class="qa-result-ribbon">🛡️ 100% Compliance</span> Avoided legal notices and ensured zero default risk for salary tax deductions.</td>
+                    <td class="td-action" data-title="Action:"><a href="Annual-Employer-Statement-(Salaries)-Year-2009-2010.pdf" target="_blank">View File</a></td>
+                </tr>
+                <!-- ROW 2 -->
+                <tr class="filter-item" data-category="income-tax" data-section="achievement-strip">
+                    <td class="td-filename" data-title="File:"><span class="qa-num-badge">2</span>ePayments Template Supplies Jan 24</td>
+                    <td class="td-purpose" data-title="Purpose:">Automated deposit template for Withholding Tax u/s 153 on supplies for FBR portal.</td>
+                    <td class="td-impact" data-title="Impact:"><span class="qa-result-ribbon">⏱️ 80% Time Saved</span> Eliminated manual data entry errors and enabled instant bulk file upload to FBR.</td>
+                    <td class="td-action" data-title="Action:"><a href="ePayments-Template-Supplies-Jan-24.xls" target="_blank">View File</a></td>
+                </tr>
+                <!-- ROW 3 -->
+                <tr class="filter-item" data-category="income-tax internal-audit" data-section="achievement-strip">
+                    <td class="td-filename" data-title="File:"><span class="qa-num-badge">3</span>Reconciliation of Monitoring of WHT July 2019 to June 2020</td>
+                    <td class="td-purpose" data-title="Purpose:">Annual WHT Monitoring & Reconciliation statement required by FBR for audit.</td>
+                    <td class="td-impact" data-title="Impact:"><span class="qa-result-ribbon">✅ Audit Cleared</span> Successfully cleared FBR's annual withholding tax audit without raising any penalties.</td>
+                    <td class="td-action" data-title="Action:"><a href="Reconciliation-of-Monitoring-of-WHT-July-2019-to-June-2020.xlsx" target="_blank">View File</a></td>
+                </tr>
+                <!-- ROW 4 -->
+                <tr class="filter-item" data-category="sales-tax" data-section="achievement-strip">
+                    <td class="td-filename" data-title="File:"><span class="qa-num-badge">4</span>Sales Tax Nov 2022</td>
+                    <td class="td-purpose" data-title="Purpose:">Monthly Sales Tax Return filed with FBR for November 2022.</td>
+                    <td class="td-impact" data-title="Impact:"><span class="qa-result-ribbon">🏆 Zero Penalty</span> Executed input-output adjustments seamlessly and filed before deadline to maintain clean compliance.</td>
+                    <td class="td-action" data-title="Action:"><a href="Sales-Tax Nov-2022.pdf" target="_blank">View File</a></td>
+                </tr>
+                <!-- ROW 5 -->
+                <tr class="filter-item" data-category="income-tax" data-section="achievement-strip">
+                    <td class="td-filename" data-title="File:"><span class="qa-num-badge">5</span>Withholding Statement (Parties) Year 2009 2010</td>
+                    <td class="td-purpose" data-title="Purpose:">Annual statement of deductions for parties/vendors u/s 165 submitted to FBR.</td>
+                    <td class="td-impact" data-title="Impact:"><span class="qa-result-ribbon">📜 100% Transparency</span> Ensured complete legal compliance and protected client from FBR discrepancies.</td>
+                    <td class="td-action" data-title="Action:"><a href="WithholdingStatement-(Parties)-Year-2009-2010.pdf" target="_blank">View File</a></td>
+                </tr>
+                <!-- ROW 6 -->
+                <tr class="filter-item" data-category="miscellaneous cost-reduction-recovery" data-section="achievement-strip">
+                    <td class="td-filename" data-title="File:"><span class="qa-num-badge">6</span>ANNEX A IOCO</td>
+                    <td class="td-purpose" data-title="Purpose:">Documentation for obtaining import quota from IOCO-FBR for reduced custom duties.</td>
+                    <td class="td-impact" data-title="Impact:"><span class="qa-result-ribbon">📉 Cost Reduced</span> Successfully secured import quota qualifying client for significantly reduced custom duty rates.</td>
+                    <td class="td-action" data-title="Action:"><a href="ANNEX-A-IOCO.pdf" target="_blank">View File</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <!-- MERGED CALL TO ACTION SECTION -->
+    <h2 style="text-align: center; margin-bottom: 10px; margin-top: 60px; border-bottom: none;">How Can I Help You?</h2>
+    <p style="text-align: center; color: #555; margin-bottom: 30px;">Choose the service that fits your current needs.</p>
+
+    <div class="cta-aligned-grid">
+        <div class="cta-card" style="border-color: #2f855a;">
+            <h3 style="color: #2f855a; margin-top: 0;">Ready to Turn Your Tax Liability into a Refund?</h3>
+            <p>Don't let your hard-earned money stay with the FBR due to oversight and wrong filings. Let's review your previous filings and optimize your future returns for maximum savings.</p>
+            <a href="contact.html" class="btn-contact" style="background-color: #2f855a;">Book a Professional Tax Review</a>
+        </div>
+        <div class="cta-card" style="border-color: #c53030;">
+            <h3 style="color: #c53030; margin-top: 0;">Facing a Tax Crisis or Notice?</h3>
+            <p>Don't panic. I specialize in resolving high-value FBR disputes and obtaining stays against harsh recovery actions.</p>
+            <a href="contact.html" class="btn-contact" style="background-color: #c53030;">Book a Crisis Consultation</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>&copy; 2026 Shahzad Anjum Tax & Accounts. All Rights Reserved.</footer>
+
+<!-- Tools Drawer -->
+<div id="toolsDrawer" style="position:fixed; top:0; right:-400px; width:350px; height:100%; background:white; z-index:99999; box-shadow:-5px 0 25px rgba(0,0, 0, 0.3); transition:0.5s; overflow-y:auto; padding:20px; font-family:sans-serif; border-left:5px solid #002d5b;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:2px solid #ff9900; padding-bottom:10px;">
+        <h2 style="color:#002d5b; margin:0; font-size:20px;">Check Your Business Health</h2>
+        <button onclick="closeTools()" style="background:#d63031; color:white; border:none; padding:5px 10px; cursor:pointer; font-weight:bold; border-radius:4px;">X</button>
+    </div>
+    <p style="text-align:center; color:#999; font-size:11px;">More professional tools being added...</p>
+</div>
+
+<style>
+    #ai-bot-trigger { position: fixed; bottom: 25px; right: 25px; width: 240px; background: #002d5b; color: white; padding: 12px; border-radius: 15px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 12px; z-index: 9999; font-family: 'Segoe UI', sans-serif; border: 1px solid rgba(255,255,255,0.2); }
+    .live-status { font-size: 10px; color: #00ff88; font-weight: bold; display: flex; align-items: center; gap: 5px; margin-bottom: 2px; }
+    .blink { width: 8px; height: 8px; background-color: #00ff88; border-radius: 50%; animation: blinker 1.5s linear infinite; }
+    .bot-text { font-size: 13px; line-height: 1.2; font-weight: 600; }
+    #ai-chat-window { display: none; position: fixed; bottom: 100px; right: 25px; width: 350px; background: white; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.2); z-index: 10000; overflow: hidden; font-family: 'Segoe UI', sans-serif; border: 1px solid #002d5b; }
+    .chat-header { background: #002d5b; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .chat-body { display: flex; flex-direction: column; height: 320px; padding: 15px; overflow-y: auto; background: #f8f9fa; }
+</style>
+
+<div id="ai-bot-trigger" onclick="toggleChat()">
+    <div style="font-size: 35px;">👨‍💼</div>
+    <div>
+        <div class="live-status"><span class="blink"></span> ONLINE LIVE</div>
+        <div class="bot-text">Talk to Shahzad Anjum's<br>Smart AI Assistant</div>
+    </div>
+</div>
+
+<div id="ai-chat-window">
+    <div class="chat-header">
+        <span>Shahzad Anjum's AI Assistant</span>
+        <span onclick="toggleChat()" style="cursor:pointer">▼</span>
+    </div>
+    <div class="chat-body" id="chat-content"></div>
+    <div id="input-area" style="padding: 12px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white;">
+        <input type="text" id="user-input" placeholder="Write your reply..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
+        <button onclick="handleUserReply()" style="background: #002d5b; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold;">Send</button>
+    </div>
+    <div style="padding: 10px; border-top: 1px solid #eee; text-align: center; background: white;">
+        <button onclick="resetFullChat()" style="background: #ff4757; color: white; border: none; padding: 6px 15px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold;">Restart Conversation</button>
+    </div>
+</div>
+
+<script>
+    // Tools Drawer
+    function openTools() { document.getElementById("toolsDrawer").style.right = "0"; }
+    function closeTools() { document.getElementById("toolsDrawer").style.right = "-400px"; }
+
+    // AI Chat Logic
+    let currentStep = 0;
+    const botLayers = ["Assalam-o-Alaikum! I am Mr. Shahzad's smart AI Assistant. Nice to meet u, how can i help you with your taxes or accounts?", "What is your requirement? (Tax, Audit or Accounts?)", "Please provide your inquiry in detail.", "<strong>Thank you!</strong><br><br>Please contact Mr. Shahzad directly on WhatsApp: <br><span style='color:#25d366; font-size: 1.2em;'>0304-2868243</span><br><br>Redirecting you to the Contact Page in 5 seconds..."];
+    function toggleChat() { const win = document.getElementById("ai-chat-window"); win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none"; if (win.style.display === "block" && currentStep === 0) triggerBot(); }
+    function triggerBot() { if (currentStep < botLayers.length) { const container = document.getElementById("chat-content"); const bubble = document.createElement("div"); bubble.style.cssText = "align-self:flex-start; background:#e9ecef; color:#333; padding:12px; margin:8px 0; border-radius:12px 12px 12px 2px; font-size:13px; max-width:85%; border-left:4px solid #ff9900;"; bubble.innerHTML = botLayers[currentStep]; container.appendChild(bubble); container.scrollTop = container.scrollHeight; if (currentStep === botLayers.length - 1) { document.getElementById("input-area").style.display = "none"; setTimeout(() => { window.location.href = "contact.html"; }, 5000); } currentStep++; } }
+    function handleUserReply() { const inputField = document.getElementById("user-input"); const val = inputField.value.trim(); if (val !== "" && currentStep < botLayers.length) { const container = document.getElementById("chat-content"); const userBubble = document.createElement("div"); userBubble.style.cssText = "align-self:flex-end; background:#002d5b; color:white; padding:12px; margin:8px 0; border-radius:12px 12px 2px 12px; font-size:13px; max-width:85%; text-align:right;"; userBubble.innerText = val; container.appendChild(userBubble); inputField.value = ""; container.scrollTop = container.scrollHeight; setTimeout(triggerBot, 800); } }
+    function resetFullChat() { document.getElementById("chat-content").innerHTML = ""; document.getElementById("input-area").style.display = "flex"; currentStep = 0; triggerBot(); }
+    document.getElementById("user-input")?.addEventListener("keypress", (e) => { if (e.key === "Enter") handleUserReply(); });
+    document.onkeydown = (e) => { if(e.key === 'Enter') handleUserReply(); };
+    
+    /* --- CASE STUDY 3 SCRIPTS --- */
+    function openCs3Tab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
+        tablinks = document.getElementsByClassName("cs3-tab-btn");
+        for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    /* --- SECTION TOGGLE LOGIC --- */
+    let sectionStates = {
+        'case-study': true,
+        'work-gallery': true,
+        'achievement-strip': true 
+    };
+
+    function toggleSection(section, btn) {
+        sectionStates[section] = !sectionStates[section];
+        btn.classList.toggle('active');
+        var items = document.querySelectorAll('[data-section="' + section + '"]');
+        items.forEach(function(item) {
+            if (sectionStates[section]) {
+                item.classList.remove('section-hidden');
+            } else {
+                item.classList.add('section-hidden');
+            }
+        });
+        applyFilters();
+        updateDynamicHeader();
+    }
+
+    function updateDynamicHeader() {
+        var header = document.getElementById('dynamic-header');
+        var caseStudiesOn = sectionStates['case-study'];
+        var galleryOn = sectionStates['work-gallery'];
+        var achievementsOn = sectionStates['achievement-strip']; 
+        
+        var activeSections = [];
+        if (caseStudiesOn) activeSections.push("Case Studies");
+        if (galleryOn) activeSections.push("Work Gallery");
+        if (achievementsOn) activeSections.push("Quick Achievements");
+        
+        if (activeSections.length === 0) {
+            header.textContent = "Select Content Type Above";
+        } else if (activeSections.length === 1) {
+            header.textContent = activeSections[0];
+        } else if (activeSections.length === 2) {
+            header.textContent = activeSections[0] + " & " + activeSections[1];
+        } else if (activeSections.length === 3) {
+            header.textContent = activeSections[0] + ", " + activeSections[1] + " & " + activeSections[2];
+        }
+    }
+
+    /* --- MULTI-SELECT FILTERING LOGIC --- */
+    let activeFilters = new Set();
+
+    function toggleFilter(c) {
+        if (c === 'all') {
+            activeFilters.clear();
+            document.querySelectorAll('.quick-jump-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector('.quick-jump-btn[onclick="toggleFilter(\'all\')"]').classList.add('active');
+        } else {
+            if (activeFilters.has(c)) {
+                activeFilters.delete(c);
+            } else {
+                activeFilters.add(c);
+            }
+            // Update "Show All" button state
+            var allBtn = document.querySelector('.quick-jump-btn[onclick="toggleFilter(\'all\')"]');
+            if (activeFilters.size === 0) {
+                allBtn.classList.add('active');
+            } else {
+                allBtn.classList.remove('active');
+            }
+        }
+        
+        // Update active class on buttons
+        document.querySelectorAll('.quick-jump-btn').forEach(btn => {
+            var onclickStr = btn.getAttribute('onclick');
+            if (onclickStr && onclickStr.includes("'") && !onclickStr.includes("'all'")) {
+                var match = onclickStr.match(/'([^']+)'/);
+                if (match && match[1]) {
+                    if (activeFilters.has(match[1])) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                }
+            }
+        });
+
+        applyFilters();
+    }
+
+    function applyFilters() {
+        var items = document.getElementsByClassName("filter-item");
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            
+            // If section is hidden, override filter
+            if (item.classList.contains('section-hidden')) { 
+                removeClass(item, "show"); 
+                continue; 
+            }
+
+            var itemCategory = item.getAttribute('data-category');
+            var shouldShow = false;
+
+            if (activeFilters.size === 0) {
+                shouldShow = true; // Show all if no specific filters are active
+            } else {
+                // Check if any of the item's categories match any of the active filters
+                if (itemCategory) {
+                    var cats = itemCategory.split(' ');
+                    for (var j = 0; j < cats.length; j++) {
+                        if (activeFilters.has(cats[j])) {
+                            shouldShow = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (shouldShow) { 
+                addClass(item, "show"); 
+            } else { 
+                removeClass(item, "show"); 
+            }
+        }
+    }
+
+    function addClass(element, name) { var i, arr1, arr2; arr1 = element.className.split(" "); arr2 = name.split(" "); for (i = 0; i < arr2.length; i++) { if (arr1.indexOf(arr2[i]) == -1) { element.className += " " + arr2[i]; } } }
+    function removeClass(element, name) { var i, arr1, arr2; arr1 = element.className.split(" "); arr2 = name.split(" "); for (i = 0; i < arr2.length; i++) { while (arr1.indexOf(arr2[i]) > -1) { arr1.splice(arr1.indexOf(arr2[i]), 1); } } element.className = arr1.join(" "); }
+
+    // Initialize "Show All" on page load
+    window.onload = function() {
+        applyFilters();
+        updateDynamicHeader();
+        
+        const afterCtx = document.getElementById('afterChart').getContext('2d');
+        new Chart(afterCtx, {
+            type: 'bar',
+            data: { labels: ['Recovery (82.5%)', 'Payables (81%)'], datasets: [{ label: '%', data: [82.5, 81.0], backgroundColor: ['#2f855a', '#d4af37'], borderRadius: 2 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { display: false, max: 100 }, x: { grid: { display: false } } } }
+        });
+
+        const mainCtx = document.getElementById('mainChart').getContext('2d');
+        new Chart(mainCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Total Inflow', 'Toll Mfg', 'Promo', 'Region 1'],
+                datasets: [{ label: 'Target (M)', data: [59.5, 31.6, 5.17, 5.0], backgroundColor: '#e2e8f0', borderRadius: 2 }, { label: 'Actual (M)', data: [49.1, 25.3, 6.45, 4.92], backgroundColor: '#2f855a', borderRadius: 2 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10 } } }, scales: { y: { beginAtZero: true, grid: { color: "#f1f5f9" } }, x: { grid: { display: false } } } }
+        });
+    };
+</script>
+
+</body>
+</html>

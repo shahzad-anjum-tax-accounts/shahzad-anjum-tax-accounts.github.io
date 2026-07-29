@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60-Second Business Health Test | Shahzad Anjum</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root { --navy: #001f3f; --gold: #D4AF37; --dark: #050505; --gray: #111; }
+        body { background: var(--dark); color: #eee; font-family: 'Segoe UI', sans-serif; margin: 0; line-height: 1.6; }
+        
+        /* HERO SECTION */
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #001f3f, #050505); border-bottom: 2px solid var(--gold); }
+        .hero h1 { color: var(--gold); font-size: 36px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .hero h2 { font-size: 20px; color: #fff; font-weight: 400; max-width: 700px; margin: 0 auto 20px auto; }
+        .hero p { color: #aaa; font-size: 14px; max-width: 600px; margin: 0 auto; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* CONTENT SECTIONS */
+        .grid-info { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; align-items: center; }
+        .info-card h3 { color: var(--gold); border-left: 4px solid var(--gold); padding-left: 15px; }
+        .risk-list { list-style: none; padding: 0; }
+        .risk-list li { padding: 10px 0; border-bottom: 1px solid #222; font-size: 15px; color: #ccc; }
+        .risk-list li b { color: #ff4757; }
+
+        /* THE TOOL AREA */
+        .tool-box { background: var(--gray); border: 2px solid #222; border-radius: 15px; padding: 30px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .tool-header { text-align: center; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        .main-tool-grid { display: grid; grid-template-columns: 350px 1fr; gap: 30px; }
+
+        /* INPUTS */
+        .input-group { background: #000; padding: 20px; border-radius: 10px; border: 1px solid #333; }
+        input.field { width: 100%; padding: 12px; background: #111; border: 1px solid #444; color: var(--gold); font-size: 16px; margin-bottom: 15px; box-sizing: border-box; }
+        .toggle-row { display: flex; gap: 5px; margin-bottom: 15px; }
+        .toggle-row input { display: none; }
+        .toggle-row label { flex: 1; padding: 10px; background: #222; text-align: center; font-size: 12px; cursor: pointer; border-radius: 4px; }
+        .toggle-row input:checked + label { background: var(--gold); color: #000; font-weight: bold; }
+
+        /* BUTTONS */
+        .btn-scan { width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 16px; border-radius: 5px; }
+        .btn-wa { display: inline-block; width: fit-content; margin: 40px auto; padding: 20px 40px; background: #25d366; color: white; text-decoration: none; font-weight: bold; border-radius: 50px; font-size: 18px; text-align: center; }
+
+        /* RESULTS BLUR & LOCK */
+        .blur-overlay { filter: blur(12px); pointer-events: none; }
+        #lockBox { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 100; display: none; flex-direction: column; justify-content: center; align-items: center; border-radius: 15px; }
+
+        /* ADVISOR SECTION */
+        .advisor-card { display: flex; background: #111; padding: 40px; border-radius: 15px; gap: 30px; margin-top: 60px; border: 1px solid #222; }
+        .advisor-img { width: 150px; height: 150px; border: 3px solid var(--gold); border-radius: 10px; object-fit: cover; }
+        
+        .metric-big { font-size: 48px; font-weight: bold; color: #fff; }
+
+        @media (max-width: 800px) { .grid-info, .main-tool-grid { grid-template-columns: 1fr; } .advisor-card { flex-direction: column; text-align: center; } }
+
+@keyframes pulse-gold {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+.pulse-btn {
+    animation: pulse-gold 2s infinite;
+}
+
+/* Gold Button Hover Glow */
+.pulse-btn:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* WhatsApp Button Hover Glow */
+.btn-wa-outline:hover {
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+    background: rgba(37, 211, 102, 0.05);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>60-Second Business Health Test</h1>
+    <h2>Discover Hidden Financial, Tax, and Cash-Flow Risks Before They Damage Your Business</h2>
+    <p>Used by business owners in Pakistan to detect compliance gaps, financial leakage, and operational weaknesses.</p>
+</section>
+
+<div class="container">
+    <div class="grid-info">
+        <div class="info-card">
+            <h3>Why Most Businesses Struggle</h3>
+            <p>Hidden risks often remain undetected until a legal or financial crisis hits:</p>
+            <ul class="risk-list">
+                <li>• <b>FBR Penalty:</b> Due to bank-sales statement mismatch</li>
+                <li>• <b>Cash-Flow:</b> Pressure damaging your business growth</li>
+                <li>• <b>Internal Controls:</b> Weak systems causing profit leakage</li>
+                <li>• <b>Labor Compliance:</b> Unregistered staff risks</li>
+            </ul>
+            <p style="color:var(--gold); font-weight:bold;">These risks cost businesses 5% – 12% of annual profit.</p>
+        </div>
+        <div class="info-card">
+            <h3>The Intelligence Scan</h3>
+            <p>The Business Risk Intelligence Scan analyzes six critical areas instantly:</p>
+            <ul class="risk-list">
+                <li>✅ Financial Leakage Detection</li>
+                <li>✅ Compliance Exposure Mapping</li>
+                <li>✅ Industry Performance Gaps</li>
+                <li>✅ Strategic Recovery Priorities</li>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div class="advisor-card">
+        <img src="images/selfie.jpeg" class="advisor-img" alt="Shahzad Anjum">
+        <div>
+            <h2 style="margin-top:0; color:var(--gold);">Shahzad Anjum</h2>
+            <p style="font-weight:bold; color:#fff;">Business Risk & Finance Expert</p>
+            <p>Specializing in financial controls, tax risk management, and business performance improvement with over 20 years of corporate experience.</p>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; font-size: 13px;">
+                <span>• Corporate finance expert</span>
+                <span>• Tax compliance advisory</span>
+                <span>• Internal control systems</span>
+                <span>• Business risk diagnostics</span>
+            </div>
+        </div>
+    </div>
+
+<div style="text-align:center; margin-top:60px; padding:60px 20px; border-top:1px solid #222;">
+    <h3 style="color:var(--gold); margin-top:0;">Is your business at risk?</h3>
+    <p style="color:#aaa; margin-bottom: 30px;">Reduce risk. Strengthen financial control. Improve business stability.</p>
+    
+    <div style="display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: wrap; margin-bottom: 40px;">
+        <a href="Business-Risk-Dashboard.html" class="pulse-btn" style="display:inline-block; background:var(--gold); color:#000; padding:18px 40px; text-decoration:none; font-weight:bold; border-radius:5px; font-size:16px; text-transform: uppercase;">
+            🚀 Open Business Risk Dashboard
+        </a>
+
+        <a href="https://wa.me/923042868243?text=Consultation" class="btn-wa-outline" style="display:inline-block; background:transparent; color:#25d366; padding:18px 40px; text-decoration:none; font-weight:bold; border-radius:5px; font-size:16px; border: 2px solid #25d366; text-transform: uppercase;">
+            💬 WhatsApp Consultation
+        </a>
+    </div>
+
+    <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #111; color: #444; font-size: 13px; letter-spacing: 1px;">
+        &copy; 2026 SHAHZAD ANJUM | TAX, ACCOUNTS, INTERNAL AUDIT & RISK ADVISORY KARACHI
+    </footer>
+</div>
+
+</body>
+</html>

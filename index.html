@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAHZAD ANJUM | Tax & Accounts Professional</title>
+
+<meta name="description" content="Shahzad Anjum - Professional Tax & Accounts Consultant based in Karachi. Expert in FBR compliance, cost optimization, and ERP implementation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">    
+
+
+
+
+<style>
+        body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; margin: 0; padding: 0; background-color: #f8f9fa; }
+        header { background-color: #002d5b; color: white; padding: 20px 10px; text-align: center; }
+header h1 { font-size: 55px; margin: 0; font-weight: 800; letter-spacing: 2px; }
+header .designation { font-size: 24px; font-weight: 700; color: #ff9900; display: block; margin-top: 5px; text-transform: uppercase; }
+header .help-text { font-size: 19px; display: block; margin-top: 5px; color: #e0e0e0; font-weight: 500; }
+        nav { background: #001f3f; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 99999; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; font-weight: bold; }
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        
+        .home-photo-frame {
+            display: block; margin: 0 auto 30px auto; padding: 8px; background: white; border: 1px solid #ddd;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12); width: fit-content; border-radius: 4px;
+        }
+        .home-photo-frame img { display: block; max-width: 180px; height: auto; border-radius: 2px; }
+
+        .intro-text { font-size: 1.15em; color: #444; margin-bottom: 30px; text-align: center; font-style: italic; }
+        
+        h2 { color: #002d5b; border-bottom: 3px solid #ff9900; padding-bottom: 10px; margin-top: 30px; }
+
+        
+.stats-grid { 
+    display: grid; 
+    /* Default: 3 columns for Laptop/Desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    margin: 30px auto; 
+    max-width: 850px; 
+}
+        
+
+        .stat-card { 
+            background: #ffffff; padding: 20px 10px; border-radius: 10px; text-align: center; 
+            border: 2px solid #002d5b; box-shadow: 4px 4px 0px #002d5b;
+             min-height: 125px; 
+            display: flex; flex-direction: column; justify-content: center;
+        position: relative;
+            /* Added smooth easing for the eyes */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+
+        }
+
+        /* --- AUTOMATIC SEQUENCE CLASS --- */
+        .card-active {
+            border-color: #ff9900;
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.15);
+            background-color: #fffdf7;
+        }
+
+@keyframes professionalGlow {
+    0%, 20%, 100% { background: #ffffff; transform: translateY(0); box-shadow: 4px 4px 0px #002d5b; }
+    10% { background: #002d5b; transform: translateY(-5px); box-shadow: 6px 6px 0px #ff9900; }
+}
+        
+        .stat-card h2 { color: #ff9900 !important; margin: 0 !important; font-size: 26px !important; border: none !important;  animation-delay: inherit; }
+        .stat-card p { margin: 8px 0 0 !important; font-weight: 700; color: #002d5b; font-size: 13px; text-transform: uppercase; line-height: 1.3;  animation-delay: inherit; word-wrap: break-word; }
+
+        
+        
+        .expertise-section { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; padding: 20px; background: #fdfdfd; border: 1px solid #eee; border-radius: 15px; }
+        .strength-list { list-style: none; padding: 0; margin: 0; }
+        .strength-list li { margin-bottom: 12px; padding: 10px 8px; background: white; border-left: 6px solid #ff9900; border-radius: 4px; font-weight: 600; color: #002d5b; text-align: left; box-sizing: border-box; display: flex; align-items: flex-start; hyphens: none; word-break: normal; }
+
+
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; list-style: none; padding: 0; }
+        .service-card { background: #fff; border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card img { width: 100%; height: 180px; object-fit: cover; }
+        .service-content { padding: 15px; border-left: 5px solid #002d5b; text-align: left;}
+        .service-content strong { color: #002d5b; display: block; font-size: 1.1em; }
+
+
+        .cta { text-align: center; margin-top: 40px; padding: 35px; background: #002d5b; color: white; border-radius: 12px; }
+        .cta h3 { margin-bottom: 10px; }
+        .btn { display: inline-block; padding: 16px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 10px; transition: 0.3s; }
+        .whatsapp-btn { background-color: #25d366; color: white; }
+        .video-btn { background-color: #ff9900; color: white; }
+        .whatsapp-btn:hover, .video-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+        
+        footer { text-align: center; padding: 30px; font-size: 0.9em; color: #777; }
+
+
+
+
+@media (min-width: 701px) {
+
+#ai-chat-window { width: 210px !important; bottom: 80px !important; right: 15px !important; }
+    .chat-body { height: 180px !important; }
+
+.stat-card { animation-duration: 6s !important; }
+.stat-card h2, .stat-card p { animation-duration: 6s !important; }
+.stat-card:nth-child(1) { animation-delay: 0s !important; }
+.stat-card:nth-child(2) { animation-delay: 1s !important; }
+.stat-card:nth-child(3) { animation-delay: 2s !important; }
+.stat-card:nth-child(4) { animation-delay: 3s !important; }
+.stat-card:nth-child(5) { animation-delay: 4s !important; }
+.stat-card:nth-child(6) { animation-delay: 5s !important; }
+
+}
+
+
+@media (max-width: 700px) {
+    .stats-grid { grid-template-columns: 1fr !important; }
+#cta-button {
+        height: 50px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100px !important; 
+        animation: button-blink 2s infinite !important;
+        flex-shrink: 0 !important;
+    }
+    #cta-button span { font-size: 8px !important; line-height: 1 !important; color: inherit !important; }
+    #cta-button img { height: 18px !important; width: auto !important; }
+}
+
+        #ai-bot-trigger { position: fixed; bottom: 25px; right: 25px; width: 240px; background: #002d5b; color: white; padding: 12px; border-radius: 15px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 12px; z-index: 9999; font-family: 'Segoe UI', sans-serif; border: 1px solid rgba(255,255,255,0.2); }
+        .live-status { font-size: 10px; color: #00ff88; font-weight: bold; display: flex; align-items: center; gap: 5px; margin-bottom: 2px; }
+        .blink { width: 8px; height: 8px; background-color: #00ff88; border-radius: 50%; animation: blinker 1.5s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        .bot-text { font-size: 13px; line-height: 1.2; font-weight: 600; }
+        #ai-chat-window { display: none; position: fixed; bottom: 100px; right: 25px; width: 300px; background: white; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.2); z-index: 10000; overflow: hidden; font-family: 'Segoe UI', sans-serif; border: 1px solid #002d5b; }
+        .chat-header { background: #002d5b; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .chat-body { display: flex; flex-direction: column; height: 195px; padding: 15px; overflow-y: auto; background: #f8f9fa; }
+.pulse-dot {
+        height: 10px;
+        width: 10px;
+        background-color: #ff4757;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 8px;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+    }
+
+
+/* --- NEW GLOWING SYSTEM --- */
+.stat-card {
+    transition: all 0.5s ease-in-out !important;
+    position: relative;
+}
+
+
+.stat-card.card-active {
+    border-color: #ff9900 !important;
+    box-shadow: 0 10px 25px rgba(255, 153, 0, 0.4) !important;
+    background-color: #fffdf7 !important;
+    transform: translateY(-8px);
+}
+
+.stat-card.card-active h2 {
+    color: #ff9900 !important;
+}
+
+.stat-card.card-active p {
+    color: #ff9900 !important;
+}
+
+
+
+@keyframes ticker-move { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-100%); } 
+}
+
+@keyframes button-blink { 
+    0%, 100% { background-color: #D4AF37; } 
+    50% { background: #ffffff; } 
+}
+
+#cta-button { animation: button-blink 2s infinite; }
+
+
+/* THE 2026 EXECUTIVE ACTION CARD */
+        #executiveCard {
+            position: fixed;
+            bottom: -650px; /* Start hidden */
+            right: 30px;
+            width: 320px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px); 
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 45, 91, 0.25);
+            border: 1.5px solid rgba(212, 175, 55, 0.25);
+            z-index: 100001;
+            transition: 5.0s cubic-bezier(0.19, 1, 0.22, 1); /* Ultra-smooth "Apple" style slide */
+            overflow: hidden;
+        }
+.card-loader { height: 4px; width: 0%; background: #D4AF37; transition: width 1.5s ease-in-out 0.5s; }
+        
+        .card-content { padding: 25px; text-align: center; position: relative;}
+
+        /* Avatar Container with Hover Zoom */
+        .avatar-box { 
+            position: relative; 
+            display: inline-block; 
+            width: 80px; height: 80px; 
+            border-radius: 50%; 
+            overflow: visible; 
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .avatar-img { 
+            width: 100%; height: 100%; 
+            border-radius: 50%; 
+            border: 3px solid #D4AF37; 
+            object-fit: cover; 
+            background: #fff;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .avatar-box:hover .avatar-img { transform: scale(1.15) rotate(2deg); }
+        
+        /* Status Pulse */
+        .status-dot { 
+            position: absolute; bottom: 5px; right: 5px; 
+            width: 12px; height: 12px; 
+            background: #10b981; border-radius: 50%; 
+            border: 2px solid white; 
+            animation: pulse-green 2s infinite; 
+            z-index: 2;
+        }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+
+        /* Button Styling */
+        .btn-stack { display: flex; flex-direction: column; gap: 10px; margin-top: 15px; }
+        .btn-modern { 
+            padding: 12px; border-radius: 8px; font-weight: 700; 
+            text-decoration: none; font-size: 12px; text-transform: uppercase;
+            letter-spacing: 0.5px; transition: 0.3s; border: none; cursor: pointer; text-align: center;
+        }
+        .btn-primary { background: #002d5b; color: white; box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2); }
+        .btn-primary:hover { background: #001f3f; transform: translateY(-2px); }
+        .btn-outline { background: #D4AF37; color: #001529; }
+        .btn-outline:hover { background: #c5a02e; transform: translateY(-2px); }
+
+
+
+</style> 
+
+
+</head>
+<body>
+
+<div style="background:#001529; border-bottom:2px solid #D4AF37; height:50px; display:flex; align-items:center; font-family:sans-serif; overflow:hidden; position:relative; z-index:9999;">
+
+    <div style="flex:1; overflow:hidden; white-space:nowrap; position:relative; height:100%; display:flex; align-items:center;" 
+         onmouseover="document.getElementById('moving-ticker').style.animationPlayState = 'paused'" 
+         onmouseout="document.getElementById('moving-ticker').style.animationPlayState = 'running'">
+        
+        <div id="moving-ticker" style="display:inline-block; padding-left:100%; animation: ticker-move 70s linear infinite; color:#ffffff !important; font-size:15px; font-weight:600; white-space:nowrap;">
+
+
+<span style="margin-right: 50px;">Are You Paying Unnecessary FBR Taxes & Penalties?</span>
+            <span style="margin-right: 50px;">│</span>
+
+
+<span style="margin-right: 50px;">⚡ Why is Your Profit High but Bank Account Empty?</span>
+ <span style="margin-right: 50px;">│</span>
+
+
+
+            <span style="margin-right: 50px;">💰 ACCOUNTS, FINANCE & TAX EXPERT</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">🏆 25+ YEARS EXPERIENCE </span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;"><span style="color:#FFE600;">📋</span> INCOME TAX & SALES TAX — ZERO PENALTY RISK</span>
+            <span style="margin-right: 50px;">│</span>
+
+<span style="margin-right: 50px;">🛡️ INTERNAL AUDIT & RISK CONTROL — STOP FINANCIAL LEAKAGES </span>
+            <span style="margin-right: 50px;">│</span>
+
+<span style="margin-right: 50px;">📋 FBR COMPLIANCE & DIGITAL INVOICING</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">💰 BUDGETING AND COST CONTROLING — REDUCE COSTS & IMPROVE PROFITS </span>
+ <span style="margin-right: 50px;">│</span>
+
+<span style="margin-right: 50px;">⚡  IS YOUR CASH FLOW CHOKED? FIX CASH FLOW.</span>
+ <span style="margin-right: 50px;">│</span>
+
+
+
+<span style="margin-right: 50px;">⚠️ RECEIVABLES STUCK? FIX YOUR RECEIVABLE & RECOVERY CYCLES</span>
+ <span style="margin-right: 50px;">│</span>
+
+
+<span style="margin-right: 50px;">⚡ ACCOUNTS RECEIVABLE & PAYABLE — FIX CASH FLOW PROBLEMS</span>
+ <span style="margin-right: 50px;">│</span>
+
+            
+            <span style="margin-right: 50px;"><span style="color:#FFE600;">🗂️</span> ERP IMPLEMENTATION - EVERYTHING IN YOUR FINGER'S CONTROL</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">⚖ FINANCIAL STATEMENTS (BALANCE SHEET AND PROFIT & LOSS A/C) - BETTER BUSINESS DECISIONS</span>
+ <span style="margin-right: 50px;">│</span>
+
+<span style="margin-right: 50px;"> STOP WORRYING ABOUT TAX NOTICES </span>
+            <span style="margin-right: 50px;">│</span>
+
+
+
+            <!-- BUTTON 1: Super Bright Video Intro -->
+            <span style="margin-right: 50px;">
+                <a href="about.html#video" style="
+                    color:#FFE600; 
+                    text-decoration:none; 
+                    border-bottom:2px solid #FFFFFF; 
+                    cursor:pointer; 
+                    background: rgba(0,0,0,0.4); 
+                    padding: 2px 8px; 
+                    border-radius: 4px; 
+                    font-weight:800;
+                    text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+                "> ▶️ WATCH MY 01 MINUTE VIDEO INTRODUCTION</a>
+            </span>
+            <span style="margin-right: 50px;">│</span>
+
+   
+
+            <!-- BUTTON 2: Super Bright Health Check -->
+            <span style="margin-right: 50px;">
+                <a href="audit-risk.html" target="_blank" style="
+                    color:#FFE600; 
+                    text-decoration:none; 
+                    border-bottom:2px solid #FFFFFF; 
+                    cursor:pointer; 
+                    background: rgba(0,0,0,0.4); 
+                    padding: 2px 8px; 
+                    border-radius: 4px; 
+                    font-weight:800;
+                    text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+                "> 📈 CHECK YOUR BUSINESS HEALTH</a>
+            </span>
+            <span style="margin-right: 50px;">│</span>
+
+
+
+ <!-- BUTTON 3: Super Bright Risk Check -->
+ <span style="margin-right: 50px;">
+                <a href="audit-risk.html" target="_blank" style="
+                    color:#FFE600; 
+                    text-decoration:none; 
+                    border-bottom:2px solid #FFFFFF; 
+                    cursor:pointer; 
+                    background: rgba(0,0,0,0.4); 
+                    padding: 2px 8px; 
+                    border-radius: 4px; 
+                    font-weight:800;
+                    text-shadow: 0px 1px 3px rgba(0,0,0,0.8);
+                ">🚨 FREE RISK SCAN— IDENTIFY HIDDEN RISKS</a>
+            </span>
+            <span style="margin-right: 50px;">│</span>
+
+        </div>
+    </div>
+
+    <div id="cta-button" style="background:#D4AF37; color:#001529; padding:0 10px; height:100%; display:flex; align-items:center; font-weight:800; font-size:12px; border-left:2px solid #001529; z-index:30; position:relative; flex-shrink:0; cursor:pointer;" onclick="window.open('about.html#video', '_blank')">
+        <img src="images/video-icon.png" alt="Video" style="height: 24px; width: auto; margin-right: 6px; display: block;"> 
+        <span>VIDEO INTRODUCTION</span>
+    </div>
+</div>
+
+
+<header>
+    <h1>SHAHZAD ANJUM</h1>
+    <span class="designation">Manager Accounts, Finance, Tax Expert & Internal Auditor</span>
+    <span class="help-text">Helping Businesses Reduce Risk, Eliminate Financial Leakages, Improve Recovery & Stay 100% Tax-Compliant</span>
+</header>
+
+<!-- CORRECTED NAVIGATION START -->
+<nav>
+    <a href="index.html">Home</a>
+    
+    <!-- About Dropdown -->
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="about.html" style="margin:0 15px;">About ▼</a>
+        <div class="dropdown-content">
+            <a href="about.html#profile">Profile</a>
+            <a href="about.html#workwithme">Why Work With Me</a>
+            <a href="about.html#experience">Experience</a>
+            <a href="about.html#cv">Download CV</a>
+            <a href="about.html#video">Video Introduction</a>
+        </div>
+    </div>
+
+    <!-- Qualifications & Certificates Dropdown (FIXED) -->
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="qualifications.html" style="margin:0 15px;">Qualifications & Certificates ▼</a>
+        <div class="dropdown-content">
+            <a href="qualifications.html#educational">Educational Certificates</a>
+            <a href="qualifications.html#experience">Experience Certificates</a>
+            <a href="qualifications.html#other">Other Certifications</a>
+        </div>
+    </div>
+    
+    <a href="portfolio.html" style="position: relative; display: inline-block;">
+        Work Samples & Case Studies 
+        <span style="position: absolute; top: -15px; right: -25px; background: #ff4757; color: white; font-size: 11px; padding: 3px 7px; border-radius: 12px; animation: blinker 2s linear infinite; font-family: sans-serif; font-weight: bold; line-height: 1;">NEW</span>
+    </a>
+    <a href="testimonials.html">Testimonials</a> 
+
+    <!-- Tools Dropdown -->
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="javascript:void(0)" style="margin:0 15px; display: inline-flex; align-items: center; position: relative; color: #ff9900 !important; font-weight: bold; cursor: default;">
+            <span class="pulse-dot"></span> Tools & Downloads ▼
+            <span style="position: absolute; top: -12px; right: -15px; background: #ff4757; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; animation: blinker 2s linear infinite; font-family: sans-serif; font-weight: bold; line-height: 1;">NEW</span>
+        </a>
+        
+        <div class="dropdown-content">
+            <a href="audit-risk.html" target="_blank">📊 Check Your Business Health (Full Risk & Safety Dashboard)</a>
+            <a href="javascript:void(0)" onclick="openTools()" style="background: #002d5b; color: #FDD017 !important; font-weight: bold; border-top: 1px solid #FDD017;">⚡ Instant Executive Business Health Scan</a>
+<a href="wht-calculator-v1.html" target="_blank">📊 WithHolding Tax Calculator (V-1)</a>
+<a href="wht-calculator-v2.html" target="_blank">📊 WithHolding Tax Calculator (V-2)</a>
+<a href="competitor-benchmark.html" target="_blank">📊 Check your Competitor's Performance</a>
+
+
+        </div>
+    </div>
+
+    <a href="Media.html">Media</a>
+    <a href="contact.html">Contact Me</a>
+
+    <!-- CSS for Dropdowns (Shared) -->
+    <style>
+        .dropdown:hover .dropdown-content { display: block !important; }
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: #001f3f; 
+            min-width: 280px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.4); 
+            z-index: 10000; 
+            text-align: left; 
+            border-top: 3px solid #ff9900; 
+            top: 100%; 
+            left: 0; 
+        }
+        .dropdown-content a { 
+            color: white !important; 
+            padding: 12px 16px !important; 
+            display: block !important; 
+            text-decoration: none !important; 
+            font-size: 14px !important; 
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            margin: 0 !important;
+        }
+        .dropdown-content a:hover { background-color: #002d5b !important; color: #ff9900 !important; }
+    </style>
+</nav>
+<!-- CORRECTED NAVIGATION END -->
+
+<div class="container">
+    <div class="home-photo-frame">
+        <img src="images/selfie.jpeg" alt="Shahzad Anjum">
+    </div>
+
+    <p class="intro-text">"Stop Financial Leakages, Fix Cash Flow, Reduce Costs and Stay 100% FBR Compliant. Expert in Tax, Audit,Budgeting & Cost controling, Receivable & Payable optimization and ERP Systems — Helping You Eliminate Risk, Improve Cash Flow, and Make Better Financial Decisions."</p>
+
+
+    <div class="stats-grid">
+        <div class="stat-card"><h2>20+</h2><p>Years Experience</p></div>
+        <div class="stat-card"><h2>45%</h2><p>Cost Reduction</p></div>
+        <div class="stat-card"><h2>50%</h2><p>Receivable & Recovery Improvement</p></div>
+        <div class="stat-card"><h2>100%</h2><p>Digital Transformation & ERP Implementation</p></div>
+        <div class="stat-card"><h2>60%</h2><p>Efficiency Gain / Cash Flow Optimization</p></div>
+        <div class="stat-card"><h2>100%</h2><p>FBR COMPLIANCE</p></div>
+    </div>
+
+    <div class="expertise-section">
+        <div class="expertise-text" style="text-align: left;">
+            <h2 style="margin-top: 0; border: none;">Core Expertise</h2>
+            <p>Specialized financial management for <strong>Pharmaceutical, Textile, and FMCG</strong> industries.</p>
+        </div>
+        <ul class="strength-list">
+            <li>✅ Financial Reporting & Financial Statements</li>
+            <li>✅ Taxation: FBR Income Tax & Sales Tax</li>
+            <li>✅ Internal & External Audit</li>
+            <li>✅ ERP (SAP, Oracle, QuickBooks, ERP Dot Net)</li>
+            <li>✅ Budgeting & Cost Control</li>
+            <li>✅ Import & L/C Documentation</li>
+            <li>✅ Accounts Receivable & Payable Management</li>
+        </ul>
+    </div>
+
+    <h2>Expert Financial Services (Core Expertise)</h2>
+    <div class="services-grid">
+
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&q=80&w=600" alt="Taxation Professional">
+            <div class="service-content">
+                <strong>Taxation</strong>
+                FBR Income Tax & Sales Tax Returns. Stop worrying about tax notices. I ensure 100% compliance while legally minimizing your tax burden. Saved clients an average of 35% in legal tax optimization last year.
+            </div>
+        </div>
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=600" alt="World Class Bookkeeping">
+            <div class="service-content">
+                <strong>Accounting</strong>
+                Monthly Bookkeeping & Reporting. Profit on paper isn't cash in the bank. I fix your Receivables & Recovery cycles so your money is working in your business and not sitting in your customers' pockets. Converting manual accounting into high-performance digital systems using Oracle, SAP, and QuickBooks with customized financial reporting.
+
+            </div>
+        </div>
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=600" alt="Financial Planning">
+            <div class="service-content">
+                <strong>Budgeting & Planning</strong>
+                Financial Forecasting & Cash Flow Management. Even profitable companies have "hidden costs." I dive into your Budgets and Internal Audits to find exactly where your cash is evaporating—then I close those holes.
+            </div>
+        </div>
+        <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=600" alt="Strategic Audit Support">
+            <div class="service-content">
+                <strong>Consultancy</strong>
+                Strategic Business & Audit Support. Stop financial leakages. I design and implement strong systems that prevent fraud, eliminate errors, and protect your cash flow. Found financial leakages worth 15% of total revenue for previous clients.
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h3>Need Expert Advice to Optimize your Financial Operations ?</h3>
+        <p><strong>Let's Talk About Your Finance Challenges Today !</strong></p>
+        <a href="https://wa.me/923042868243" class="btn whatsapp-btn">Click here to Message on WhatsApp</a>
+        <a href="about.html#video" class="btn video-btn">Watch My Pro Video Introduction</a>
+    </div>
+</div>
+
+<footer>&copy; 2026 Shahzad Anjum Tax & Accounts. All Rights Reserved.</footer>
+
+<div id="ai-bot-trigger" onclick="toggleChat()">
+    <div style="font-size: 35px;">👨‍💼</div>
+    <div>
+        <div class="live-status"><span class="blink"></span> ONLINE LIVE</div>
+        <div class="bot-text">Talk to Shahzad Anjum's<br>Smart AI Assistant</div>
+    </div>
+</div>
+
+<div id="ai-chat-window">
+    <div class="chat-header">
+        <span>Shahzad Anjum's AI Assistant</span>
+        <span class="minimize-btn" onclick="toggleChat()">▼</span>
+    </div>
+    <div class="chat-body" id="chat-content"></div>
+    <div id="input-area" style="padding: 12px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white;">
+        <input type="text" id="user-input" placeholder="Write your reply..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
+        <button onclick="handleUserReply()" style="background: #002d5b; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold;">Send</button>
+    </div>
+    <div style="padding: 10px; border-top: 1px solid #eee; text-align: center; background: white;">
+        <button onclick="resetFullChat()" style="background: #ff4757; color: white; border: none; padding: 6px 15px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold;">Restart Conversation</button>
+    </div>
+</div>
+
+
+<script>
+    let currentStep = 0;
+    let redirectTimer; 
+    const botLayers = [
+        "Assalam-o-Alaikum! I am Mr. Shahzad's smart AI Assistant. Nice to meet u, how can i help you with your taxes or accounts?",
+        "What is your requirement? (Tax, Audit or Accounts?)",
+        "Please provide your inquiry in detail.",
+        "<strong>Thank you!</strong><br><br>Please contact Mr. Shahzad directly on WhatsApp: <br><span style='color:#25d366; font-size: 1.2em;'>0304-2868243</span><br><br>Redirecting you to the Contact Page in 5 seconds..."
+    ];
+
+    function toggleChat() {
+        const win = document.getElementById("ai-chat-window");
+        win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none";
+        if (win.style.display === "block" && currentStep === 0) triggerBot();
+    }
+
+    function triggerBot() {
+        if (currentStep < botLayers.length) {
+            const container = document.getElementById("chat-content");
+            const bubble = document.createElement("div");
+            bubble.style.cssText = "align-self:flex-start; background:#e9ecef; color:#333; padding:12px; margin:8px 0; border-radius:12px 12px 12px 2px; font-size:13px; max-width:85%; border-left:4px solid #ff9900;";
+            bubble.innerHTML = botLayers[currentStep];
+            container.appendChild(bubble);
+            container.scrollTop = container.scrollHeight;
+            
+            if (currentStep === botLayers.length - 1) {
+                document.getElementById("input-area").style.display = "none";
+                redirectTimer = setTimeout(() => {
+                    // Only redirect if the user hasn't hit 'Restart'
+                    if (currentStep !== 0) window.location.href = "contact.html";
+                }, 5000);
+            }
+            currentStep++;
+        }
+    }
+
+    function handleUserReply() {
+        const inputField = document.getElementById("user-input");
+        const val = inputField.value.trim();
+        if (val !== "" && currentStep < botLayers.length) {
+            const container = document.getElementById("chat-content");
+            const userBubble = document.createElement("div");
+            userBubble.style.cssText = "align-self:flex-end; background:#002d5b; color:white; padding:12px; margin:8px 0; border-radius:12px 12px 2px 12px; font-size:13px; max-width:85%; text-align:right;";
+            userBubble.innerText = val;
+            container.appendChild(userBubble);
+            inputField.value = "";
+            container.scrollTop = container.scrollHeight;
+            setTimeout(triggerBot, 800);
+        }
+    }
+
+    function resetFullChat() {
+        clearTimeout(redirectTimer); 
+        document.getElementById("chat-content").innerHTML = "";
+        document.getElementById("input-area").style.display = "flex";
+        currentStep = 0;
+        triggerBot();
+    }
+
+    // Surgical fix for the Enter key - specifically for the chat input
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Enter" && document.activeElement && document.activeElement.id === "user-input") {
+            e.preventDefault(); // Prevents unintended form submissions or page jumps
+            handleUserReply();
+        }
+    });
+
+// --- AUTOMATIC GLOWING SEQUENCE ---
+// This runs every 3 seconds (3000ms)
+document.addEventListener('DOMContentLoaded', () => {
+    const allStatsCards = document.querySelectorAll('.stats-grid .stat-card');
+    let currentIndex = 0;
+
+    function rotateGlow() {
+        // 1. Remove the "active" look from every card
+        allStatsCards.forEach(card => card.classList.remove('card-active'));
+        
+        // 2. Add the "active" look to the current card in the list
+        if(allStatsCards[currentIndex]) {
+            allStatsCards[currentIndex].classList.add('card-active');
+        }
+        
+        // 3. Move the counter to the next card (loops back to 0 at the end)
+        currentIndex = (currentIndex + 1) % allStatsCards.length;
+    }
+
+    // Start the timer
+    setInterval(rotateGlow, 3000);
+    
+    // Run once immediately so the first card glows right away
+    rotateGlow();
+});
+
+
+
+
+
+</script>
+<div id="toolsDrawer" style="position:fixed; top:0; right:-400px; width:350px; height:100%; background:white; z-index:99999; box-shadow:-5px 0 25px rgba(0,0,0,0.3); transition:0.5s; overflow-y:auto; padding:20px; font-family:sans-serif; border-left:5px solid #002d5b;">
+    
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:2px solid #ff9900; padding-bottom:10px;">
+        <h2 style="color:#002d5b; margin:0; font-size:20px;">Check Your Business Health</h2>
+        <button onclick="closeTools()" style="background:#d63031; color:white; border:none; padding:5px 10px; cursor:pointer; font-weight:bold; border-radius:4px;position: relative; z-index: 10;">X</button>
+    </div>
+    
+    <div style="background:#0a0a0a; padding:20px; border-radius:12px; border:1px solid #333; margin-bottom:20px; text-align:center; min-height:300px; display:flex; flex-direction:column; justify-content:center;">
+    <div id="healthInputs">
+        <h3 style="color:#D4AF37; margin-top:0; font-size:18px; letter-spacing:1px;">INSTANT EXECUTIVE RISK SCAN (QUICK 15 SECOND SCAN)</h3>
+        <p style="font-size:11px; color:#888; margin-bottom:20px;">SELECT COMPLIANCE CHECKPOINTS:</p>
+        
+        <div style="font-size:13px; line-height:2.5; color:white; text-align:left; margin-bottom:20px;">
+            <label><input type="checkbox" class="h-exec"> Sales & FBR Reconciliation</label><br>
+            <label><input type="checkbox" class="h-exec"> WHT & CPR Mapping</label><br>
+            <label><input type="checkbox" class="h-exec"> Inventory Valuation Audit</label><br>
+            <label><input type="checkbox" class="h-exec"> Fixed Asset Compliance</label><br>
+            <label><input type="checkbox" class="h-exec"> Direct/Indirect Tax Ratios</label>
+        </div>
+
+        <button onclick="runExecutiveScan()" style="width:100%; background:#D4AF37; color:#000; border:none; padding:15px; font-weight:800; cursor:pointer; border-radius:6px; font-size:13px; letter-spacing:1px;">RUN ANALYSIS</button>
+    </div>
+    
+    <div id="healthResults" style="display:none;"></div>
+</div>
+    <p style="text-align:center; color:#999; font-size:11px;">More professional tools being added...</p>
+</div>
+
+<script>
+// Logic to slide the menu in and out
+function openTools() {
+    document.getElementById("toolsDrawer").style.right = "0";
+}
+
+function closeTools() {
+    document.getElementById("toolsDrawer").style.right = "-400px";
+}
+
+function runExecutiveScan() {
+    // 1. Hide the questions
+    document.getElementById("healthInputs").style.display = "none";
+    let res = document.getElementById("healthResults");
+    res.style.display = "block";
+    
+    // 2. Show the Loading Bar
+    res.innerHTML = `
+        <div style="padding:40px 0;">
+            <div style="font-size:10px; color:#D4AF37; letter-spacing:2px; margin-bottom:15px;">ANALYZING COMPLIANCE...</div>
+            <div style="width:100%; background:#111; height:8px; border-radius:10px; overflow:hidden;">
+                <div id="pBar" style="width:0%; height:100%; background:#D4AF37; transition:2s linear;"></div>
+            </div>
+        </div>`;
+
+    // 3. Start the bar movement
+    setTimeout(() => { document.getElementById("pBar").style.width = "100%"; }, 100);
+
+    // 4. Show the score after 2.5 seconds
+    setTimeout(() => {
+        let checkedCount = document.querySelectorAll('.h-exec:checked').length;
+        let score = (checkedCount / 5) * 100;
+        
+        res.innerHTML = `
+            <div style="font-size:11px; color:#aaa;">STABILITY SCORE</div>
+            <div style="font-size:55px; font-weight:bold; color:#D4AF37; margin:10px 0;">${score}%</div>
+            <a href="https://wa.me/923042868243?text=Urgent:%20Business%20Health%20Score%20is%20${score}%" style="display:block; background:#25d366; color:white; text-decoration:none; padding:15px; border-radius:6px; font-weight:bold; margin-top:10px; text-align:center;">WhatsApp Shahzad Anjum</a>
+<a href="executive-briefing.html" target="_blank" style="display:block; border:1px solid #D4AF37; color:#D4AF37; text-decoration:none; padding:12px; border-radius:6px; font-weight:bold; margin-top:10px; font-size:12px; text-align:center;">View Executive Briefing</a>
+        `;
+    }, 2500);
+}
+
+    window.onload = function() {
+        if (!sessionStorage.getItem('execCardSeen')) {
+            setTimeout(() => {
+                const card = document.getElementById('executiveCard');
+                const loader = document.getElementById('cardLoader');
+                
+                card.style.bottom = '30px'; // Slide Up
+                loader.style.width = '100%'; // Progress bar effect
+            }, 60000); 
+        }
+    };
+
+    function closeCard() {
+        document.getElementById('executiveCard').style.bottom = '-700px';
+        sessionStorage.setItem('execCardSeen', 'true');
+    }
+</script>
+
+
+<div id="executiveCard">
+    <div id="cardLoader" class="card-loader"></div>
+    <div class="card-content">
+        <div onclick="closeCard()" style="position:absolute; top:12px; right:15px; cursor:pointer; font-size:28px; color:#ff9900; font-weight:bold; line-height:1; transition:0.2s;" onmouseover="this.style.color='#cc7a00'" onmouseout="this.style.color='#ff9900'">&times;</div>
+        
+        <div class="avatar-box">
+            <img src="images/selfie.jpeg" class="avatar-img" alt="Shahzad Anjum">
+            <span class="status-dot"></span>
+        </div>
+
+        <div style="font-size: 18px; font-weight: 800; color: #002d5b; margin-top: 5px;">Executive Access</div>
+        <div style="font-size: 10px; color: #0000CD; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">(Quick Shortcut)</div>
+        
+        <div class="btn-stack">
+            <a href="about.html#video" class="btn-modern btn-primary">▶ VIEW MY VIDEO INTRODUCTION</a>
+            <button onclick="window.open('audit-risk.html', '_blank')" class="btn-modern btn-outline">📊 CHECK YOUR BUSINESS HEALTH</button>
+        </div>
+        
+        <div style="margin-top: 15px;">
+            <span onclick="closeCard()" style="font-size: 11px; color: #0000CD; cursor: pointer; text-decoration: underline; font-weight: 600;">Dismiss to Browse</span>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

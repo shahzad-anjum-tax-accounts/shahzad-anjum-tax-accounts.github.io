@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Risk Dashboard | Executive ICU</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+
+
+.btn-main { 
+    background: var(--gold); 
+    color: #000; 
+    padding: 20px; 
+    border: 2px solid #fff; /* High-contrast border */
+    font-weight: 900; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    letter-spacing: 2px; 
+    transition: 0.3s; 
+    width: 100%; 
+    margin-top: 10px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); /* Initial subtle glow */
+}
+
+.btn-main:hover { 
+    background: #fff; 
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.8); /* Intense glow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+
+        :root { --gold: #D4AF37; --red: #ff3333; --orange: #ff9900; --green: #00cc66; --bg: #020202; --line: #1a1a1a; }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+        .wrapper { max-width: 1300px; margin: auto; padding: 40px; }
+
+        header { border-bottom: 1px solid var(--gold); padding-bottom: 20px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: var(--gold); font-size: 1.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 6px; }
+
+        #input-view { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; animation: fadeIn 0.5s; }
+        .input-panel { background: #080808; border: 1px solid var(--line); padding: 30px; border-radius: 4px; }
+        .group-tag { color: var(--gold); font-size: 0.85rem; font-weight: 900; margin-bottom: 20px; display: block; letter-spacing: 2px; }
+        
+        label { display: block; margin-bottom: 5px; font-size: 0.75rem; color: #888; font-weight: 800; }
+        input, select { width: 100%; padding: 14px; background: #000; color: var(--gold); border: 1px solid #222; margin-bottom: 20px; font-weight: bold; font-size: 1rem; box-sizing: border-box; }
+
+        .btn-main { background: var(--gold); color: #000; padding: 20px; border: none; font-weight: 900; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; transition: 0.3s; }
+        .btn-main:hover { background: #fff; }
+
+        #dashboard-view { display: none; animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        .meter-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+        .meter-unit { text-align: center; position: relative; padding: 30px; background: #050505; border: 1px solid #111; }
+        
+        .gauge-box { position: relative; width: 340px; height: 170px; margin: 0 auto; overflow: hidden; }
+        .gauge-risk { width: 340px; height: 340px; border-radius: 50%; background: conic-gradient(from 180deg, var(--green) 0deg, var(--green) 60deg, var(--orange) 60deg, var(--orange) 120deg, var(--red) 120deg, var(--red) 180deg, transparent 180deg); transform: rotate(90deg); }
+        .gauge-safe { width: 340px; height: 340px; border-radius: 50%; background: conic-gradient(from 180deg, var(--green) 0deg, var(--green) 180deg, transparent 180deg); transform: rotate(90deg); }
+        .gauge-cap { position: absolute; top: 45px; left: 45px; width: 250px; height: 250px; background: #050505; border-radius: 50%; z-index: 5; }
+        
+      .needle { 
+border: 1px solid #ffffff; 
+    position: absolute; 
+    bottom: 0; 
+    left: calc(50% - 2px); transform-origin: bottom center;
+    width: 4px; 
+    height: 160px; 
+    background: #ffffff; 
+    transform-origin: bottom center; 
+    z-index: 20; /* Increased to stay above the gauge-cap */
+    transition: transform 2s cubic-bezier(0.17, 0.67, 0.83, 0.67); 
+    border-radius: 4px; 
+    box-shadow: 0 0 15px rgba(255,255,255,0.6); 
+    transform: rotate(-90deg); /* Starting position */
+}
+        .score-header-risk { color: var(--red); font-size: 1.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+        .score-header-safe { color: var(--green); font-size: 1.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; }
+        .score-val { font-size: 6.5rem; font-weight: 900; margin: 5px 0; letter-spacing: -5px; line-height: 1; }
+
+        .linear-section { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 20px; }
+        .section-title { font-size: 1.6rem; color: var(--gold); font-weight: 900; text-transform: uppercase; margin-bottom: 25px; }
+        .risk-row { display: flex; align-items: center; padding: 20px 0; border-bottom: 1px solid #111; }
+        .risk-label { width: 280px; font-weight: 900; font-size: 0.9rem; color: #888; text-transform: uppercase; }
+        .risk-bar-container { flex-grow: 1; height: 12px; background: #111; margin-right: 30px; position: relative; overflow: hidden; border-radius: 6px; }
+        .risk-bar-fill { height: 100%; width: 0; transition: width 2s ease-out; }
+        .risk-percent { width: 100px; text-align: right; font-weight: 900; font-size: 1.5rem; margin-right: 30px; }
+        .risk-status { width: 140px; font-weight: 900; font-size: 0.9rem; text-align: right; text-transform: uppercase; }
+
+        .blink-text { animation: pulseText 1.5s infinite linear; }
+        @keyframes pulseText { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+
+        .grid-charts { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
+        .chart-container { background: #080808; padding: 30px; border: 1px solid var(--line); border-radius: 4px; display: flex; flex-direction: column; }
+        .chart-main { height: 350px; }
+        .radar-guide { margin-top: 20px; padding-top: 15px; border-top: 1px solid #222; font-size: 0.75rem; color: #666; line-height: 1.6; text-align: justify; }
+
+        .footer-actions { display: flex; gap: 20px; margin-top: 40px; justify-content: center; border-top: 1px solid #222; padding-top: 30px; }
+        .action-btn { width: 280px; height: 60px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 0.9rem; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; }
+        .btn-reset { background: #111; border: 1px solid #333; color: #fff; }
+        .btn-download { background: var(--gold); color: #000; }
+
+        .cta-box { background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%); border: 2px solid var(--gold); padding: 50px; text-align: center; margin-top: 60px; border-radius: 8px; }
+        .cta-box h2 { color: var(--gold); font-size: 2.2rem; margin-bottom: 15px; font-weight: 900; }
+        .cta-box p { color: #aaa; font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px auto; line-height: 1.6; }
+        .highlight-green { color: var(--green); font-weight: 900; }
+        .btn-cta { background: var(--gold); color: #000; font-weight: 900; font-size: 1.3rem; padding: 22px 60px; border: none; cursor: pointer; text-transform: uppercase; border-radius: 4px; box-shadow: 0 10px 30px rgba(212,175,55,0.3); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideIn { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="wrapper" id="master-capture">
+    <header>
+        <div class="logo">Business Risk Dashboard</div>
+        <div style="text-align:right">
+            <div style="color:var(--gold); font-weight:900; font-size:1.1rem;">SHAHZAD ANJUM</div>
+            <div style="font-size:0.7rem; color:var(--gold); letter-spacing:1px; text-transform:uppercase;">Strategic Risk Advisor</div>
+        </div>
+    </header>
+
+    <div id="input-view">
+        <div class="input-panel">
+            <span class="group-tag">01. Financial & Assets</span>
+            <label>Monthly Revenue (PKR)</label>
+            <input id="rev" type="text" oninput="fmt(this)" placeholder="0">
+            <label>Current Receivables</label>
+            <input id="rec" type="text" oninput="fmt(this)" placeholder="0">
+            <label>Current Payables</label>
+            <input id="pay" type="text" oninput="fmt(this)" placeholder="0">
+        </div>
+        <div class="input-panel">
+            <span class="group-tag">02. Statutory & Compliance</span>
+            <label>FBR Audit/Tax Notice </label>
+            <select id="q_fbr">
+                <option value="15">No Notice Received</option>
+                <option value="60">Notice Received but Resolved</option>
+                <option value="95">Active Pending Notice</option>
+            </select>
+            <label>EOBI / SESSI Labor Compliance</label>
+            <select id="q_lab">
+                <option value="10">All Staff Registered / Contribution Paid</option>
+                <option value="55">Some Staff Registered / Arrears Pending</option>
+                <option value="90">UnRegistered</option>
+            </select>
+            <label>Internal Control System Deployed</label>
+            <select id="q_theft">
+                <option value="10">Monthly Internal Audit & Controls </option>
+                <option value="85">No Internal Audit & Strong Control</option>
+            </select>
+        </div>
+        <button class="btn-main" style="grid-column: span 2;" onclick="runAudit()">Execute Diagnostic</button>
+
+
+    </div>
+
+    <div id="dashboard-view">
+        <div class="meter-row">
+            <div class="meter-unit">
+                <div class="score-header-risk">Business Risk Score</div>
+                <div class="gauge-box">
+                    <div class="gauge-risk"></div>
+                    <div class="gauge-cap"></div>
+                    <div id="riskNeedle" class="needle"></div>
+                </div>
+                <div id="riskVal" class="score-val" style="color:var(--red)">0%</div>
+<div id="riskLevel" style="font-size: 1.2rem; font-weight: 900; text-transform: uppercase; margin-top: -10px; letter-spacing: 2px;"></div>
+            </div>
+            <div class="meter-unit">
+                <div class="score-header-safe">Business Safety Score</div>
+                <div class="gauge-box">
+                    <div class="gauge-safe"></div>
+                    <div class="gauge-cap"></div>
+                    <div id="safeNeedle" class="needle"></div>
+                </div>
+              <div id="safeVal" class="score-val" style="color:var(--green)">0%</div>
+<div id="safeLevel" style="font-size: 1.2rem; font-weight: 900; text-transform: uppercase; margin-top: -10px; letter-spacing: 2px;"></div>
+            </div>
+        </div>
+
+        <div class="linear-section">
+            <div class="section-title">Risk Breakdown Analysis</div>
+            <div id="breakdown-list"></div>
+        </div>
+
+        <div class="grid-charts">
+            <div class="chart-container">
+                <div class="group-tag">Risk Radar (Risk Zone)</div>
+                <div class="chart-main"><canvas id="radarChart"></canvas></div>
+                <div class="radar-guide">
+                    <strong>Radar Guide:</strong> The closer the shape is to the center, the safer you are. Points reaching the outer edges indicate "Leakage Zones" or high-risk defaults that require immediate attention.
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="group-tag">Market Benchmarking (Industry Standard) Your Competitors Position</div>
+                <div class="chart-main"><canvas id="barChart"></canvas></div>
+            </div>
+        </div>
+
+        <div class="footer-actions">
+            <button class="action-btn btn-reset" onclick="location.reload()">Reset All Data</button>
+            <button class="action-btn btn-download" onclick="savePDF()">Download PDF Report</button>
+        </div>
+
+        <div class="cta-box">
+            <h2>STOP THE LEAKAGE IN 90 DAYS</h2>
+            <p>I specialize in fixing these financial leakages at <span class="highlight-green">Zero Risk to you.</span> I will personally recover up to <span class="highlight-green">25% in wasted inefficiencies</span> and reduce your overall business risk by <span class="highlight-green">80%</span>. No pain, no stress—just a clean, profitable, and compliant business.</p>
+            <button class="btn-cta">Start Your 90-Day Plan</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let rC = null, bC = null;
+
+function fmt(el) { el.value = el.value.replace(/[^0-9]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+function gv(id) { return Number(document.getElementById(id).value.replace(/,/g, '')) || 0; }
+
+function runAudit() {
+    const r = gv('rev'), p = gv('pay'), rec = gv('rec');
+    if(r === 0 && p === 0 && rec === 0) { alert("Please enter financial values first."); return; }
+
+    document.getElementById('input-view').style.display = 'none';
+    document.getElementById('dashboard-view').style.display = 'block';
+
+    const fbr = Number(document.getElementById('q_fbr').value);
+    const lab = Number(document.getElementById('q_lab').value);
+    const theft = Number(document.getElementById('q_theft').value);
+
+    let cashRisk = (r > 0) ? Math.min(100, Math.round((p / r) * 110)) : 55;
+    // Calculate Receivable Risk: What % of Monthly Revenue is still unpaid?
+    // Higher ratio = Higher Risk.
+    let recRisk = (r > 0) ? Math.min(100, Math.round((rec / r) * 100)) : 50;
+
+    // Now average all 5 factors instead of 4
+    let avgRisk = Math.round((fbr + lab + theft + cashRisk + recRisk) / 5);
+    let avgSafe = 100 - avgRisk;
+
+
+    setTimeout(() => {
+        setMeter('risk', avgRisk);
+        setMeter('safe', avgSafe);
+document.getElementById('riskNeedle').style.background = avgRisk > 70 ? 'var(--red)' : (avgRisk > 40 ? 'var(--orange)' : 'var(--green)');
+        document.getElementById('safeNeedle').style.background = avgSafe > 70 ? 'var(--green)' : (avgSafe > 40 ? 'var(--orange)' : 'var(--red)');
+
+document.getElementById('riskNeedle').style.boxShadow = avgRisk > 75 ? '0 0 30px #ff3333' : 'none';
+    }, 100);
+
+
+// Update Risk Level Text
+    const riskLvlEl = document.getElementById('riskLevel');
+    if (avgRisk <= 33) {
+        riskLvlEl.innerText = "Risk Level: Low";
+        riskLvlEl.style.color = "var(--green)";
+    } else if (avgRisk <= 65) {
+        riskLvlEl.innerText = "Risk Level: Medium";
+        riskLvlEl.style.color = "var(--orange)";
+    } else {
+        riskLvlEl.innerText = "Risk Level: High";
+        riskLvlEl.style.color = "var(--red)";
+    }
+
+    // Update Safety Status Text
+    const safeLvlEl = document.getElementById('safeLevel');
+    if (avgSafe >= 80) {
+        safeLvlEl.innerText = "Safety Status: Optimal";
+        safeLvlEl.style.color = "var(--green)";
+    } else if (avgSafe >= 50) {
+        safeLvlEl.innerText = "Safety Status: Fair";
+        safeLvlEl.style.color = "var(--orange)";
+    } else {
+        safeLvlEl.innerText = "Safety Status: Critical";
+        safeLvlEl.style.color = "var(--red)";
+    }
+
+
+
+
+
+
+
+    const rows = [
+        { n: "FBR Audit, Notice & Penalty Risk", v: fbr },
+        { n: "Labor Law (EOBI/SESSI) Audit, Notice & Penalty Risk", v: lab },
+        { n: "System Leakage, Internal Control & Theft Risk", v: theft },
+        { n: "Weak Liquidity & Payables Position", v: cashRisk },
+{ n: "Receivable Default Risk", v: recRisk } 
+    ];
+
+    let html = "";
+    rows.forEach(item => {
+        let color = item.v > 75 ? "var(--red)" : (item.v > 40 ? "var(--orange)" : "var(--green)");
+        let level = item.v > 75 ? "High Risk" : (item.v > 40 ? "Medium Risk" : "Low Risk");
+        let blinkClass = item.v > 75 ? "blink-text" : "";
+        
+        html += `<div class="risk-row">
+            <div class="risk-label">${item.n}</div>
+            <div class="risk-bar-container">
+                <div class="risk-bar-fill" style="width:${item.v}%; background:${color}"></div>
+            </div>
+            <div class="risk-percent" style="color:${color}">${item.v}%</div>
+            <div class="risk-status ${blinkClass}" style="color:${color}">${level}</div>
+        </div>`;
+    });
+    document.getElementById('breakdown-list').innerHTML = html;
+
+    drawCharts([fbr, lab, theft, cashRisk, recRisk], avgSafe);
+}
+
+function setMeter(type, val) {
+    document.getElementById(type + 'Val').innerText = val + "%";
+    let deg = (val * 1.8) - 90;
+    const n = document.getElementById(type + 'Needle');
+    n.style.transform = `rotate(${deg}deg)`;
+}
+
+function drawCharts(rD, s) {
+    const ctxR = document.getElementById('radarChart').getContext('2d');
+    if(rC) rC.destroy();
+    rC = new Chart(ctxR, {
+        type: 'radar',
+        data: {
+            labels: ["FBR Audit", "Labor Law", "Internal Contorl & Theft", "Weak Cash Flow", "Receivables"],
+            datasets: [{ data: rD, backgroundColor: 'rgba(212,175,55,0.1)', borderColor: '#D4AF37', borderWidth: 2 }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, scales: { r: { grid: { color: '#222' }, angleLines: { color: '#222' }, ticks: { display: false }, min: 0, max: 100 } }, plugins: { legend: { display: false } } }
+    });
+
+    const ctxB = document.getElementById('barChart').getContext('2d');
+    if(bC) bC.destroy();
+    bC = new Chart(ctxB, {
+        type: 'bar',
+        data: {
+            labels: ["Industry Avg", "Your Competitors", "Your Position", "03 Month Target (Projection)"],
+            datasets: [{ data: [65, 75, s, 98], backgroundColor: ['#222', '#333', '#ff3333', '#D4AF37'] }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100, grid: { color: '#111' } } } }
+    });
+}
+
+async function savePDF() {
+    const element = document.getElementById('master-capture');
+const jsPDF = window.jspdf.jsPDF;
+
+    const canvas = await html2canvas(element, { 
+        backgroundColor: '#020202', 
+        scale: 3, 
+        useCORS: true,
+        logging: false,
+        letterRendering: true
+    });
+
+    const imgData = canvas.toDataURL('image/png', 1.0);
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+    
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, undefined, 'FAST');
+    pdf.save('Executive_Risk_Report.pdf');
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media | Shahzad Anjum</title>
+
+<meta name="description" content="Shahzad Anjum - Professional Tax & Accounts Consultant based in Karachi. Expert in FBR compliance, cost optimization, and ERP implementation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* SMOOTH SCROLLING */
+        html { scroll-behavior: smooth; }
+        
+        /* Consistent styling with your branding */
+        body { font-family: 'Inter','Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; margin: 0; padding: 0; background-color: #f8f9fa; }
+        
+        /* --- HEADER SYSTEM STYLES --- */
+        header { background-color: #002d5b; color: white; padding: 30px 10px 20px 10px; text-align: center; }
+        
+        /* UPDATE: Small Branding Title for Sub-Page */
+        .sub-page-brand { font-size: 14px; font-weight: 600; color: #ff9900; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+        
+        header h1 { font-size: 55px; margin: 0; font-weight: 800; letter-spacing: 2px; }
+        header .designation { font-size: 24px; font-weight: 700; color: #ff9900; display: block; margin-top: 5px; text-transform: uppercase; }
+
+        /* --- NAVIGATION SYSTEM STYLES --- */
+        nav { background: #001f3f; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 99999; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; font-weight: bold; }
+
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        h2 { color: #002d5b; border-bottom: 3px solid #ff9900; padding-bottom: 10px; margin-top: 30px; }
+        footer { text-align: center; padding: 30px; font-size: 0.9em; color: #777; }
+
+        /* --- TICKER SYSTEM CSS --- */
+        @keyframes ticker-move { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        @keyframes button-blink { 0%, 100% { background-color: #D4AF37; } 50% { background: #ffffff; } }
+        @keyframes blinker { 50% { opacity: 0; } }
+        #cta-button { animation: button-blink 2s infinite; }
+
+        /* --- DROPDOWN NAVIGATION CSS --- */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown:hover .dropdown-content { display: block !important; }
+        .dropdown-content { display: none; position: absolute; background-color: #001f3f; min-width: 280px; box-shadow: 0px 8px 16px rgba(0,0,0,0.4); z-index: 10000; text-align: left; border-top: 3px solid #ff9900; top: 100%; left: 0; }
+        .dropdown-content a { color: white !important; padding: 12px 16px !important; display: block !important; text-decoration: none !important; font-size: 14px !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; margin: 0 !important; }
+        .dropdown-content a:hover { background-color: #002d5b !important; color: #ff9900 !important; }
+
+        /* --- PULSE ANIMATION --- */
+        .pulse-dot { height: 10px; width: 10px; background-color: #ff4757; border-radius: 50%; display: inline-block; margin-right: 8px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); } }
+
+        /* ==========================================================
+           MEDIA GALLERY GRID STYLES (Thumbnails Only)
+           ========================================================== */
+        .media-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .media-card {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            color: #333;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #002d5b;
+        }
+
+        .media-thumb {
+            height: 180px;
+            background: #f8f9fa;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .media-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .media-card:hover .media-thumb img {
+            transform: scale(1.05);
+        }
+
+        /* Play Icon Overlay for Video */
+        .play-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 45, 91, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-icon {
+            width: 60px; height: 60px;
+            background: rgba(255, 153, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .media-info {
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .media-type-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #002d5b;
+            color: #ff9900;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .media-caption {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            header h1 { font-size: 40px; }
+            #cta-button { height: 50px !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; width: 100px !important; animation: button-blink 2s infinite !important; flex-shrink: 0 !important; }
+            #cta-button span { font-size: 8px !important; line-height: 1 !important; color: inherit !important; }
+            #cta-button img { height: 18px !important; width: auto !important; }
+        }
+
+        /* AI Bot Styles */
+        #ai-bot-trigger { position: fixed; bottom: 25px; right: 25px; width: 240px; background: #002d5b; color: white; padding: 12px; border-radius: 15px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 12px; z-index: 9999; font-family: 'Segoe UI', sans-serif; border: 1px solid rgba(255,255,255,0.2); }
+        .live-status { font-size: 10px; color: #00ff88; font-weight: bold; display: flex; align-items: center; gap: 5px; margin-bottom: 2px; }
+        .blink { width: 8px; height: 8px; background-color: #00ff88; border-radius: 50%; animation: blinker 1.5s linear infinite; }
+        .bot-text { font-size: 13px; line-height: 1.2; font-weight: 600; }
+        #ai-chat-window { display: none; position: fixed; bottom: 100px; right: 25px; width: 350px; background: white; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.2); z-index: 10000; overflow: hidden; font-family: 'Segoe UI', sans-serif; border: 1px solid #002d5b; }
+        .chat-header { background: #002d5b; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .chat-body { display: flex; flex-direction: column; height: 320px; padding: 15px; overflow-y: auto; background: #f8f9fa; }
+
+    </style>
+</head>
+<body>
+
+<!-- EXTRACTED TICKER SYSTEM START -->
+<div style="background:#001529; border-bottom:2px solid #D4AF37; height:50px; display:flex; align-items:center; font-family:sans-serif; overflow:hidden; position:relative; z-index:9999;">
+    <div style="flex:1; overflow:hidden; white-space:nowrap; position:relative; height:100%; display:flex; align-items:center;" onmouseover="document.getElementById('moving-ticker').style.animationPlayState = 'paused'" onmouseout="document.getElementById('moving-ticker').style.animationPlayState = 'running'">
+        <div id="moving-ticker" style="display:inline-block; padding-left:100%; animation: ticker-move 70s linear infinite; color:#ffffff !important; font-size:15px; font-weight:600; white-space:nowrap;">
+            <span style="margin-right: 50px;">WELCOME TO THE OFFICIAL WEBSITE OF SHAHZAD ANJUM</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">💰 ACCOUNTS, FINANCE & TAX EXPERT</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">🏆 25+ YEARS EXPERIENCE </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"><span style="color:#D4AF37;">📋</span> INCOME TAX & SALES TAX — ZERO PENALTY RISK</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">🛡️ INTERNAL AUDIT & RISK CONTROL — STOP FINANCIAL LEAKAGES </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">📋 FBR COMPLIANCE & DIGITAL INVOICING</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">💰 BUDGETING AND COST CONTROLING — REDUCE COSTS & IMPROVE PROFITS </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">💰 FIX YOUR RECEIVABLE & RECOVERY CYCLES - IMPROVED CASH FLOW</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">⚡ ACCOUNTS RECEIVABLE & PAYABLE MANAGEMENT — FIX CASH FLOW PROBLEMS</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"><span style="color:#D4AF37;">🗂️</span> ERP IMPLEMENTATION - EVERYTHING IN YOUR FINGER'S CONTROL</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;">⚖ FINANCIAL STATEMENTS (BALANCE SHEET, PROFIT & LOSS STATEMENT) - MAKE BETTER BUSINESS DECISIONS</span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"> STOP WORRYING ABOUT TAX NOTICES </span>
+            <span style="margin-right: 50px;">│</span>
+            <span style="margin-right: 50px;"><a href="about.html#video" style="color:#FDD017; text-decoration:none; border-bottom:1px solid #FDD017;"> ▶️ WATCH MY 01 MINUTE VIDEO INTRODUCTION</a></span>
+            <span style="margin-right: 50px;">│</span>
+        </div>
+    </div>
+    <div id="cta-button" style="background:#D4AF37; color:#001529; padding:0 10px; height:100%; display:flex; align-items:center; font-weight:800; font-size:12px; border-left:2px solid #001529; z-index:30; position:relative; flex-shrink:0; cursor:pointer;" onclick="window.open('about.html#video', '_blank')">
+        <img src="images/video-icon.png" alt="Video" style="height: 24px; width: auto; margin-right: 6px; display: block;"> 
+        <span>VIDEO INTRODUCTION</span>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <!-- UPDATE: Added Branding Name & Title in small font for sub-page -->
+    <span class="sub-page-brand">Shahzad Anjum | Tax & Accounts Consultant</span>
+    <h1>Media Gallery</h1>
+    <span class="designation">Educational Videos & Visual Resources</span>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="about.html" style="margin:0 15px;">About ▼</a>
+        <div class="dropdown-content">
+            <a href="about.html#profile">Profile</a>
+            <a href="about.html#workwithme">Why Work With Me</a>
+            <a href="about.html#experience">Experience</a>
+            <a href="about.html#cv">Download CV</a>
+            <a href="about.html#video">Video Introduction</a>
+        </div>
+    </div>
+    <a href="qualifications.html">Qualifications</a>
+    <a href="portfolio.html">Work Samples & Case Studies</a>
+    <a href="testimonials.html">Testimonials</a> 
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="javascript:void(0)" style="margin:0 15px; display: inline-flex; align-items: center; position: relative; color: #ff9900 !important; font-weight: bold; cursor: default;">
+            <span class="pulse-dot"></span> Tools & Downloads ▼
+        </a>
+        <div class="dropdown-content">
+            <a href="audit-risk.html" target="_blank">📊 Check Your Business Health (Full Risk Dashboard)</a>
+        </div>
+    </div>
+    <a href="Media.html" style="color: #ff9900 !important;">Media</a>
+    <a href="contact.html">Contact Me</a>
+</nav>
+
+<div class="container">
+    
+    <h2>Media Gallery</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 10px;">Click on any thumbnail below to watch the video on YouTube or view the full-size image.</p>
+
+    <!-- THUMBNAILS GRID -->
+    <div class="media-gallery-grid">
+        
+        <!-- Video Thumbnail (Opens YouTube in new tab) -->
+        <a href="https://youtu.be/GaWvYdSE6wk" target="_blank" class="media-card">
+            <div class="media-thumb">
+                <img src="images/Finance-animation-thumbnail.png" alt="Finance Animation Thumbnail">
+                <div class="play-overlay">
+                    <div class="play-icon">▶</div>
+                </div>
+            </div>
+            <div class="media-info">
+                <span class="media-type-badge">Video</span>
+                <p class="media-caption">Finance Video Animation</p>
+            </div>
+        </a>
+
+        <!-- Image Thumbnail 1 (Opens Image in new tab) -->
+        <a href="images/FBR-Image-1.png" target="_blank" class="media-card">
+            <div class="media-thumb">
+                <img src="images/FBR-Image-1.png" alt="FBR Image 1">
+            </div>
+            <div class="media-info">
+                <span class="media-type-badge">Image</span>
+                <p class="media-caption">Mr. Shahzad Anjum visited FBR office for a meeting</p>
+            </div>
+        </a>
+
+        <!-- Image Thumbnail 2 (Opens Image in new tab) -->
+        <a href="images/FBR-Image-2.png" target="_blank" class="media-card">
+            <div class="media-thumb">
+                <img src="images/FBR-Image-2.png" alt="FBR Image 2">
+            </div>
+            <div class="media-info">
+                <span class="media-type-badge">Image</span>
+                <p class="media-caption">Mr. Shahzad Anjum druing a visit of FBR</p>
+            </div>
+        </a>
+
+        <!-- Image Thumbnail 3 (Opens Image in new tab) -->
+        <a href="images/FBR-Image-3.png" target="_blank" class="media-card">
+            <div class="media-thumb">
+                <img src="images/FBR-Image-3.png" alt="FBR Image 3">
+            </div>
+            <div class="media-info">
+                <span class="media-type-badge">Image</span>
+                <p class="media-caption">Mr. Shahzad Anjum visited 4th floor of FBR for a client's task</p>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>&copy; 2026 Shahzad Anjum Tax & Accounts. All Rights Reserved.</footer>
+
+<!-- AI Bot Trigger -->
+<div id="ai-bot-trigger" onclick="toggleChat()">
+    <div style="font-size: 35px;">👨‍💼</div>
+    <div>
+        <div class="live-status"><span class="blink"></span> ONLINE LIVE</div>
+        <div class="bot-text">Talk to Shahzad Anjum's<br>Smart AI Assistant</div>
+    </div>
+</div>
+
+<!-- AI Chat Window -->
+<div id="ai-chat-window">
+    <div class="chat-header">
+        <span>Shahzad Anjum's AI Assistant</span>
+        <span onclick="toggleChat()" style="cursor:pointer">▼</span>
+    </div>
+    <div class="chat-body" id="chat-content"></div>
+    <div id="input-area" style="padding: 12px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white;">
+        <input type="text" id="user-input" placeholder="Write your reply..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
+        <button onclick="handleUserReply()" style="background: #002d5b; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold;">Send</button>
+    </div>
+    <div style="padding: 10px; border-top: 1px solid #eee; text-align: center; background: white;">
+        <button onclick="resetFullChat()" style="background: #ff4757; color: white; border: none; padding: 6px 15px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold;">Restart Conversation</button>
+    </div>
+</div>
+
+<script>
+    // --- AI CHAT LOGIC ---
+    let currentStep = 0;
+    const botLayers = ["Assalam-o-Alaikum! I am Mr. Shahzad's smart AI Assistant. Nice to meet u, how can i help you with your taxes or accounts?", "What is your requirement? (Tax, Audit or Accounts?)", "Please provide your inquiry in detail.", "<strong>Thank you!</strong><br><br>Please contact Mr. Shahzad directly on WhatsApp: <br><span style='color:#25d366; font-size: 1.2em;'>0304-2868243</span><br><br>Redirecting you to the Contact Page in 5 seconds..."];
+    function toggleChat() { const win = document.getElementById("ai-chat-window"); win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none"; if (win.style.display === "block" && currentStep === 0) triggerBot(); }
+    function triggerBot() { if (currentStep < botLayers.length) { const container = document.getElementById("chat-content"); const bubble = document.createElement("div"); bubble.style.cssText = "align-self:flex-start; background:#e9ecef; color:#333; padding:12px; margin:8px 0; border-radius:12px 12px 12px 2px; font-size:13px; max-width:85%; border-left:4px solid #ff9900;"; bubble.innerHTML = botLayers[currentStep]; container.appendChild(bubble); container.scrollTop = container.scrollHeight; if (currentStep === botLayers.length - 1) { document.getElementById("input-area").style.display = "none"; setTimeout(() => { window.location.href = "contact.html"; }, 5000); } currentStep++; } }
+    function handleUserReply() { const inputField = document.getElementById("user-input"); const val = inputField.value.trim(); if (val !== "" && currentStep < botLayers.length) { const container = document.getElementById("chat-content"); const userBubble = document.createElement("div"); userBubble.style.cssText = "align-self:flex-end; background:#002d5b; color:white; padding:12px; margin:8px 0; border-radius:12px 12px 2px 12px; font-size:13px; max-width:85%; text-align:right;"; userBubble.innerText = val; container.appendChild(userBubble); inputField.value = ""; container.scrollTop = container.scrollHeight; setTimeout(triggerBot, 800); } }
+    function resetFullChat() { document.getElementById("chat-content").innerHTML = ""; document.getElementById("input-area").style.display = "flex"; currentStep = 0; triggerBot(); }
+    document.getElementById("user-input")?.addEventListener("keypress", (e) => { if (e.key === "Enter") handleUserReply(); });
+</script>
+
+</body>
+</html>

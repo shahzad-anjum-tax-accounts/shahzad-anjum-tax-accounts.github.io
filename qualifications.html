@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualifications | Shahzad Anjum</title>
+
+<meta name="description" content="Shahzad Anjum - Professional Tax & Accounts Consultant based in Karachi. Expert in FBR compliance, cost optimization, and ERP implementation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
+
+        /* --- EXTRACTED HEADER SYSTEM STYLES --- */
+        header { background-color: #002d5b; color: white; padding: 20px 10px; text-align: center; }
+        header h1 { font-size: 55px; margin: 0; font-weight: 800; letter-spacing: 2px; }
+        header .designation { font-size: 24px; font-weight: 700; color: #ff9900; display: block; margin-top: 5px; text-transform: uppercase; }
+        header .help-text { font-size: 19px; display: block; margin-top: 5px; color: #e0e0e0; font-weight: 500; }
+
+        /* --- EXTRACTED NAVIGATION SYSTEM STYLES --- */
+        nav { background: #001f3f; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 99999; }
+        nav a { margin: 0 15px; text-decoration: none; color: white; font-weight: bold; }
+
+        .container { max-width: 900px; margin: 20px auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { color: #002d5b; border-bottom: 2px solid #ff9900; padding-bottom: 10px; text-align: center; }
+        
+        .tab-menu { display: flex; justify-content: center; margin-bottom: 30px; border-bottom: 2px solid #eee; gap: 8px; }
+        .tab-btn { 
+            padding: 12px 25px; 
+            cursor: pointer; 
+            border: 1px solid #ddd; 
+            border-bottom: none;
+            background: #f8f9fa; 
+            color: #002d5b; 
+            font-weight: bold; 
+            font-size: 14px; 
+            border-radius: 8px 8px 0 0; 
+            transition: 0.3s; 
+        }
+        .tab-btn.active { 
+            background: #002d5b; 
+            color: white; 
+            border-color: #002d5b;
+            box-shadow: inset 0 -4px 0 #ff9900; 
+        }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .cert-card { margin-bottom: 50px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; text-align: center; }
+        .cert-card h3 { color: #002d5b; margin-top: 0; }
+        
+        .pdf-frame { width: 100%; height: 500px; border: 1px solid #ccc; margin-top: 15px; filter: brightness(1.05) contrast(1.05); }
+        .view-btn { display: inline-block; background-color: #002d5b; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-top: 10px; font-weight: bold; }
+        footer { text-align: center; padding: 30px; font-size: 0.9em; color: #666; }
+
+        /* --- TICKER SYSTEM CSS --- */
+        @keyframes ticker-move { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(-100%); } 
+        }
+
+        @keyframes button-blink { 
+            0%, 100% { background-color: #D4AF37; } 
+            50% { background: #ffffff; } 
+        }
+        
+        /* Needed for NEW badges */
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        #cta-button { 
+            animation: button-blink 2s infinite; 
+        }
+
+        /* --- DROPDOWN NAVIGATION CSS --- */
+        .dropdown { position: relative; display: inline-block; }
+        
+        .dropdown:hover .dropdown-content { display: block !important; }
+        
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: #001f3f; 
+            min-width: 280px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.4); 
+            z-index: 10000; 
+            text-align: left; 
+            border-top: 3px solid #ff9900; 
+            top: 100%; 
+            left: 0; 
+        }
+        .dropdown-content a { 
+            color: white !important; 
+            padding: 12px 16px !important; 
+            display: block !important; 
+            text-decoration: none !important; 
+            font-size: 14px !important; 
+            border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+            margin: 0 !important;
+        }
+        .dropdown-content a:hover { background-color: #002d5b !important; color: #ff9900 !important; }
+
+        /* --- PULSE ANIMATION FOR TOOLS BUTTON --- */
+        .pulse-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #ff4757;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
+        }
+
+        @media (max-width: 600px) {
+            .tab-menu { flex-direction: column; align-items: stretch; }
+            .tab-btn { border-radius: 4px; margin-bottom: 5px; text-align: center; }
+            
+            /* Ticker Mobile Adjustments */
+            #cta-button {
+                height: 50px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 100px !important; 
+                animation: button-blink 2s infinite !important;
+                flex-shrink: 0 !important;
+            }
+            #cta-button span { font-size: 8px !important; line-height: 1 !important; color: inherit !important; }
+            #cta-button img { height: 18px !important; width: auto !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- EXTRACTED TICKER SYSTEM START -->
+<div style="background:#001529; border-bottom:2px solid #D4AF37; height:50px; display:flex; align-items:center; font-family:sans-serif; overflow:hidden; position:relative; z-index:9999;">
+
+    <div style="flex:1; overflow:hidden; white-space:nowrap; position:relative; height:100%; display:flex; align-items:center;" 
+         onmouseover="document.getElementById('moving-ticker').style.animationPlayState = 'paused'" 
+         onmouseout="document.getElementById('moving-ticker').style.animationPlayState = 'running'">
+        
+        <div id="moving-ticker" style="display:inline-block; padding-left:100%; animation: ticker-move 70s linear infinite; color:#ffffff !important; font-size:15px; font-weight:600; white-space:nowrap;">
+
+            <span style="margin-right: 50px;">WELCOME TO THE OFFICIAL WEBSITE OF SHAHZAD ANJUM</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">💰 ACCOUNTS, FINANCE & TAX EXPERT</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">🏆 25+ YEARS EXPERIENCE </span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;"><span style="color:#D4AF37;">📋</span> INCOME TAX & SALES TAX — ZERO PENALTY RISK</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">🛡️ INTERNAL AUDIT & RISK CONTROL — STOP FINANCIAL LEAKAGES </span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">📋 FBR COMPLIANCE & DIGITAL INVOICING</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">💰 BUDGETING AND COST CONTROLING — REDUCE COSTS & IMPROVE PROFITS </span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">💰 FIX YOUR RECEIVABLE & RECOVERY CYCLES - IMPROVED CASH FLOW</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">⚡ ACCOUNTS RECEIVABLE & PAYABLE MANAGEMENT — FIX CASH FLOW PROBLEMS</span>
+            <span style="margin-right: 50px;">│</span>
+            
+            <span style="margin-right: 50px;"><span style="color:#D4AF37;">🗂️</span> ERP IMPLEMENTATION - EVERYTHING IN YOUR FINGER'S CONTROL</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">⚖ FINANCIAL STATEMENTS (BALANCE SHEET, PROFIT & LOSS STATEMENT) - MAKE BETTER BUSINESS DECISIONS</span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;"> STOP WORRYING ABOUT TAX NOTICES </span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">
+                <a href="about.html#video" style="color:#FDD017; text-decoration:none; border-bottom:1px solid #FDD017; cursor:pointer;"> ▶️ WATCH MY 01 MINUTE VIDEO INTRODUCTION</a>
+            </span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">
+                <a href="audit-risk.html" target="_blank" style="color:#FDD017; text-decoration:none; border-bottom:1px solid #FDD017; cursor:pointer;"> 📈 CHECK YOUR BUSINESS HEALTH</a>
+            </span>
+            <span style="margin-right: 50px;">│</span>
+
+            <span style="margin-right: 50px;">
+                <a href="audit-risk.html" target="_blank" style="color:#FDD017; text-decoration:none; border-bottom:1px solid #FDD017; cursor:pointer;">🚨 CHECK YOUR BUSINESS RISK — IDENTIFY HIDDEN RISKS</a>
+            </span>
+            <span style="margin-right: 50px;">│</span>
+
+        </div>
+    </div>
+
+    <div id="cta-button" style="background:#D4AF37; color:#001529; padding:0 10px; height:100%; display:flex; align-items:center; font-weight:800; font-size:12px; border-left:2px solid #001529; z-index:30; position:relative; flex-shrink:0; cursor:pointer;" onclick="window.open('about.html#video', '_blank')">
+        <img src="images/video-icon.png" alt="Video" style="height: 24px; width: auto; margin-right: 6px; display: block;"> 
+        <span>VIDEO INTRODUCTION</span>
+    </div>
+</div>
+<!-- EXTRACTED TICKER SYSTEM END -->
+
+<!-- EXTRACTED HEADER START -->
+<header>
+    <h1>Professional Credentials</h1>
+    <span class="designation">Holder of Advanced QuickBooks & Accounting Certifications</span>
+
+</header>
+<!-- EXTRACTED HEADER END -->
+
+<!-- EXTRACTED NAVIGATION START -->
+<nav>
+    <a href="index.html">Home</a>
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="about.html" style="margin:0 15px;">About ▼</a>
+        <div class="dropdown-content">
+            <a href="about.html#profile">Profile</a>
+            <a href="about.html#workwithme">Why Work With Me</a>
+            <a href="about.html#experience">Experience</a>
+            <a href="about.html#cv">Download CV</a>
+            <a href="about.html#video">Video Introduction</a>
+        </div>
+    </div>
+    <a href="qualifications.html">Qualifications</a>
+    
+    <a href="portfolio.html" style="position: relative; display: inline-block;">
+        Work Samples & Case Studies 
+        <span style="position: absolute; top: -15px; right: -25px; background: #ff4757; color: white; font-size: 11px; padding: 3px 7px; border-radius: 12px; animation: blinker 2s linear infinite; font-family: sans-serif; font-weight: bold; line-height: 1;">NEW</span>
+    </a>
+    <a href="testimonials.html">Testimonials</a> 
+
+    <div class="dropdown" style="position:relative; display:inline-block;">
+        <a href="javascript:void(0)" style="margin:0 15px; display: inline-flex; align-items: center; position: relative; color: #ff9900 !important; font-weight: bold; cursor: default;">
+            <span class="pulse-dot"></span> Tools & Downloads ▼
+            <span style="position: absolute; top: -12px; right: -15px; background: #ff4757; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; animation: blinker 2s linear infinite; font-family: sans-serif; font-weight: bold; line-height: 1;">NEW</span>
+        </a>
+        
+        <div class="dropdown-content">
+            <a href="audit-risk.html" target="_blank">📊 Check Your Business Health (Full Risk Dashboard)</a>
+            <a href="javascript:void(0)" onclick="openTools()" style="background: #002d5b; color: #FDD017 !important; font-weight: bold; border-top: 1px solid #FDD017;">⚡ Instant Executive Business Health Scan (Quick 15 Second Scan)</a>
+        </div>
+    </div>
+
+    <a href="Media.html">Media (Coming Soon)</a>
+    <a href="contact.html">Contact Me</a>
+</nav>
+<!-- EXTRACTED NAVIGATION END -->
+
+<div class="container">
+    
+    <!-- PAGE HEADING -->
+    <div style="text-align: center; margin-top: 0; margin-bottom: 20px;">
+        <h2 style="border-bottom: none; margin: 0; font-size: 2.2em; color: #002d5b;">Professional Credentials</h2>
+        <p style="font-size: 1.1em; color: #666; margin-top: 5px;">Verified Certificates & Academic Background</p>
+        <div style="width: 80px; height: 4px; background: #ff9900; margin: 10px auto 0; border-radius: 2px;"></div>
+    </div>
+
+    <!-- PROFILE IMAGE SECTION (Cleaned up) -->
+    <div style="text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #eee;">
+        <div style="position: relative; display: inline-block;">
+            <img src="images/selfie-2.jpeg" alt="Shahzad Anjum" style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid #002d5b; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+            <div style="position: absolute; bottom: 10px; right: 10px; background: #ff9900; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white; font-size: 18px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);" title="Verified Professional">✓</div>
+        </div>
+        <!-- Removed Duplicate Name Here -->
+        <p style="margin: 15px 0 0 0; color: #ff9900; font-size: 1em; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Verified Tax & Accounts Professional</p>
+        <p style="margin: 0; color: #777; font-size: 0.9em;">Holder of Advanced QuickBooks & Accounting Certifications</p>
+    </div>
+
+    <div class="tab-menu">
+        <div class="tab-btn active" onclick="openTab(event, 'educational')">Educational Certificates</div>
+        <div class="tab-btn" onclick="openTab(event, 'experience')">Experience Certificates</div>
+        <div class="tab-btn" onclick="openTab(event, 'other')">Other Certifications</div>
+    </div>
+
+    <div id="educational" class="tab-content active">
+        <h2>Academic Qualifications</h2>
+        <div class="cert-card">
+            <h3>ICAP Certificate</h3>
+            <iframe src="images/ICAP.pdf" class="pdf-frame"></iframe>
+            <a href="images/ICAP.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>MBA - Finance</h3>
+            <iframe src="images/MBA-Finance.pdf" class="pdf-frame"></iframe>
+            <a href="images/MBA-Finance.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>Masters in Economics</h3>
+            <iframe src="images/Masters in Economics.pdf" class="pdf-frame"></iframe>
+            <a href="images/Masters in Economics.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>Bachelor of Commerce (B.Com)</h3>
+            <iframe src="images/B.Com-Cert.pdf" class="pdf-frame"></iframe>
+            <a href="images/B.Com-Cert.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+    </div>
+
+    <div id="experience" class="tab-content">
+        <h2>Professional Experience Certificates</h2>
+        <div class="cert-card">
+            <h3>Sois Life Sciences Experience Certificate</h3>
+            <iframe src="images/Sois Life Sciences.pdf" class="pdf-frame"></iframe>
+            <a href="images/Sois Life Sciences.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>Ahmed Foods Experience Certificate</h3>
+            <iframe src="images/Ahmed Foods.pdf" class="pdf-frame"></iframe>
+            <a href="images/Ahmed Foods.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>Artistic Apparels Experience Certificate</h3>
+            <iframe src="images/Artistic Apparels.pdf" class="pdf-frame"></iframe>
+            <a href="images/Artistic Apparels.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>Maksons Experience Certificate</h3>
+            <iframe src="images/Maksons-Cert.pdf" class="pdf-frame"></iframe>
+            <a href="images/Maksons-Cert.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>Incom Experience Certificate</h3>
+            <iframe src="images/Incom-Cert.pdf" class="pdf-frame"></iframe>
+            <a href="images/Incom-Cert.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>Gulistan Textile Experience Certificate</h3>
+            <iframe src="images/Gulistan Textile.pdf" class="pdf-frame"></iframe>
+            <a href="images/Gulistan Textile.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>KFC Experience Certificate</h3>
+            <iframe src="images/KFC.pdf" class="pdf-frame"></iframe>
+            <a href="images/KFC.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>KFC Training Certificate</h3>
+            <iframe src="images/KFC Certificate.pdf" class="pdf-frame"></iframe>
+            <a href="images/KFC Certificate.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+    </div>
+
+    <div id="other" class="tab-content">
+        <h2>Verified QuickBooks & Accounting Credits</h2>
+        <div class="cert-card">
+            <h3>CPE: Bringing clients into QuickBooks</h3>
+            <iframe src="images/CPE-Bringing clients into QuickBooks.pdf" class="pdf-frame"></iframe>
+            <a href="images/CPE-Bringing clients into QuickBooks.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>CPE: Closing the accounting cycle</h3>
+            <iframe src="images/CPE-Closing the accounting cycle.pdf" class="pdf-frame"></iframe>
+            <a href="images/CPE-Closing the accounting cycle.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>CPE: Banking</h3>
+            <iframe src="images/CPE-Banking.pdf" class="pdf-frame"></iframe>
+            <a href="images/CPE-Banking.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>CPE: Expenses and Vendors</h3>
+            <iframe src="images/CPE-Expenses and Vendors.pdf" class="pdf-frame"></iframe>
+            <a href="images/CPE-Expenses and Vendors.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>CPE: Getting started in QuickBooks</h3>
+            <iframe src="images/CPE-Getting started in QuickBooks.pdf" class="pdf-frame"></iframe>
+            <a href="images/CPE-Getting started in QuickBooks.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+        <div class="cert-card">
+            <h3>CPE: Sales and customers</h3>
+            <iframe src="images/CPE-Sales and customers.pdf" class="pdf-frame"></iframe>
+            <a href="images/CPE-Sales and customers.pdf" target="_blank" class="view-btn">View Full PDF</a>
+        </div>
+    </div>
+</div>
+
+<footer>&copy; 2026 Shahzad Anjum Tax & Accounts. All Rights Reserved.</footer>
+
+<!-- Tools Drawer (Required for Navigation link) -->
+<div id="toolsDrawer" style="position:fixed; top:0; right:-400px; width:350px; height:100%; background:white; z-index:99999; box-shadow:-5px 0 25px rgba(0,0,0,0.3); transition:0.5s; overflow-y:auto; padding:20px; font-family:sans-serif; border-left:5px solid #002d5b;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:2px solid #ff9900; padding-bottom:10px;">
+        <h2 style="color:#002d5b; margin:0; font-size:20px;">Check Your Business Health</h2>
+        <button onclick="closeTools()" style="background:#d63031; color:white; border:none; padding:5px 10px; cursor:pointer; font-weight:bold; border-radius:4px;position: relative; z-index: 10;">X</button>
+    </div>
+    <p style="text-align:center; color:#999; font-size:11px;">More professional tools being added...</p>
+</div>
+
+<style>
+    #ai-bot-trigger { position: fixed; bottom: 25px; right: 25px; width: 240px; background: #002d5b; color: white; padding: 12px; border-radius: 15px; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 12px; z-index: 9999; font-family: 'Segoe UI', sans-serif; border: 1px solid rgba(255,255,255,0.2); }
+    .live-status { font-size: 10px; color: #00ff88; font-weight: bold; display: flex; align-items: center; gap: 5px; margin-bottom: 2px; }
+    .blink { width: 8px; height: 8px; background-color: #00ff88; border-radius: 50%; animation: blinker 1.5s linear infinite; }
+    .bot-text { font-size: 13px; line-height: 1.2; font-weight: 600; }
+    #ai-chat-window { display: none; position: fixed; bottom: 100px; right: 25px; width: 350px; background: white; border-radius: 15px; box-shadow: 0 15px 50px rgba(0,0,0,0.2); z-index: 10000; overflow: hidden; font-family: 'Segoe UI', sans-serif; border: 1px solid #002d5b; }
+    .chat-header { background: #002d5b; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+    .chat-body { display: flex; flex-direction: column; height: 320px; padding: 15px; overflow-y: auto; background: #f8f9fa; }
+</style>
+
+<div id="ai-bot-trigger" onclick="toggleChat()">
+    <div style="font-size: 35px;">👨‍💼</div>
+    <div>
+        <div class="live-status"><span class="blink"></span> ONLINE LIVE</div>
+        <div class="bot-text">Talk to Shahzad Anjum's<br>Smart AI Assistant</div>
+    </div>
+</div>
+
+<div id="ai-chat-window">
+    <div class="chat-header">
+        <span>Shahzad Anjum's AI Assistant</span>
+        <span onclick="toggleChat()" style="cursor:pointer">▼</span>
+    </div>
+    <div class="chat-body" id="chat-content"></div>
+    <div id="input-area" style="padding: 12px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white;">
+        <input type="text" id="user-input" placeholder="Write your reply..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
+        <button onclick="handleUserReply()" style="background: #002d5b; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold;">Send</button>
+    </div>
+    <div style="padding: 10px; border-top: 1px solid #eee; text-align: center; background: white;">
+        <button onclick="resetFullChat()" style="background: #ff4757; color: white; border: none; padding: 6px 15px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold;">Restart Conversation</button>
+    </div>
+</div>
+
+<script>
+    // Tab functionality
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; tabcontent[i].className = tabcontent[i].className.replace(" active", ""); }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) { tablinks[i].className = tablinks[i].className.replace(" active", ""); }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).className += " active";
+        evt.currentTarget.className += " active";
+    }
+
+    // Tools Drawer functionality
+    function openTools() {
+        document.getElementById("toolsDrawer").style.right = "0";
+    }
+
+    function closeTools() {
+        document.getElementById("toolsDrawer").style.right = "-400px";
+    }
+
+    // AI Chat Logic
+    let currentStep = 0;
+    const botLayers = [
+        "Assalam-o-Alaikum! I am Mr. Shahzad's smart AI Assistant. Nice to meet u, how can i help you with your taxes or accounts?",
+        "What is your requirement? (Tax, Audit or Accounts?)",
+        "Please provide your inquiry in detail.",
+        "<strong>Thank you!</strong><br><br>Please contact Mr. Shahzad directly on WhatsApp: <br><span style='color:#25d366; font-size: 1.2em;'>0304-2868243</span><br><br>Redirecting you to the contact section in 5 seconds..."
+    ];
+
+    function toggleChat() {
+        const win = document.getElementById("ai-chat-window");
+        win.style.display = (win.style.display === "none" || win.style.display === "") ? "block" : "none";
+        if (win.style.display === "block" && currentStep === 0) triggerBot();
+    }
+
+    function triggerBot() {
+        if (currentStep < botLayers.length) {
+            const container = document.getElementById("chat-content");
+            const bubble = document.createElement("div");
+            bubble.style.cssText = "align-self:flex-start; background:#e9ecef; color:#333; padding:12px; margin:8px 0; border-radius:12px 12px 12px 2px; font-size:13px; max-width:85%; border-left:4px solid #ff9900;";
+            bubble.innerHTML = botLayers[currentStep];
+            container.appendChild(bubble);
+            container.scrollTop = container.scrollHeight;
+            
+            if (currentStep === botLayers.length - 1) {
+                document.getElementById("input-area").style.display = "none";
+                setTimeout(() => { window.location.href = "contact.html"; }, 5000);
+            }
+            currentStep++;
+        }
+    }
+
+    function handleUserReply() {
+        const inputField = document.getElementById("user-input");
+        const val = inputField.value.trim();
+        if (val !== "" && currentStep < botLayers.length) {
+            const container = document.getElementById("chat-content");
+            const userBubble = document.createElement("div");
+            userBubble.style.cssText = "align-self:flex-end; background:#002d5b; color:white; padding:12px; margin:8px 0; border-radius:12px 12px 2px 12px; font-size:13px; max-width:85%; text-align:right;";
+            userBubble.innerText = val;
+            container.appendChild(userBubble);
+            inputField.value = "";
+            container.scrollTop = container.scrollHeight;
+            setTimeout(triggerBot, 800);
+        }
+    }
+
+    function resetFullChat() {
+        document.getElementById("chat-content").innerHTML = "";
+        document.getElementById("input-area").style.display = "flex";
+        currentStep = 0;
+        triggerBot();
+    }
+    
+    document.getElementById("user-input")?.addEventListener("keypress", (e) => { 
+        if (e.key === "Enter") handleUserReply(); 
+    });
+    document.onkeydown = (e) => { if(e.key === 'Enter') handleUserReply(); };
+</script>
+</body>
+</html>

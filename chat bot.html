@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 1. CHAT BOT BUTTON (BOTTOM RIGHT - 2.5 INCH APPROX) */
+        #ai-bot-trigger {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 240px; /* Approximately 2.5 inches wide */
+            background: #002d5b;
+            color: white;
+            padding: 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            font-family: 'Segoe UI', sans-serif;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* BLINKING LIVE STATUS */
+        .live-status {
+            font-size: 10px;
+            color: #00ff88;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 2px;
+        }
+
+        .blink {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff88;
+            border-radius: 50%;
+            animation: blinker 1.5s linear infinite;
+        }
+
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        .bot-text {
+            font-size: 13px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        /* 2. POP-UP WINDOW */
+        #ai-chat-window {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            z-index: 10000;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+            border: 1px solid #002d5b;
+        }
+
+        .chat-header {
+            background: #002d5b;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .minimize-btn {
+            cursor: pointer;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .minimize-btn:hover { transform: translateY(3px); }
+
+        .chat-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .bot-msg {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff9900;
+        }
+
+        .chat-footer {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .clear-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .whatsapp-link {
+            display: block;
+            margin-top: 10px;
+            color: #25d366;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="ai-bot-trigger" onclick="toggleChat()">
+        <div style="font-size: 35px;">👨‍💼</div>
+        <div>
+            <div class="live-status"><span class="blink"></span> ONLINE LIVE</div>
+            <div class="bot-text">Talk to Shahzad Anjum's<br>Smart AI Assistant</div>
+        </div>
+    </div>
+
+    <div id="ai-chat-window">
+        <div class="chat-header">
+            <span>Shahzad Anjum's AI Assistant</span>
+            <span class="minimize-btn" onclick="toggleChat()">▼</span>
+        </div>
+        
+<div class="chat-body" id="chat-content" style="display: flex; flex-direction: column; height: 320px; padding: 15px; overflow-y: auto; background: #f8f9fa;">
+        </div>
+
+        <div id="input-area" style="padding: 12px; border-top: 1px solid #eee; display: flex; gap: 8px; background: white;">
+            <input type="text" id="user-input" placeholder="Write your reply..." style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px;">
+            <button onclick="handleUserReply()" style="background: #002d5b; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold;">Send</button>
+        </div>
+
+        <div class="chat-footer">
+            <button class="clear-btn" onclick="resetFullChat()">Restart Conversation</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        const botLayers = [
+            "Assalam-o-Alaikum! I am Mr. Shahzad's smart AI Assistant. Nice to meet u, how can i help you with your taxes or accounts?",
+            "What is your requirement? (Tax, Audit or Accounts?)",
+            "Please provide your inquiry in detail.",
+            "<strong>Thank you!</strong><br><br>Please contact Mr. Shahzad directly on WhatsApp: <br><span style='color:#25d366; font-size: 1.2em;'>0304-2868243</span><br><br>Redirecting you to the contact section in 5 seconds..."
+        ];
+
+        function toggleChat() {
+            const win = document.getElementById("ai-chat-window");
+            if (win.style.display === "none" || win.style.display === "") {
+                win.style.display = "block";
+                if (currentStep === 0) { triggerBot(); }
+            } else { win.style.display = "none"; }
+        }
+
+        function triggerBot() {
+            if (currentStep < botLayers.length) {
+                const container = document.getElementById("chat-content");
+                const bubble = document.createElement("div");
+                bubble.style.cssText = "align-self:flex-start; background:#e9ecef; color:#333; padding:12px; margin:8px 0; border-radius:12px 12px 12px 2px; font-size:13px; max-width:85%; border-left:4px solid #ff9900;";
+                bubble.innerHTML = botLayers[currentStep];
+                container.appendChild(bubble);
+                container.scrollTop = container.scrollHeight;
+
+                // CHECK FOR LAST MESSAGE
+                if (currentStep === botLayers.length - 1) { 
+                    document.getElementById("input-area").style.display = "none";
+                    // REDIRECT FUNCTION: Wait 5 seconds, then scroll to contact section
+                    setTimeout(() => {
+                        window.location.hash = 'contact-info'; 
+                        // Note: Ensure your contact div has id="contact-info" or change this name
+                    }, 5000);
+                }
+                currentStep++;
+            }
+        }
+
+        function handleUserReply() {
+            const inputField = document.getElementById("user-input");
+            const val = inputField.value.trim();
+            if (val !== "" && currentStep < botLayers.length) {
+                const container = document.getElementById("chat-content");
+                const userBubble = document.createElement("div");
+                userBubble.style.cssText = "align-self:flex-end; background:#002d5b; color:white; padding:12px; margin:8px 0; border-radius:12px 12px 2px 12px; font-size:13px; max-width:85%; text-align:right;";
+                userBubble.innerText = val;
+                container.appendChild(userBubble);
+                inputField.value = ""; 
+                container.scrollTop = container.scrollHeight;
+                setTimeout(triggerBot, 800);
+            }
+        }
+
+        document.getElementById("user-input").addEventListener("keypress", (e) => { if (e.key === "Enter") handleUserReply(); });
+
+        function resetFullChat() {
+            document.getElementById("chat-content").innerHTML = "";
+            document.getElementById("input-area").style.display = "flex";
+            currentStep = 0;
+            triggerBot();
+        }
+    </script>
+</body>
+</html>

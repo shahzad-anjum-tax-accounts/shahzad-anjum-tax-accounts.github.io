@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Competitor Analysis Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: #F1F5F9; /* Slate 100 */
+        }
+
+        .premium-container {
+            background: #FFFFFF;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .main-title {
+            font-weight: 800;
+            font-size: 2.25rem;
+            color: #0F172A;
+            letter-spacing: -0.025em;
+        }
+        .sub-title {
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .section-label {
+            font-weight: 700;
+            font-size: 0.875rem;
+            color: #1E293B;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Select2 Custom */
+        .select2-container--default .select2-selection--single {
+            height: 56px;
+            background: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            padding-left: 20px;
+            font-weight: 600;
+            color: #0F172A;
+            font-size: 1rem;
+        }
+        .select2-dropdown { border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .select2-results__option { padding: 12px 20px; font-weight: 500; }
+        .select2-container--default .select2-results__option--highlighted[aria-selected] { background-color: #0F172A; }
+
+        .input-premium {
+            background: #F8FAFC;
+            border: 1px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-weight: 600;
+            color: #0F172A;
+            font-size: 1rem;
+            transition: all 0.2s;
+            width: 100%;
+        }
+        .input-premium:focus {
+            background: #FFFFFF;
+            border-color: #0F172A;
+            box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.05);
+            outline: none;
+        }
+        .input-premium::placeholder { color: #94A3B8; font-weight: 500; }
+
+        .btn-primary {
+            background: #0F172A;
+            color: #FFFFFF;
+            font-weight: 700;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .btn-primary:hover {
+            background: #1E293B;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.2);
+        }
+
+        .metric-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        .metric-card:hover {
+            border-color: #CBD5E1;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0F172A;
+            letter-spacing: -0.025em;
+        }
+
+        .competitor-item {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .competitor-item:hover {
+            border-color: #0F172A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.05);
+        }
+
+        .data-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+        .data-table th { background: #F8FAFC; padding: 16px 20px; text-align: left; font-size: 0.75rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid #E2E8F0; }
+        .data-table td { padding: 20px; border-bottom: 1px solid #F1F5F9; color: #334155; font-weight: 600; }
+
+        .chart-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 24px;
+            height: 100%;
+        }
+        .chart-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1E293B;
+            margin-bottom: 1rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="py-8 md:py-12 px-4">
+
+<div class="premium-container max-w-7xl mx-auto p-6 md:p-10">
+    
+    <!-- Header -->
+    <div class="mb-10">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between border-b border-slate-200 pb-8 mb-8">
+            <div>
+                <p class="sub-title mb-2">Financial Intelligence Platform</p>
+                <h1 class="main-title">Competitor Benchmarking Tool</h1>
+                <p class="mt-3 text-slate-600 font-medium text-base max-w-2xl">
+                    Analyze your market position. Compare financial performance against industry leaders using real historical data benchmarks.
+                </p>
+            </div>
+            <div class="mt-4 md:mt-0 flex items-center gap-3 bg-emerald-50 px-5 py-3 rounded-xl border border-emerald-200">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                <span class="font-bold text-emerald-800 text-sm uppercase tracking-wide">Data Live</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        <!-- Left Sidebar: Inputs -->
+        <div class="lg:col-span-4 space-y-6">
+            
+            <div>
+                <label class="section-label">1. Industry Sector</label>
+                <select id="industrySelect" class="w-full">
+                    <option value="" disabled selected>Choose Industry...</option>
+                    <option value="textile">Textile Manufacturing</option>
+                    <option value="pharma">Pharmaceuticals</option>
+                    <option value="retail">Retail & FMCG</option>
+                    <option value="tech">Technology & IT</option>
+                    <option value="food">Food & Beverage</option>
+                </select>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                <h3 class="text-lg font-bold text-slate-800 mb-6">Your Performance Data</h3>
+                <div class="space-y-5">
+                    <div>
+                        <label class="section-label">Net Sales (PKR)</label>
+                        <input type="text" id="userSales" class="input-premium" placeholder="e.g., 50,000,000" oninput="formatNumber(this)">
+                    </div>
+                    <div>
+                        <label class="section-label">Gross Profit (PKR)</label>
+                        <input type="text" id="userProfit" class="input-premium" placeholder="e.g., 15,000,000" oninput="formatNumber(this)">
+                    </div>
+                    <div>
+                        <label class="section-label">Operating Expenses (PKR)</label>
+                        <input type="text" id="userExpenses" class="input-premium" placeholder="e.g., 5,000,000" oninput="formatNumber(this)">
+                    </div>
+                    <button onclick="runAnalysis()" class="btn-primary mt-2">
+                        Analyze Performance
+                    </button>
+                </div>
+            </div>
+
+            <div id="competitorList" class="hidden">
+                <h3 class="section-label mb-3">Peer Companies</h3>
+                <div id="competitorCards"></div>
+            </div>
+        </div>
+
+        <!-- Right Content: Analysis -->
+        <div class="lg:col-span-8 space-y-6">
+            
+            <!-- KPI Cards -->
+            <div id="kpiSection" class="hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="metric-card border-slate-200">
+                        <p class="text-xs font-bold text-slate-500 uppercase mb-1">Your Profit Margin</p>
+                        <p id="kpiUserMargin" class="metric-value">--</p>
+                    </div>
+                    <div class="metric-card bg-slate-900 border-slate-900">
+                        <p class="text-xs font-bold text-slate-400 uppercase mb-1">Industry Average</p>
+                        <p id="kpiAvgMargin" class="metric-value text-white">--</p>
+                    </div>
+                    <div class="metric-card border-slate-200">
+                        <p class="text-xs font-bold text-slate-500 uppercase mb-1">Performance Gap</p>
+                        <p id="kpiGap" class="metric-value">--</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid: Split into 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Profit Chart -->
+                <div class="chart-card relative">
+                    <div id="emptyState1" class="absolute inset-0 flex flex-col items-center justify-center text-slate-300 z-10 bg-white/90 rounded-xl">
+                        <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        <span class="font-semibold text-slate-400">Profitability</span>
+                    </div>
+                    <span class="chart-title">Profit Margin Comparison (%)</span>
+                    <div class="h-72">
+                        <canvas id="profitChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Expense Chart -->
+                <div class="chart-card relative">
+                    <div id="emptyState2" class="absolute inset-0 flex flex-col items-center justify-center text-slate-300 z-10 bg-white/90 rounded-xl">
+                        <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span class="font-semibold text-slate-400">Efficiency</span>
+                    </div>
+                    <span class="chart-title">Expense Ratio Comparison (%)</span>
+                    <div class="h-72">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insight Table -->
+            <div id="insightTable" class="hidden bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                <div class="px-6 py-4 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
+                    <h4 class="font-bold text-slate-800">Detailed Comparative Analysis</h4>
+                    <span class="text-xs font-semibold text-slate-500 uppercase bg-white px-3 py-1 border rounded-full">FY 2025-26</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Company Name</th>
+                                <th class="text-right">Net Revenue</th>
+                                <th class="text-right">Profit Margin</th>
+                                <th class="text-right">Expense Ratio</th>
+                                <th class="text-right">Health Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- DATABASE ---
+    const industryDatabase = {
+        textile: {
+            name: "Textile & Garment",
+            avgMargin: 12.5,
+            competitors: [
+                { name: "Gul Ahmed Textiles", sales: 85000000000, profit: 10200000000, expenses: 6000000000 },
+                { name: "Nishat Mills Ltd", sales: 120000000000, profit: 13200000000, expenses: 8000000000 },
+                { name: "Interloop Ltd", sales: 95000000000, profit: 11400000000, expenses: 7500000000 },
+                { name: "Sapphire Textiles", sales: 60000000000, profit: 6600000000, expenses: 4500000000 }
+            ]
+        },
+        pharma: {
+            name: "Pharmaceuticals",
+            avgMargin: 18.2,
+            competitors: [
+                { name: "GlaxoSmithKline", sales: 42000000000, profit: 8400000000, expenses: 2500000000 },
+                { name: "Getz Pharma", sales: 38000000000, profit: 7600000000, expenses: 2200000000 },
+                { name: "Sami Pharmaceuticals", sales: 25000000000, profit: 4500000000, expenses: 1500000000 },
+                { name: "Hilton Pharma", sales: 30000000000, profit: 6000000000, expenses: 1800000000 }
+            ]
+        },
+        retail: {
+            name: "Retail & Consumer",
+            avgMargin: 8.5,
+            competitors: [
+                { name: "Unilever Pakistan", sales: 110000000000, profit: 9900000000, expenses: 5500000000 },
+                { name: "Engro Foods", sales: 75000000000, profit: 6000000000, expenses: 4000000000 },
+                { name: "Nestle Pakistan", sales: 130000000000, profit: 11700000000, expenses: 6500000000 },
+                { name: "Colgate Palmolive", sales: 45000000000, profit: 3600000000, expenses: 2000000000 }
+            ]
+        },
+        tech: {
+            name: "Information Technology",
+            avgMargin: 25.0,
+            competitors: [
+                { name: "Systems Ltd", sales: 18000000000, profit: 4500000000, expenses: 1200000000 },
+                { name: "NetSol Tech", sales: 14000000000, profit: 3500000000, expenses: 1000000000 },
+                { name: "TRG Pakistan", sales: 25000000000, profit: 6250000000, expenses: 1500000000 },
+                { name: "Arbisoft", sales: 8000000000, profit: 2000000000, expenses: 500000000 }
+            ]
+        },
+        food: {
+            name: "Food & Beverage",
+            avgMargin: 10.0,
+            competitors: [
+                { name: "National Foods", sales: 30000000000, profit: 3000000000, expenses: 1800000000 },
+                { name: "Mitchell's Farm", sales: 12000000000, profit: 1200000000, expenses: 700000000 },
+                { name: "Maple Leaf", sales: 45000000000, profit: 4500000000, expenses: 3000000000 }
+            ]
+        }
+    };
+
+    let profitChartInstance = null;
+    let expenseChartInstance = null;
+
+    // --- UTILS ---
+    function formatNumber(input) {
+        let value = input.value.replace(/,/g, '').replace(/\D/g, '');
+        if(value) input.value = new Intl.NumberFormat('en-US').format(value);
+        else input.value = '';
+    }
+    function unformatNumber(str) { return parseFloat(str.replace(/,/g, '')) || 0; }
+    function formatCurrency(num) { return new Intl.NumberFormat('en-US').format(num); }
+
+    // --- UI LOGIC ---
+    $(document).ready(function() {
+        $('#industrySelect').select2({ width: '100%', placeholder: "Select Industry Sector" });
+        $('#industrySelect').on('change', function() { loadCompetitors($(this).val()); });
+    });
+
+    function loadCompetitors(industryKey) {
+        const data = industryDatabase[industryKey];
+        if(!data) return;
+        $('#competitorList').removeClass('hidden');
+        const container = $('#competitorCards');
+        container.empty();
+        data.competitors.forEach(comp => {
+            const margin = ((comp.profit / comp.sales) * 100).toFixed(1);
+            container.append(`
+                <div class="competitor-item">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">${comp.name}</h4>
+                            <p class="text-xs text-slate-500 mt-1">Publicly Listed</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-sm font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">${margin}%</span>
+                            <p class="text-xs text-slate-400 mt-1">Net Margin</p>
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+    }
+
+    function runAnalysis() {
+        const industryKey = $('#industrySelect').val();
+        const userSales = unformatNumber($('#userSales').val());
+        const userProfit = unformatNumber($('#userProfit').val());
+        const userExpenses = unformatNumber($('#userExpenses').val());
+
+        if(!industryKey || !userSales || !userProfit) {
+            alert("Please select industry and provide Sales & Profit data.");
+            return;
+        }
+
+        const industryData = industryDatabase[industryKey];
+        const userMargin = (userProfit / userSales) * 100;
+        const userExpenseRatio = (userExpenses / userSales) * 100;
+
+        // Update KPIs
+        $('#kpiSection').removeClass('hidden');
+        $('#kpiUserMargin').text(userMargin.toFixed(1) + '%');
+        $('#kpiAvgMargin').text(industryData.avgMargin + '%');
+        
+        const gap = (userMargin - industryData.avgMargin).toFixed(1);
+        $('#kpiGap').html(gap >= 0 
+            ? `<span class="text-emerald-600">+${gap}%</span>` 
+            : `<span class="text-rose-600">${gap}%</span>`
+        );
+
+        // Update Charts
+        updateCharts(industryData, userSales, userProfit, userExpenses);
+        
+        // Update Table
+        updateTable(industryData, { sales: userSales, profit: userProfit, expenses: userExpenses, margin: userMargin, expenseRatio: userExpenseRatio });
+    }
+
+    function updateCharts(industry, uSales, uProfit, uExp) {
+        $('#emptyState1, #emptyState2').addClass('hidden');
+
+        const labels = ['Your Company', ...industry.competitors.map(c => c.name)];
+        const marginData = [((uProfit/uSales)*100), ...industry.competitors.map(c => (c.profit/c.sales)*100)];
+        const expenseData = [((uExp/uSales)*100), ...industry.competitors.map(c => (c.expenses/c.sales)*100)];
+
+        // Destroy previous charts
+        if(profitChartInstance) profitChartInstance.destroy();
+        if(expenseChartInstance) expenseChartInstance.destroy();
+
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: { color: '#F1F5F9' },
+                    ticks: { callback: value => value + "%", font: { weight: '600' }, color: '#64748B' }
+                },
+                x: {
+                    grid: { display: false },
+                    ticks: { font: { weight: '600' }, color: '#64748B' }
+                }
+            }
+        };
+
+        // Profit Chart (Blue Theme)
+        const ctxProfit = document.getElementById('profitChart').getContext('2d');
+        profitChartInstance = new Chart(ctxProfit, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Profit Margin',
+                    data: marginData,
+                    backgroundColor: ['#0F172A', '#3B82F6', '#3B82F6', '#3B82F6', '#3B82F6'],
+                    borderRadius: 6,
+                    barPercentage: 0.6
+                }]
+            },
+            options: chartOptions
+        });
+
+        // Expense Chart (Red/Gray Theme)
+        const ctxExpense = document.getElementById('expenseChart').getContext('2d');
+        expenseChartInstance = new Chart(ctxExpense, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Expense Ratio',
+                    data: expenseData,
+                    backgroundColor: ['#DC2626', '#94A3B8', '#94A3B8', '#94A3B8', '#94A3B8'],
+                    borderRadius: 6,
+                    barPercentage: 0.6
+                }]
+            },
+            options: chartOptions
+        });
+    }
+
+    function updateTable(industry, userData) {
+        $('#insightTable').removeClass('hidden');
+        const tbody = $('#tableBody');
+        tbody.empty();
+
+        // User Row
+        const healthScore = (userData.margin > industry.avgMargin) ? "Strong" : (userData.margin > 0 ? "Average" : "Weak");
+        const healthColor = (healthScore === 'Strong' ? 'text-emerald-600 bg-emerald-50' : (healthScore === 'Average' ? 'text-amber-600 bg-amber-50' : 'text-rose-600 bg-rose-50'));
+        
+        tbody.append(`
+            <tr class="bg-slate-50 font-bold border-l-4 border-slate-900">
+                <td class="text-slate-900">Your Company</td>
+                <td class="text-right text-slate-700">${formatCurrency(userData.sales)}</td>
+                <td class="text-right text-slate-700">${userData.margin.toFixed(1)}%</td>
+                <td class="text-right text-slate-700">${userData.expenseRatio.toFixed(1)}%</td>
+                <td class="text-right"><span class="px-2 py-1 rounded text-xs font-bold ${healthColor}">${healthScore}</span></td>
+            </tr>
+        `);
+
+        // Competitors
+        industry.competitors.forEach(c => {
+            const margin = ((c.profit/c.sales)*100).toFixed(1);
+            const expRatio = ((c.expenses/c.sales)*100).toFixed(1);
+            tbody.append(`
+                <tr class="hover:bg-slate-50 transition-colors">
+                    <td class="text-slate-800">${c.name}</td>
+                    <td class="text-right text-slate-500">${formatCurrency(c.sales)}</td>
+                    <td class="text-right text-slate-500">${margin}%</td>
+                    <td class="text-right text-slate-500">${expRatio}%</td>
+                    <td class="text-right"><span class="px-2 py-1 rounded text-xs font-bold text-slate-500 bg-slate-100">Benchmark</span></td>
+                </tr>
+            `);
+        });
+    }
+</script>
+
+</body>
+</html>
